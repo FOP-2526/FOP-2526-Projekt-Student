@@ -6,4 +6,4 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Projekt-Student"
+rootProject.name = "FOP-2526-Projekt-Student"
