@@ -1,0 +1,70 @@
+[ {
+  "invoked" : 154366149,
+  "entryPoint" : "hProjekt.model.grid.Statue#turn()",
+  "arguments" : [ ],
+  "calls" : [ ],
+  "objects" : [ {
+    "type" : "hProjekt.model.grid.Statue",
+    "fields" : [ {
+      "name" : "type",
+      "type" : "hProjekt.model.grid.Structure$Type",
+      "value" : "STATUE",
+      "id" : 259660228
+    }, {
+      "name" : "hexGrid",
+      "type" : "null",
+      "id" : 0
+    }, {
+      "name" : "tilePosition",
+      "type" : "hProjekt.model.grid.TilePosition",
+      "fields" : [ {
+        "name" : "r",
+        "type" : "java.lang.Integer",
+        "value" : "0",
+        "id" : 1823014131
+      }, {
+        "name" : "q",
+        "id" : 1823014131
+      } ],
+      "id" : 523434871
+    }, {
+      "name" : "direction",
+      "type" : "hProjekt.model.grid.TilePosition$EdgeDirection",
+      "value" : "NORTH_EAST",
+      "id" : 826721821
+    } ],
+    "id" : 154366149
+  } ],
+  "expected" : {
+    "type" : "hProjekt.model.grid.Statue",
+    "fields" : [ {
+      "name" : "type",
+      "type" : "hProjekt.model.grid.Structure$Type",
+      "value" : "STATUE",
+      "id" : 259660228
+    }, {
+      "name" : "hexGrid",
+      "type" : "null",
+      "id" : 0
+    }, {
+      "name" : "tilePosition",
+      "type" : "hProjekt.model.grid.TilePosition",
+      "fields" : [ {
+        "name" : "r",
+        "type" : "java.lang.Integer",
+        "value" : "0",
+        "id" : 1823014131
+      }, {
+        "name" : "q",
+        "id" : 1823014131
+      } ],
+      "id" : 523434871
+    }, {
+      "name" : "direction",
+      "type" : "hProjekt.model.grid.TilePosition$EdgeDirection",
+      "value" : "EAST",
+      "id" : 1001755781
+    } ],
+    "id" : 154366149
+  }
+} ]

@@ -36,6 +36,14 @@ dependencies {
     testImplementation(libs.junit.core)
 }
 
+jagr {
+    graders {
+        val graderPublic by getting {
+            rubricProviderName.set("hProjekt.HProjekt_RubricProviderPublic")
+        }
+    }
+}
+
 tasks {
     val runDir = File("build/run")
     withType<JavaExec> {
@@ -65,11 +73,6 @@ tasks {
         options.encoding = "UTF-8"
         sourceCompatibility = "21"
         targetCompatibility = "21"
-    }
-    withType<GraderRunTask> {
-        doFirst {
-            throw GradleException("Public tests will be released soon.")
-        }
     }
     javadoc {
         options.jFlags?.add("-Duser.language=en")

@@ -1,0 +1,714 @@
+[ {
+  "invoked" : 1269985909,
+  "entryPoint" : "hProjekt.model.GameState#getTreasureTrail(javafx.scene.paint.Color)",
+  "arguments" : [ 1707912721 ],
+  "calls" : [ ],
+  "objects" : [ {
+    "type" : "hProjekt.model.GameState",
+    "fields" : [ {
+      "name" : "treasureDeck",
+      "type" : "java.util.List",
+      "value" : [ {
+        "type" : "hProjekt.model.cards.GoldCard",
+        "fields" : [ {
+          "name" : "value",
+          "type" : "java.lang.Integer",
+          "value" : "5",
+          "id" : 2084457242
+        } ],
+        "id" : 1743657389
+      }, {
+        "type" : "hProjekt.model.cards.GoldCard",
+        "fields" : [ {
+          "name" : "value",
+          "type" : "java.lang.Integer",
+          "value" : "4",
+          "id" : 737892411
+        } ],
+        "id" : 1405247043
+      }, {
+        "type" : "hProjekt.model.cards.CurseCard",
+        "fields" : [ ],
+        "id" : 428711483
+      }, {
+        "type" : "hProjekt.model.cards.GoldCard",
+        "fields" : [ {
+          "name" : "value",
+          "type" : "java.lang.Integer",
+          "value" : "2",
+          "id" : 47925969
+        } ],
+        "id" : 157387655
+      }, {
+        "type" : "hProjekt.model.cards.GoldCard",
+        "fields" : [ {
+          "name" : "value",
+          "type" : "java.lang.Integer",
+          "value" : "3",
+          "id" : 622043416
+        } ],
+        "id" : 517326967
+      }, {
+        "id" : 1405247043
+      }, {
+        "id" : 1405247043
+      }, {
+        "id" : 1743657389
+      }, {
+        "id" : 1405247043
+      }, {
+        "id" : 1405247043
+      }, {
+        "id" : 1405247043
+      }, {
+        "id" : 1743657389
+      }, {
+        "id" : 1405247043
+      }, {
+        "type" : "hProjekt.model.cards.GoldCard",
+        "fields" : [ {
+          "name" : "value",
+          "type" : "java.lang.Integer",
+          "value" : "1",
+          "id" : 1985828309
+        } ],
+        "id" : 1596243368
+      }, {
+        "type" : "hProjekt.model.cards.GoldCard",
+        "fields" : [ {
+          "name" : "value",
+          "type" : "java.lang.Integer",
+          "value" : "6",
+          "id" : 1147334625
+        } ],
+        "id" : 716020785
+      }, {
+        "id" : 1596243368
+      }, {
+        "id" : 1596243368
+      }, {
+        "id" : 428711483
+      }, {
+        "id" : 517326967
+      }, {
+        "id" : 1596243368
+      }, {
+        "id" : 716020785
+      }, {
+        "id" : 157387655
+      }, {
+        "id" : 517326967
+      }, {
+        "id" : 157387655
+      }, {
+        "id" : 157387655
+      }, {
+        "id" : 157387655
+      }, {
+        "id" : 716020785
+      }, {
+        "id" : 1596243368
+      }, {
+        "id" : 716020785
+      }, {
+        "id" : 517326967
+      }, {
+        "id" : 517326967
+      }, {
+        "id" : 517326967
+      }, {
+        "id" : 1596243368
+      }, {
+        "id" : 517326967
+      }, {
+        "id" : 1405247043
+      }, {
+        "id" : 157387655
+      }, {
+        "id" : 1405247043
+      }, {
+        "id" : 716020785
+      }, {
+        "id" : 1743657389
+      }, {
+        "id" : 1405247043
+      }, {
+        "id" : 1405247043
+      }, {
+        "id" : 1596243368
+      }, {
+        "id" : 517326967
+      }, {
+        "id" : 157387655
+      }, {
+        "id" : 517326967
+      }, {
+        "id" : 716020785
+      }, {
+        "id" : 1405247043
+      }, {
+        "id" : 716020785
+      }, {
+        "id" : 1743657389
+      }, {
+        "id" : 1596243368
+      }, {
+        "id" : 157387655
+      }, {
+        "id" : 157387655
+      }, {
+        "id" : 1596243368
+      }, {
+        "id" : 1596243368
+      }, {
+        "id" : 1405247043
+      }, {
+        "id" : 157387655
+      }, {
+        "id" : 517326967
+      }, {
+        "id" : 1743657389
+      }, {
+        "id" : 157387655
+      }, {
+        "id" : 1743657389
+      }, {
+        "id" : 157387655
+      }, {
+        "id" : 1743657389
+      }, {
+        "id" : 1596243368
+      }, {
+        "id" : 157387655
+      }, {
+        "id" : 716020785
+      }, {
+        "id" : 157387655
+      }, {
+        "id" : 716020785
+      }, {
+        "id" : 157387655
+      } ],
+      "id" : 789911376
+    }, {
+      "name" : "winnerProperty",
+      "type" : "javafx.beans.property.SimpleObjectProperty",
+      "fields" : [ {
+        "name" : "helper",
+        "type" : "null",
+        "id" : 0
+      }, {
+        "name" : "valid",
+        "type" : "java.lang.Boolean",
+        "value" : "true",
+        "id" : 1940783703
+      }, {
+        "name" : "listener",
+        "id" : 0
+      }, {
+        "name" : "observable",
+        "id" : 0
+      }, {
+        "name" : "value",
+        "id" : 0
+      }, {
+        "name" : "name",
+        "type" : "java.lang.String",
+        "value" : "",
+        "id" : 1874919946
+      }, {
+        "name" : "bean",
+        "id" : 0
+      } ],
+      "id" : 1925035731
+    }, {
+      "name" : "treasurePositions",
+      "type" : "java.util.Map",
+      "value" : [ ],
+      "id" : 523494581
+    }, {
+      "name" : "treasureTrails",
+      "type" : "java.util.Map",
+      "value" : [ [ {
+        "type" : "javafx.scene.paint.Color",
+        "fields" : [ {
+          "name" : "platformPaint",
+          "id" : 0
+        }, {
+          "name" : "opacity",
+          "type" : "java.lang.Float",
+          "value" : "1.0",
+          "id" : 587896707
+        }, {
+          "name" : "blue",
+          "type" : "java.lang.Float",
+          "value" : "0.93333334",
+          "id" : 614644517
+        }, {
+          "name" : "green",
+          "type" : "java.lang.Float",
+          "value" : "0.93333334",
+          "id" : 614644517
+        }, {
+          "name" : "red",
+          "type" : "java.lang.Float",
+          "value" : "0.6862745",
+          "id" : 1196395051
+        } ],
+        "id" : 1707912721
+      }, {
+        "type" : "java.util.List",
+        "value" : [ {
+          "type" : "hProjekt.model.cards.RemoveTileCard",
+          "fields" : [ {
+            "name" : "type",
+            "id" : 0
+          }, {
+            "name" : "tileFilterFunction",
+            "type" : "java.util.function.Predicate",
+            "fields" : [ ],
+            "id" : 1709912213
+          }, {
+            "name" : "filterType",
+            "id" : 0
+          }, {
+            "name" : "player",
+            "id" : 0
+          } ],
+          "id" : 1035294983
+        } ],
+        "id" : 806267854
+      } ] ],
+      "id" : 1694552838
+    }, {
+      "name" : "players",
+      "id" : 0
+    }, {
+      "name" : "grid",
+      "id" : 0
+    } ],
+    "id" : 1269985909
+  } ],
+  "expected" : {
+    "type" : "java.util.List",
+    "value" : [ {
+      "type" : "hProjekt.model.cards.RemoveTileCard",
+      "fields" : [ {
+        "name" : "type",
+        "type" : "null",
+        "id" : 0
+      }, {
+        "name" : "tileFilterFunction",
+        "type" : "java.util.function.Predicate",
+        "fields" : [ ],
+        "id" : 1709912213
+      }, {
+        "name" : "filterType",
+        "id" : 0
+      }, {
+        "name" : "player",
+        "id" : 0
+      } ],
+      "id" : 1035294983
+    } ],
+    "id" : 806267854
+  }
+}, {
+  "invoked" : 29640057,
+  "entryPoint" : "hProjekt.model.GameState#getTreasureTrail(javafx.scene.paint.Color)",
+  "arguments" : [ 595278518 ],
+  "calls" : [ ],
+  "objects" : [ {
+    "type" : "hProjekt.model.GameState",
+    "fields" : [ {
+      "name" : "treasureDeck",
+      "type" : "java.util.List",
+      "value" : [ {
+        "type" : "hProjekt.model.cards.GoldCard",
+        "fields" : [ {
+          "name" : "value",
+          "type" : "java.lang.Integer",
+          "value" : "3",
+          "id" : 622043416
+        } ],
+        "id" : 940784586
+      }, {
+        "id" : 940784586
+      }, {
+        "type" : "hProjekt.model.cards.GoldCard",
+        "fields" : [ {
+          "name" : "value",
+          "type" : "java.lang.Integer",
+          "value" : "5",
+          "id" : 2084457242
+        } ],
+        "id" : 918504256
+      }, {
+        "type" : "hProjekt.model.cards.GoldCard",
+        "fields" : [ {
+          "name" : "value",
+          "type" : "java.lang.Integer",
+          "value" : "4",
+          "id" : 737892411
+        } ],
+        "id" : 83786082
+      }, {
+        "type" : "hProjekt.model.cards.CurseCard",
+        "fields" : [ ],
+        "id" : 383197821
+      }, {
+        "id" : 940784586
+      }, {
+        "id" : 940784586
+      }, {
+        "id" : 940784586
+      }, {
+        "type" : "hProjekt.model.cards.GoldCard",
+        "fields" : [ {
+          "name" : "value",
+          "type" : "java.lang.Integer",
+          "value" : "2",
+          "id" : 47925969
+        } ],
+        "id" : 935036422
+      }, {
+        "id" : 83786082
+      }, {
+        "id" : 83786082
+      }, {
+        "id" : 918504256
+      }, {
+        "type" : "hProjekt.model.cards.GoldCard",
+        "fields" : [ {
+          "name" : "value",
+          "type" : "java.lang.Integer",
+          "value" : "6",
+          "id" : 1147334625
+        } ],
+        "id" : 2077390578
+      }, {
+        "id" : 2077390578
+      }, {
+        "id" : 2077390578
+      }, {
+        "id" : 83786082
+      }, {
+        "id" : 2077390578
+      }, {
+        "id" : 2077390578
+      }, {
+        "id" : 83786082
+      }, {
+        "id" : 2077390578
+      }, {
+        "id" : 918504256
+      }, {
+        "id" : 918504256
+      }, {
+        "id" : 383197821
+      }, {
+        "id" : 918504256
+      }, {
+        "id" : 2077390578
+      }, {
+        "id" : 940784586
+      }, {
+        "id" : 935036422
+      }, {
+        "id" : 918504256
+      }, {
+        "id" : 940784586
+      }, {
+        "type" : "hProjekt.model.cards.GoldCard",
+        "fields" : [ {
+          "name" : "value",
+          "type" : "java.lang.Integer",
+          "value" : "1",
+          "id" : 1985828309
+        } ],
+        "id" : 202384771
+      }, {
+        "id" : 935036422
+      }, {
+        "id" : 2077390578
+      }, {
+        "id" : 935036422
+      }, {
+        "id" : 83786082
+      }, {
+        "id" : 2077390578
+      }, {
+        "id" : 83786082
+      }, {
+        "id" : 202384771
+      }, {
+        "id" : 202384771
+      }, {
+        "id" : 918504256
+      }, {
+        "id" : 202384771
+      }, {
+        "id" : 918504256
+      }, {
+        "id" : 918504256
+      }, {
+        "id" : 918504256
+      }, {
+        "id" : 940784586
+      }, {
+        "id" : 918504256
+      }, {
+        "id" : 918504256
+      }, {
+        "id" : 935036422
+      }, {
+        "id" : 83786082
+      }, {
+        "id" : 935036422
+      }, {
+        "id" : 918504256
+      }, {
+        "id" : 918504256
+      }, {
+        "id" : 918504256
+      }, {
+        "id" : 2077390578
+      }, {
+        "id" : 935036422
+      }, {
+        "id" : 83786082
+      }, {
+        "id" : 83786082
+      }, {
+        "id" : 935036422
+      }, {
+        "id" : 2077390578
+      }, {
+        "id" : 935036422
+      }, {
+        "id" : 83786082
+      }, {
+        "id" : 202384771
+      }, {
+        "id" : 940784586
+      }, {
+        "id" : 83786082
+      }, {
+        "id" : 940784586
+      }, {
+        "id" : 202384771
+      }, {
+        "id" : 2077390578
+      }, {
+        "id" : 940784586
+      }, {
+        "id" : 935036422
+      } ],
+      "id" : 1218118505
+    }, {
+      "name" : "winnerProperty",
+      "type" : "javafx.beans.property.SimpleObjectProperty",
+      "fields" : [ {
+        "name" : "helper",
+        "type" : "null",
+        "id" : 0
+      }, {
+        "name" : "valid",
+        "type" : "java.lang.Boolean",
+        "value" : "true",
+        "id" : 1940783703
+      }, {
+        "name" : "listener",
+        "id" : 0
+      }, {
+        "name" : "observable",
+        "id" : 0
+      }, {
+        "name" : "value",
+        "id" : 0
+      }, {
+        "name" : "name",
+        "type" : "java.lang.String",
+        "value" : "",
+        "id" : 1874919946
+      }, {
+        "name" : "bean",
+        "id" : 0
+      } ],
+      "id" : 2145212795
+    }, {
+      "name" : "treasurePositions",
+      "type" : "java.util.Map",
+      "value" : [ ],
+      "id" : 538347886
+    }, {
+      "name" : "treasureTrails",
+      "type" : "java.util.Map",
+      "value" : [ [ {
+        "type" : "javafx.scene.paint.Color",
+        "fields" : [ {
+          "name" : "platformPaint",
+          "id" : 0
+        }, {
+          "name" : "opacity",
+          "type" : "java.lang.Float",
+          "value" : "1.0",
+          "id" : 1467198794
+        }, {
+          "name" : "blue",
+          "type" : "java.lang.Float",
+          "value" : "1.0",
+          "id" : 1467198794
+        }, {
+          "name" : "green",
+          "type" : "java.lang.Float",
+          "value" : "1.0",
+          "id" : 1467198794
+        }, {
+          "name" : "red",
+          "type" : "java.lang.Float",
+          "value" : "1.0",
+          "id" : 1467198794
+        } ],
+        "id" : 964473374
+      }, {
+        "type" : "java.util.List",
+        "value" : [ ],
+        "id" : 145353662
+      } ], [ {
+        "type" : "javafx.scene.paint.Color",
+        "fields" : [ {
+          "name" : "platformPaint",
+          "id" : 0
+        }, {
+          "name" : "opacity",
+          "type" : "java.lang.Float",
+          "value" : "1.0",
+          "id" : 1467198794
+        }, {
+          "name" : "blue",
+          "type" : "java.lang.Float",
+          "value" : "0.5019608",
+          "id" : 1364868666
+        }, {
+          "name" : "green",
+          "type" : "java.lang.Float",
+          "value" : "0.5019608",
+          "id" : 1364868666
+        }, {
+          "name" : "red",
+          "type" : "java.lang.Float",
+          "value" : "0.5019608",
+          "id" : 1364868666
+        } ],
+        "id" : 1596281693
+      }, {
+        "type" : "java.util.List",
+        "value" : [ ],
+        "id" : 1157887099
+      } ], [ {
+        "type" : "javafx.scene.paint.Color",
+        "fields" : [ {
+          "name" : "platformPaint",
+          "id" : 0
+        }, {
+          "name" : "opacity",
+          "type" : "java.lang.Float",
+          "value" : "1.0",
+          "id" : 1467198794
+        }, {
+          "name" : "blue",
+          "type" : "java.lang.Float",
+          "value" : "0.0",
+          "id" : 1153102217
+        }, {
+          "name" : "green",
+          "type" : "java.lang.Float",
+          "value" : "0.0",
+          "id" : 1153102217
+        }, {
+          "name" : "red",
+          "type" : "java.lang.Float",
+          "value" : "0.0",
+          "id" : 1153102217
+        } ],
+        "id" : 381741723
+      }, {
+        "type" : "java.util.List",
+        "value" : [ ],
+        "id" : 1197987192
+      } ], [ {
+        "type" : "javafx.scene.paint.Color",
+        "fields" : [ {
+          "name" : "platformPaint",
+          "id" : 0
+        }, {
+          "name" : "opacity",
+          "type" : "java.lang.Float",
+          "value" : "1.0",
+          "id" : 1467198794
+        }, {
+          "name" : "blue",
+          "type" : "java.lang.Float",
+          "value" : "0.16470589",
+          "id" : 642788225
+        }, {
+          "name" : "green",
+          "type" : "java.lang.Float",
+          "value" : "0.16470589",
+          "id" : 642788225
+        }, {
+          "name" : "red",
+          "type" : "java.lang.Float",
+          "value" : "0.64705884",
+          "id" : 595383525
+        } ],
+        "id" : 2087267876
+      }, {
+        "type" : "java.util.List",
+        "value" : [ ],
+        "id" : 1710093660
+      } ] ],
+      "id" : 757570770
+    }, {
+      "name" : "players",
+      "id" : 0
+    }, {
+      "name" : "grid",
+      "id" : 0
+    } ],
+    "id" : 29640057
+  }, {
+    "type" : "javafx.scene.paint.Color",
+    "fields" : [ {
+      "name" : "platformPaint",
+      "id" : 0
+    }, {
+      "name" : "opacity",
+      "type" : "java.lang.Float",
+      "value" : "1.0",
+      "id" : 1467198794
+    }, {
+      "name" : "blue",
+      "type" : "java.lang.Float",
+      "value" : "0.93333334",
+      "id" : 1353432916
+    }, {
+      "name" : "green",
+      "type" : "java.lang.Float",
+      "value" : "0.93333334",
+      "id" : 1353432916
+    }, {
+      "name" : "red",
+      "type" : "java.lang.Float",
+      "value" : "0.6862745",
+      "id" : 528011943
+    } ],
+    "id" : 595278518
+  } ],
+  "expected" : {
+    "type" : "java.util.List",
+    "value" : [ ],
+    "id" : 1803058133
+  }
+} ]
