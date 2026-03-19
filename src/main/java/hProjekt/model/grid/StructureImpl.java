@@ -53,7 +53,6 @@ public class StructureImpl implements Structure {
             return false;
         }
         return Objects.equals(tilePosition, that.tilePosition)
-                && Objects.equals(hexGrid, that.hexGrid)
                 && Objects.equals(type, that.type);
     }
 
@@ -66,7 +65,6 @@ public class StructureImpl implements Structure {
     public String toString() {
         return "StructureImpl[" +
                 "tilePosition=" + tilePosition +
-                ", hexGrid=" + hexGrid +
                 ", type=" + type +
                 ']';
     }

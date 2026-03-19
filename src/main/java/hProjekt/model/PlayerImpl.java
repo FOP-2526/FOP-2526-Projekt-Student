@@ -3,6 +3,7 @@ package hProjekt.model;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 import org.jetbrains.annotations.Nullable;
@@ -142,6 +143,23 @@ public class PlayerImpl implements Player {
     @Override
     public int getTotalGoldCardValue() {
         return goldCards.stream().mapToInt(GoldCard::value).sum();
+    }
+
+    @Override
+    public boolean equals(final Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof final PlayerImpl that)) {
+            return false;
+        }
+        return id == that.id
+                && Objects.equals(name, that.name)
+                && Objects.equals(color, that.color)
+                && Objects.equals(aiController, that.aiController)
+                && Objects.equals(position, that.position)
+                && Objects.equals(pathCards, that.pathCards)
+                && Objects.equals(goldCards, that.goldCards);
     }
 
     /**

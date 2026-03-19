@@ -65,4 +65,26 @@ public class Statue extends StructureImpl {
         // TODO: P1.3
         org.tudalgo.algoutils.student.Student.crash("P1.3 - Remove if implemented");
     }
+
+    @Override
+    public String toString() {
+        return "Statue[" +
+                "tilePosition=" + getPosition() +
+                ", type=" + getType() +
+                ", direction=" + direction +
+                ']';
+    }
+
+    @Override
+    public boolean equals(final Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof final Statue that)) {
+            return false;
+        }
+        return getPosition().equals(that.getPosition())
+                && getType() == that.getType()
+                && direction == that.direction;
+    }
 }

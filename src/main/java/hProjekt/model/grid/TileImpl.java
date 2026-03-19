@@ -120,6 +120,7 @@ public class TileImpl implements Tile {
         return "TileImpl[" +
                 "position=" + position +
                 ", type=" + type +
+                ", hasAmulet=" + hasAmulet +
                 "]";
     }
 
@@ -177,5 +178,17 @@ public class TileImpl implements Tile {
     @Override
     public Structure getStructure() {
         return hexGrid.getStructureAt(position);
+    }
+
+    @Override
+    public boolean equals(final Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof final TileImpl that)) {
+            return false;
+        }
+        return Objects.equals(position, that.position)
+                && Objects.equals(type, that.type);
     }
 }

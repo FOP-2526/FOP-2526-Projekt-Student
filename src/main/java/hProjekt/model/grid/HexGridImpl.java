@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.Random;
@@ -39,7 +40,8 @@ public class HexGridImpl implements HexGrid {
      * Creates a new empty HexGrid.
      */
     @DoNotTouch
-    public HexGridImpl() {}
+    public HexGridImpl() {
+    }
 
     /**
      * Creates a new HexGrid based on maps of tile and structure types.
@@ -257,6 +259,20 @@ public class HexGridImpl implements HexGrid {
 
     @Override
     public String toString() {
-        return "HexGridImpl [tiles=" + tiles + ", edges=" + edges + "]";
+        return "HexGridImpl [tiles=" + tiles + ", edges=" + edges +
+                ", structures=" + structures +
+                "]";
+    }
+
+    @Override
+    public boolean equals(final Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof final HexGridImpl that)) {
+            return false;
+        }
+        return Objects.equals(tiles, that.tiles)
+                && Objects.equals(structures, that.structures);
     }
 }

@@ -327,6 +327,7 @@ public final class GameState {
     @Override
     public String toString() {
         return "GameState[" + "grid=" + grid + ", " + "players=" + players + ", " + "winnerProperty=" + winnerProperty
-                + ", " + ']';
+                + ", " + "treasureTrails=" + treasureTrails + ", " + "treasurePositions=" + treasurePositions + ", "
+                + "treasureDeck=" + treasureDeck + ']';
     }
 }
