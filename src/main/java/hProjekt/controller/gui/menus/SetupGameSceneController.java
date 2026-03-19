@@ -50,14 +50,16 @@ public class SetupGameSceneController implements SceneController {
         if (playerBuilderList.size() < Config.MIN_PLAYERS || playerBuilderList.size() > Config.MAX_PLAYERS) {
             return false;
         }
+
         final HexGrid grid = MapSaveController.loadMap(selectedMap.get());
         if (grid == null) {
             return false;
         }
-        playerBuilderList.forEach(p -> gameState.addPlayer(p.build(gameState.getGrid())));
 
         System.out.println("Selected map: " + selectedMap.get());
         gameState.setGrid(grid);
+
+        playerBuilderList.forEach(p -> gameState.addPlayer(p.build(gameState.getGrid())));
 
         SceneController.loadGameScene();
         return true;
