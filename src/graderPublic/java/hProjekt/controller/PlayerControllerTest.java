@@ -2,7 +2,6 @@ package hProjekt.controller;
 
 import static hProjekt.Project_TestP.assertContainsAll;
 import static hProjekt.Project_TestP.assertEqualsWithMatcher;
-import static hProjekt.Project_TestP.assertSetEquals;
 import static org.tudalgo.algoutils.tutor.general.assertions.Assertions2.assertEquals;
 import static org.tudalgo.algoutils.tutor.general.assertions.Assertions2.assertNotNull;
 import static org.tudalgo.algoutils.tutor.general.assertions.Assertions2.contextBuilder;
@@ -41,11 +40,12 @@ import javafx.scene.paint.Color;
 @TestForSubmission
 public class PlayerControllerTest {
     @ParameterizedTest
-    @MethodSource("provideGetDrivableTiles_basic")
-    public void testGetDrivableTiles_basic(ObjectNode node) throws NoSuchMethodException {
-        hProjekt.controller.PlayerController.class.getDeclaredMethod("getDrivableTiles");
+    @MethodSource("provideDrive_basic")
+    public void testDrive_basic(ObjectNode node) throws NoSuchMethodException {
+        hProjekt.controller.PlayerController.class.getDeclaredMethod("drive", hProjekt.model.grid.Tile.class);
         Object expected = new MockConverterP().fromJsonNodeWithBackfill((ObjectNode) node.get("expected"), null);
-        List<StudentMethodCall> results = MockConverterP.recreateCallAndInvoke(node);
+        Consumer<Object> beforeEach = o -> ReflectionUtilsP.setStaticFieldValue(Config.class, "DRIVE_LIMIT", 1);
+        List<StudentMethodCall> results = MockConverterP.recreateCallAndInvoke(node, beforeEach);
 
         if (results.stream().allMatch(it -> it.exception != null)) {
             ReflectionUtilsP.getUnsafe().throwException(results.getLast().exception);
@@ -63,7 +63,21 @@ public class PlayerControllerTest {
                         .add("parameters", actual.call != null ? actual.call.arguments() : "unknown")
                         .build();
 
-                assertSetEquals((Set<Object>) expected, (Set<Object>) actual.call.returnValue(), context);
+                PlayerController expectedController = ((PlayerController) (expected));
+                PlayerController actualController = ((PlayerController) (actual.invoked));
+                assertEqualsWithMatcher(expectedController.getPlayer().getPosition(),
+                        actualController.getPlayer().getPosition(), (e, a) -> {
+                            if ((e == null) && (a == null)) {
+                                return true;
+                            }
+                            if ((e == null) || (a == null)) {
+                                return false;
+                            }
+                            return ReflectionUtilsP.equalsForMocks(e, a);
+                        }, context);
+                assertEquals(ReflectionUtilsP.getFieldValue(expectedController, "driveCount"),
+                        ReflectionUtilsP.getFieldValue(actualController, "driveCount"), context,
+                        r -> "driveCount was not set correctly.");
                 return;
             } catch (Throwable e) {
                 lastCall = e;
@@ -72,20 +86,17 @@ public class PlayerControllerTest {
         ReflectionUtilsP.getUnsafe().throwException(lastCall);
     }
 
-    private static Stream<Arguments> provideGetDrivableTiles_basic() {
-        return Project_TestP.parseJsonFile("hProjekt/controller/PlayerController_getDrivableTiles_basic.json");
+    private static Stream<Arguments> provideDrive_basic() {
+        return Project_TestP.parseJsonFile("hProjekt/controller/PlayerController_drive_basic.json");
     }
 
     @ParameterizedTest
-    @MethodSource("provideGetDrivableTiles_complete")
-    public void testGetDrivableTiles_complete(ObjectNode node) throws NoSuchMethodException {
-        hProjekt.controller.PlayerController.class.getDeclaredMethod("getDrivableTiles");
+    @MethodSource("provideDrive_complete")
+    public void testDrive_complete(ObjectNode node) throws NoSuchMethodException {
+        hProjekt.controller.PlayerController.class.getDeclaredMethod("drive", hProjekt.model.grid.Tile.class);
         Object expected = new MockConverterP().fromJsonNodeWithBackfill((ObjectNode) node.get("expected"), null);
-        List<StudentMethodCall> results = MockConverterP.recreateCallAndInvoke(node);
-
-        if (results.stream().allMatch(it -> it.exception != null)) {
-            ReflectionUtilsP.getUnsafe().throwException(results.getLast().exception);
-        }
+        Consumer<Object> beforeEach = o -> ReflectionUtilsP.setStaticFieldValue(Config.class, "DRIVE_LIMIT", 1);
+        List<StudentMethodCall> results = MockConverterP.recreateCallAndInvoke(node, beforeEach);
 
         Throwable lastCall = null;
         for (StudentMethodCall actual : results) {
@@ -97,9 +108,36 @@ public class PlayerControllerTest {
                 Context context = contextBuilder()
                         .add("invoked", actual.invoked != null ? actual.invoked : "unknown")
                         .add("parameters", actual.call != null ? actual.call.arguments() : "unknown")
+                        .add("Exception class", actual.exception != null ? actual.exception.getClass() : "none")
+                        .add("Exception message", actual.exception != null ? actual.exception.getMessage() : "none")
+                        .add("Exception stacktrace",
+                                actual.exception != null ? ReflectionUtilsP.formatStackTrace(actual.exception) : "none")
+
                         .build();
 
-                assertSetEquals((Set<Object>) expected, (Set<Object>) actual.call.returnValue(), context);
+                if (expected instanceof Exception && !Exception.class.isAssignableFrom(
+                        ReflectionUtilsP.stringToMethod(node.get("entryPoint").asText()).getReturnType())) {
+                    assertNotNull(actual.exception, context, r -> "Drive() did not throw an exception!");
+                    assertEquals(expected.getClass(), actual.exception.getClass(), context,
+                            r -> "Drive() did not throw an exception of the expected Type");
+                    return;
+                }
+
+                PlayerController expectedController = ((PlayerController) (expected));
+                PlayerController actualController = ((PlayerController) (actual.invoked));
+                assertEqualsWithMatcher(expectedController.getPlayer().getPosition(),
+                        actualController.getPlayer().getPosition(), (e, a) -> {
+                            if ((e == null) && (a == null)) {
+                                return true;
+                            }
+                            if ((e == null) || (a == null)) {
+                                return false;
+                            }
+                            return ReflectionUtilsP.equalsForMocks(e, a);
+                        }, context);
+                assertEquals(ReflectionUtilsP.getFieldValue(expectedController, "driveCount"),
+                        ReflectionUtilsP.getFieldValue(actualController, "driveCount"), context,
+                        r -> "driveCount was not set correctly.");
                 return;
             } catch (Throwable e) {
                 lastCall = e;
@@ -108,8 +146,8 @@ public class PlayerControllerTest {
         ReflectionUtilsP.getUnsafe().throwException(lastCall);
     }
 
-    private static Stream<Arguments> provideGetDrivableTiles_complete() {
-        return Project_TestP.parseJsonFile("hProjekt/controller/PlayerController_getDrivableTiles_complete.json");
+    private static Stream<Arguments> provideDrive_complete() {
+        return Project_TestP.parseJsonFile("hProjekt/controller/PlayerController_drive_complete.json");
     }
 
     @ParameterizedTest
