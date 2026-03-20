@@ -6,7 +6,6 @@ import java.util.stream.Stream;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import org.sourcegrade.jagr.api.rubric.TestForSubmission;
 import org.tudalgo.algoutils.tutor.general.assertions.*;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
@@ -19,7 +18,6 @@ import hProjekt.mocking.StudentMethodCall;
 import static hProjekt.Project_TestP.assertSetEquals;
 import static org.tudalgo.algoutils.tutor.general.assertions.Assertions2.contextBuilder;
 
-@TestForSubmission
 public class TileImplTest {
     @ParameterizedTest
     @MethodSource("provideGetNeighbours")
@@ -45,7 +43,12 @@ public class TileImplTest {
                     .add("parameters", actual.call != null ? actual.call.arguments() : "unknown")
                     .build();
 
-                assertSetEquals((Set<Object>) expected, (Set<Object>) actual.call.returnValue(), context);
+                Set<Tile> expectedValue = ((Set<Tile>) (expected));
+                Set<Tile> actualValue = ((Set<Tile>) (actual.call.returnValue()));
+                assertSetEquals(
+                    expectedValue,
+                    actualValue,
+                    context);
                 return;
             } catch (Throwable e) {
                 lastCall = e;
