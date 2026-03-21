@@ -178,8 +178,12 @@ public class HProjekt_RubricProviderPublic implements RubricProvider {
                             JUnitTestRef.ofMethod(
                                     () -> PlayerControllerTest.class.getMethod("testGetDrivableTiles_complete",
                                             ObjectNode.class))),
-                    privateCriterion("PlayerController: drive ist teilweise korrekt implementiert."),
-                    privateCriterion("PlayerController: drive ist vollständig korrekt implementiert."))
+                    criterion("PlayerController: drive ist teilweise korrekt implementiert.",
+                            JUnitTestRef.ofMethod(() -> PlayerControllerTest.class.getMethod("testDrive_basic",
+                                    ObjectNode.class))),
+                    criterion("PlayerController: drive ist vollständig korrekt implementiert.",
+                            JUnitTestRef.ofMethod(() -> PlayerControllerTest.class.getMethod("testDrive_complete",
+                                    ObjectNode.class))))
             .build();
 
     // P2.2 (5 Points)
@@ -188,11 +192,26 @@ public class HProjekt_RubricProviderPublic implements RubricProvider {
             .maxPoints(5)
             .minPoints(0)
             .addChildCriteria(
-                    privateCriterion("PlayerController: getValidPathCards ist teilweise korrekt implementiert."),
-                    privateCriterion("PlayerController: getValidPathCards ist vollständig korrekt implementiert."),
-                    privateCriterion("PlayerController: playCard ist teilweise korrekt implementiert."),
-                    privateCriterion("PlayerController: playCard ist vollständig korrekt implementiert."),
-                    privateCriterion("PlayerController: drawTreasureCards ist korrekt implementiert."))
+                    criterion("PlayerController: getValidPathCards ist teilweise korrekt implementiert.",
+                            JUnitTestRef.ofMethod(
+                                    () -> PlayerControllerTest.class.getMethod("testGetValidPathCards_basic",
+                                            ObjectNode.class))),
+                    criterion("PlayerController: getValidPathCards ist vollständig korrekt implementiert.",
+                            JUnitTestRef.ofMethod(
+                                    () -> PlayerControllerTest.class.getMethod("testGetValidPathCards_complete",
+                                            ObjectNode.class))),
+                    criterion("PlayerController: playCard ist teilweise korrekt implementiert.",
+                            JUnitTestRef.ofMethod(
+                                    () -> PlayerControllerTest.class.getMethod("testPlayCard_basic",
+                                            ObjectNode.class))),
+                    criterion("PlayerController: playCard ist vollständig korrekt implementiert.",
+                            JUnitTestRef.ofMethod(
+                                    () -> PlayerControllerTest.class.getMethod("testPlayCard_complete",
+                                            ObjectNode.class))),
+                    criterion("PlayerController: drawTreasureCards ist korrekt implementiert.",
+                            JUnitTestRef.ofMethod(
+                                    () -> PlayerControllerTest.class.getMethod("testDrawTreasureCards",
+                                            ObjectNode.class))))
             .build();
 
     // P2.3 (4 Points)
@@ -201,10 +220,22 @@ public class HProjekt_RubricProviderPublic implements RubricProvider {
             .maxPoints(4)
             .minPoints(0)
             .addChildCriteria(
-                    privateCriterion("PlayerController: collectTreasure ist teilweise korrekt implementiert."),
-                    privateCriterion("PlayerController: collectTreasure ist vollständig korrekt implementiert."),
-                    privateCriterion("PlayerController: acceptCurse ist teilweise korrekt implementiert."),
-                    privateCriterion("PlayerController: acceptCurse ist vollständig korrekt implementiert."))
+                    criterion("PlayerController: collectTreasure ist teilweise korrekt implementiert.",
+                            JUnitTestRef.ofMethod(
+                                    () -> PlayerControllerTest.class.getMethod("testCollectTreasure_basic",
+                                            ObjectNode.class))),
+                    criterion("PlayerController: collectTreasure ist vollständig korrekt implementiert.",
+                            JUnitTestRef.ofMethod(
+                                    () -> PlayerControllerTest.class.getMethod("testCollectTreasure_complete",
+                                            ObjectNode.class))),
+                    criterion("PlayerController: acceptCurse ist teilweise korrekt implementiert.",
+                            JUnitTestRef.ofMethod(
+                                    () -> PlayerControllerTest.class.getMethod("testAcceptCurse_basic",
+                                            ObjectNode.class))),
+                    criterion("PlayerController: acceptCurse ist vollständig korrekt implementiert.",
+                            JUnitTestRef.ofMethod(
+                                    () -> PlayerControllerTest.class.getMethod("testAcceptCurse_complete",
+                                            ObjectNode.class))))
             .build();
 
     // P2.4 (7 Points)

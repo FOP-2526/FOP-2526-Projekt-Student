@@ -20,6 +20,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Stack;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.BiFunction;
 import java.util.function.Function;
@@ -42,6 +43,7 @@ public class JsonConverterP {
 
     protected Map<Class<?>, Function<Object, JsonNode>> typeMapperJSON = new NonHashMap<>() {
         {
+            put(Stack.class, (stack) -> toJsonNode((Stack<?>) stack));
             put(List.class, (list) -> toJsonNode((List<?>) list));
             put(Set.class, (list) -> toJsonNode((Set<?>) list));
             put(Map.class, (map) -> toJsonNode((Map<?, ?>) map));
@@ -57,6 +59,7 @@ public class JsonConverterP {
 
     protected Map<Class<?>, BiFunction<JsonNode, Answer<?>, Object>> typeMapperObject = new NonHashMap<>() {
         {
+            put(Stack.class, (node, answer) -> toStack(node, answer));
             put(List.class, (node, answer) -> toList(node, answer));
             put(Set.class, (node, answer) -> toSet(node, answer));
             put(Map.class, (node, answer) -> toMap(node, answer));
@@ -71,6 +74,29 @@ public class JsonConverterP {
             }));
         }
     };
+
+    public <T> List<T> toStack(final JsonNode jsonNode, Answer<?> defaultAnswer) {
+        if (jsonNode instanceof ArrayNode arrayNode && arrayNode.isEmpty()) {
+            return new Stack<>();
+        }
+
+        AtomicBoolean successful = new AtomicBoolean(true);
+
+        Stack<T> stack = new Stack<>();
+        StreamSupport.stream(jsonNode.spliterator(), false)
+                .map(node -> {
+                    try {
+                        return fromJsonNode((ObjectNode) node, defaultAnswer);
+                    } catch (RuntimeException e) {
+                        successful.set(false);
+                    }
+                    return null;
+                }).forEach(t -> stack.push((T) t));
+        if (successful.get()) {
+            return stack;
+        }
+        throw new IllegalStateException("Could not Create List. Inner Object failed to be created!");
+    }
 
     public <T> List<T> toList(final JsonNode jsonNode, Answer<?> defaultAnswer) {
         if (jsonNode instanceof ArrayNode arrayNode && arrayNode.isEmpty()) {

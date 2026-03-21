@@ -31,6 +31,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
+import java.util.Stack;
 import java.util.function.Predicate;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -384,7 +385,12 @@ public class ReflectionUtilsP {
             return (T) alreadyProcessed.get(toClone);
         }
 
-        if (toClone instanceof List<?> list) {
+        if (toClone instanceof Stack<?> stack) {
+            Stack<Object> newStack = new Stack<>();
+            alreadyProcessed.put(toClone, newStack);
+            stack.forEach(item -> newStack.push(deepCloneAsMock(item, defaultAnswer, entryPoint, alreadyProcessed)));
+            return (T) newStack;
+        } else if (toClone instanceof List<?> list) {
             List<Object> newList = new hProjekt.mocking.ArrayList<>();
             alreadyProcessed.put(toClone, newList);
             newList.addAll(list.stream().map(item -> deepCloneAsMock(item, defaultAnswer, entryPoint, alreadyProcessed))
@@ -790,7 +796,7 @@ public class ReflectionUtilsP {
 
                 ReflectionUtilsP.packages = packages;
 
-                final var resourcePath = "src/graderPublic/resources/packages.txt";
+                final var resourcePath = "src/graderPrivate/resources/packages.txt";
                 File file = new File(resourcePath);
                 file.getParentFile().mkdirs();
                 file.createNewFile();
@@ -806,9 +812,9 @@ public class ReflectionUtilsP {
 
         Set<Package> packages = new BufferedReader(
                 new InputStreamReader(ReflectionUtilsP.class.getResourceAsStream("/packages.txt")))
-                .lines()
-                .map(packageName -> classInExercise.getClassLoader().getDefinedPackage(packageName))
-                .collect(Collectors.toSet());
+                        .lines()
+                        .map(packageName -> classInExercise.getClassLoader().getDefinedPackage(packageName))
+                        .collect(Collectors.toSet());
         ReflectionUtilsP.packages = packages;
 
         return packages;
@@ -821,15 +827,15 @@ public class ReflectionUtilsP {
             List classes = new BufferedReader(
                     new InputStreamReader(ReflectionUtilsP.class.getResourceAsStream("/classes/%s.txt".formatted(
                             pack))))
-                    .lines()
-                    .map(className -> {
-                        try {
-                            return Class.forName(className);
-                        } catch (ClassNotFoundException e) {
-                            throw new RuntimeException(e);
-                        }
-                    })
-                    .toList();
+                                    .lines()
+                                    .map(className -> {
+                                        try {
+                                            return Class.forName(className);
+                                        } catch (ClassNotFoundException e) {
+                                            throw new RuntimeException(e);
+                                        }
+                                    })
+                                    .toList();
 
             try {
                 Constructor<BasicPackageLink> constructor = BasicPackageLink.class.getDeclaredConstructor(String.class,
@@ -874,7 +880,7 @@ public class ReflectionUtilsP {
                 constructor.setAccessible(true);
                 packageLink = constructor.newInstance(pack, classes);
 
-                final var resourcePath = "src/graderPublic/resources/classes/%s.txt".formatted(pack);
+                final var resourcePath = "src/graderPrivate/resources/classes/%s.txt".formatted(pack);
                 File file = new File(resourcePath);
                 file.getParentFile().mkdirs();
                 file.createNewFile();

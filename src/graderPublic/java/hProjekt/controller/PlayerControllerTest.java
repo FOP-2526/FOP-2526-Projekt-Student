@@ -2,13 +2,19 @@ package hProjekt.controller;
 
 import static hProjekt.Project_TestP.assertContainsAll;
 import static hProjekt.Project_TestP.assertEqualsWithMatcher;
+import static hProjekt.Project_TestP.assertSetEquals;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 import static org.tudalgo.algoutils.tutor.general.assertions.Assertions2.assertEquals;
 import static org.tudalgo.algoutils.tutor.general.assertions.Assertions2.assertNotNull;
 import static org.tudalgo.algoutils.tutor.general.assertions.Assertions2.contextBuilder;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Stack;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
@@ -30,9 +36,12 @@ import hProjekt.mocking.ReflectionUtilsP;
 import hProjekt.mocking.StudentMethodCall;
 import hProjekt.model.GameState;
 import hProjekt.model.cards.CardType;
+import hProjekt.model.cards.CurseCard;
+import hProjekt.model.cards.GoldCard;
 import hProjekt.model.cards.InAreaCard;
 import hProjekt.model.cards.NextToCard;
 import hProjekt.model.cards.PathCard;
+import hProjekt.model.cards.TreasureCard;
 import hProjekt.model.grid.Tile;
 import hProjekt.model.grid.Types;
 import javafx.scene.paint.Color;
@@ -148,6 +157,78 @@ public class PlayerControllerTest {
 
     private static Stream<Arguments> provideDrive_complete() {
         return Project_TestP.parseJsonFile("hProjekt/controller/PlayerController_drive_complete.json");
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideGetDrivableTiles_basic")
+    public void testGetDrivableTiles_basic(ObjectNode node) throws NoSuchMethodException {
+        hProjekt.controller.PlayerController.class.getDeclaredMethod("getDrivableTiles");
+        Object expected = new MockConverterP().fromJsonNodeWithBackfill((ObjectNode) node.get("expected"), null);
+        List<StudentMethodCall> results = MockConverterP.recreateCallAndInvoke(node);
+
+        if (results.stream().allMatch(it -> it.exception != null)) {
+            ReflectionUtilsP.getUnsafe().throwException(results.getLast().exception);
+        }
+
+        Throwable lastCall = null;
+        for (StudentMethodCall actual : results) {
+            if (actual.call == null) {
+                lastCall = actual.exception;
+                continue;
+            }
+            try {
+                Context context = contextBuilder()
+                        .add("invoked", actual.invoked != null ? actual.invoked : "unknown")
+                        .add("parameters", actual.call != null ? actual.call.arguments() : "unknown")
+                        .build();
+
+                assertSetEquals((Set<Object>) expected, (Set<Object>) actual.call.returnValue(), context);
+                return;
+            } catch (Throwable e) {
+                lastCall = e;
+            }
+        }
+        ReflectionUtilsP.getUnsafe().throwException(lastCall);
+    }
+
+    private static Stream<Arguments> provideGetDrivableTiles_basic() {
+        return Project_TestP.parseJsonFile("hProjekt/controller/PlayerController_getDrivableTiles_basic.json");
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideGetDrivableTiles_complete")
+    public void testGetDrivableTiles_complete(ObjectNode node) throws NoSuchMethodException {
+        hProjekt.controller.PlayerController.class.getDeclaredMethod("getDrivableTiles");
+        Object expected = new MockConverterP().fromJsonNodeWithBackfill((ObjectNode) node.get("expected"), null);
+        List<StudentMethodCall> results = MockConverterP.recreateCallAndInvoke(node);
+
+        if (results.stream().allMatch(it -> it.exception != null)) {
+            ReflectionUtilsP.getUnsafe().throwException(results.getLast().exception);
+        }
+
+        Throwable lastCall = null;
+        for (StudentMethodCall actual : results) {
+            if (actual.call == null) {
+                lastCall = actual.exception;
+                continue;
+            }
+            try {
+                Context context = contextBuilder()
+                        .add("invoked", actual.invoked != null ? actual.invoked : "unknown")
+                        .add("parameters", actual.call != null ? actual.call.arguments() : "unknown")
+                        .build();
+
+                assertSetEquals((Set<Object>) expected, (Set<Object>) actual.call.returnValue(), context);
+                return;
+            } catch (Throwable e) {
+                lastCall = e;
+            }
+        }
+        ReflectionUtilsP.getUnsafe().throwException(lastCall);
+    }
+
+    private static Stream<Arguments> provideGetDrivableTiles_complete() {
+        return Project_TestP.parseJsonFile("hProjekt/controller/PlayerController_getDrivableTiles_complete.json");
     }
 
     @ParameterizedTest
@@ -505,5 +586,270 @@ public class PlayerControllerTest {
 
     private static Stream<Arguments> providePlayCard_complete() {
         return Project_TestP.parseJsonFile("hProjekt/controller/PlayerController_playCard_complete.json");
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideDrawTreasureCards")
+    public void testDrawTreasureCards(ObjectNode node) throws NoSuchMethodException {
+        hProjekt.controller.PlayerController.class.getDeclaredMethod("drawTreasureCards");
+        Object expected = new MockConverterP().fromJsonNodeWithBackfill((ObjectNode) node.get("expected"), null);
+        Consumer<Object> beforeEach = invoked -> {
+            GameController gc = ((GameController) (ReflectionUtilsP.getFieldValue(invoked,
+                    "gameController")));
+            Stack<TreasureCard> treasureDeck = ReflectionUtilsP.getFieldValue(gc.getState(), "treasureDeck");
+            treasureDeck.clear();
+            treasureDeck.push(new GoldCard(3));
+            treasureDeck.push(new GoldCard(2));
+            treasureDeck.push(new CurseCard());
+            treasureDeck.push(new GoldCard(1));
+        };
+        List<StudentMethodCall> results = MockConverterP.recreateCallAndInvoke(node, beforeEach);
+
+        if (results.stream().allMatch(it -> it.exception != null)) {
+            ReflectionUtilsP.getUnsafe().throwException(results.getLast().exception);
+        }
+
+        Throwable lastCall = null;
+        for (StudentMethodCall actual : results) {
+            if (actual.call == null) {
+                lastCall = actual.exception;
+                continue;
+            }
+            try {
+                Context context = contextBuilder()
+                        .add("invoked", actual.invoked != null ? actual.invoked : "unknown")
+                        .add("parameters", actual.call != null ? actual.call.arguments() : "unknown")
+                        .build();
+
+                PlayerController expectedController = ((PlayerController) (expected));
+                PlayerController actualController = ((PlayerController) (actual.invoked));
+                assertContainsAll(
+                        ((List<TreasureCard>) (ReflectionUtilsP.getFieldValue(
+                                expectedController, "drawnTreasureCards"))),
+                        ((List<TreasureCard>) (ReflectionUtilsP.getFieldValue(actualController, "drawnTreasureCards"))),
+                        context);
+                verify(actualController, times(1)).waitForNextAction(PlayerObjective.CONFIRM_TREASURE_CARDS);
+                return;
+            } catch (Throwable e) {
+                lastCall = e;
+            }
+        }
+        ReflectionUtilsP.getUnsafe().throwException(lastCall);
+    }
+
+    private static Stream<Arguments> provideDrawTreasureCards() {
+        return Project_TestP.parseJsonFile("hProjekt/controller/PlayerController_drawTreasureCards.json");
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideCollectTreasure_basic")
+    public void testCollectTreasure_basic(ObjectNode node) throws NoSuchMethodException {
+        hProjekt.controller.PlayerController.class.getDeclaredMethod("collectTreasure", javafx.scene.paint.Color.class);
+        Object expected = new MockConverterP().fromJsonNodeWithBackfill((ObjectNode) node.get("expected"), null);
+        Consumer<Object> beforeEach = invoked -> {
+            PlayerController controller = ((PlayerController) (invoked));
+            GameController gc = ((GameController) (ReflectionUtilsP.getFieldValue(invoked,
+                    "gameController")));
+            ReflectionUtilsP.setFieldValue(gc, "playerControllers", Map.of(controller.getPlayer(), controller));
+        };
+        List<StudentMethodCall> results = MockConverterP.recreateCallAndInvoke(node, beforeEach);
+
+        Throwable lastCall = null;
+        for (StudentMethodCall actual : results) {
+            if (actual.call == null) {
+                lastCall = actual.exception;
+                continue;
+            }
+            try {
+                Context context = contextBuilder()
+                        .add("invoked", actual.invoked != null ? actual.invoked : "unknown")
+                        .add("parameters", actual.call != null ? actual.call.arguments() : "unknown")
+                        .add("Exception class", actual.exception != null ? actual.exception.getClass() : "none")
+                        .add("Exception message", actual.exception != null ? actual.exception.getMessage() : "none")
+                        .add("Exception stacktrace",
+                                actual.exception != null ? ReflectionUtilsP.formatStackTrace(actual.exception) : "none")
+
+                        .build();
+
+                if (expected instanceof Exception && !Exception.class.isAssignableFrom(
+                        ReflectionUtilsP.stringToMethod(node.get("entryPoint").asText()).getReturnType())) {
+                    assertNotNull(actual.exception, context, r -> "CollectTreasure() did not throw an exception!");
+                    assertEquals(expected.getClass(), actual.exception.getClass(), context,
+                            r -> "CollectTreasure() did not throw an exception of the expected Type");
+                    return;
+                }
+
+                PlayerController expectedController = ((PlayerController) (expected));
+                PlayerController actualController = ((PlayerController) (actual.invoked));
+                GameController actualGc = ((GameController) (ReflectionUtilsP.getFieldValue(
+                        actualController,
+                        "gameController")));
+                Arrays.stream(actual.call.arguments()).filter(arg -> arg instanceof Color).forEach(arg -> {
+                    Color color = ((Color) (arg));
+                    if (ReflectionUtilsP.equalsForMocks(color, Color.SALMON)) {
+                        verify(actualGc, times(1)).collectTreasure(color);
+                    } else {
+                        verify(actualGc, times(0)).collectTreasure(any());
+                    }
+                });
+                return;
+            } catch (Throwable e) {
+                lastCall = e;
+            }
+        }
+        ReflectionUtilsP.getUnsafe().throwException(lastCall);
+    }
+
+    private static Stream<Arguments> provideCollectTreasure_basic() {
+        return Project_TestP.parseJsonFile("hProjekt/controller/PlayerController_collectTreasure_basic.json");
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideCollectTreasure_complete")
+    public void testCollectTreasure_complete(ObjectNode node) throws NoSuchMethodException {
+        hProjekt.controller.PlayerController.class.getDeclaredMethod("collectTreasure", javafx.scene.paint.Color.class);
+        Object expected = new MockConverterP().fromJsonNodeWithBackfill((ObjectNode) node.get("expected"), null);
+        Consumer<Object> beforeEach = invoked -> {
+            PlayerController controller = ((PlayerController) (invoked));
+            GameController gc = ((GameController) (ReflectionUtilsP.getFieldValue(invoked,
+                    "gameController")));
+            ReflectionUtilsP.setFieldValue(gc, "playerControllers", Map.of(controller.getPlayer(), controller));
+        };
+        List<StudentMethodCall> results = MockConverterP.recreateCallAndInvoke(node, beforeEach);
+
+        Throwable lastCall = null;
+        for (StudentMethodCall actual : results) {
+            if (actual.call == null) {
+                lastCall = actual.exception;
+                continue;
+            }
+            try {
+                Context context = contextBuilder()
+                        .add("invoked", actual.invoked != null ? actual.invoked : "unknown")
+                        .add("parameters", actual.call != null ? actual.call.arguments() : "unknown")
+                        .add("Exception class", actual.exception != null ? actual.exception.getClass() : "none")
+                        .add("Exception message", actual.exception != null ? actual.exception.getMessage() : "none")
+                        .add("Exception stacktrace",
+                                actual.exception != null ? ReflectionUtilsP.formatStackTrace(actual.exception) : "none")
+
+                        .build();
+
+                if (expected instanceof Exception && !Exception.class.isAssignableFrom(
+                        ReflectionUtilsP.stringToMethod(node.get("entryPoint").asText()).getReturnType())) {
+                    assertNotNull(actual.exception, context, r -> "CollectTreasure() did not throw an exception!");
+                    assertEquals(expected.getClass(), actual.exception.getClass(), context,
+                            r -> "CollectTreasure() did not throw an exception of the expected Type");
+                    return;
+                }
+
+                PlayerController expectedController = ((PlayerController) (expected));
+                PlayerController actualController = ((PlayerController) (actual.invoked));
+                GameController actualGc = ((GameController) (ReflectionUtilsP.getFieldValue(
+                        actualController,
+                        "gameController")));
+                Arrays.stream(actual.call.arguments()).filter(arg -> arg instanceof Color).forEach(arg -> {
+                    Color color = ((Color) (arg));
+                    if (ReflectionUtilsP.equalsForMocks(color, Color.SALMON)) {
+                        verify(actualGc, times(1)).collectTreasure(color);
+                    } else {
+                        verify(actualGc, times(0)).collectTreasure(any());
+                    }
+                });
+                return;
+            } catch (Throwable e) {
+                lastCall = e;
+            }
+        }
+        ReflectionUtilsP.getUnsafe().throwException(lastCall);
+    }
+
+    private static Stream<Arguments> provideCollectTreasure_complete() {
+        return Project_TestP.parseJsonFile("hProjekt/controller/PlayerController_collectTreasure_complete.json");
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideAcceptCurse_basic")
+    public void testAcceptCurse_basic(ObjectNode node) throws NoSuchMethodException {
+        hProjekt.controller.PlayerController.class.getDeclaredMethod("acceptCurse");
+        Object expected = new MockConverterP().fromJsonNodeWithBackfill((ObjectNode) node.get("expected"), null);
+        List<StudentMethodCall> results = MockConverterP.recreateCallAndInvoke(node);
+
+        if (results.stream().allMatch(it -> it.exception != null)) {
+            ReflectionUtilsP.getUnsafe().throwException(results.getLast().exception);
+        }
+
+        Throwable lastCall = null;
+        for (StudentMethodCall actual : results) {
+            if (actual.call == null) {
+                lastCall = actual.exception;
+                continue;
+            }
+            try {
+                Context context = contextBuilder()
+                        .add("invoked", actual.invoked != null ? actual.invoked : "unknown")
+                        .add("parameters", actual.call != null ? actual.call.arguments() : "unknown")
+                        .build();
+
+                PlayerController expectedController = ((PlayerController) (expected));
+                PlayerController actualController = ((PlayerController) (actual.invoked));
+                assertContainsAll(
+                        ((List<GoldCard>) (expectedController.getPlayer().getGoldCards())),
+                        ((List<GoldCard>) (actualController.getPlayer().getGoldCards())),
+                        context);
+                assertEquals(expectedController.getPlayer().getAmulets(), actualController.getPlayer().getAmulets(),
+                        context, r -> "Amulet count was not updated correctly.");
+                return;
+            } catch (Throwable e) {
+                lastCall = e;
+            }
+        }
+        ReflectionUtilsP.getUnsafe().throwException(lastCall);
+    }
+
+    private static Stream<Arguments> provideAcceptCurse_basic() {
+        return Project_TestP.parseJsonFile("hProjekt/controller/PlayerController_acceptCurse_basic.json");
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideAcceptCurse_complete")
+    public void testAcceptCurse_complete(ObjectNode node) throws NoSuchMethodException {
+        hProjekt.controller.PlayerController.class.getDeclaredMethod("acceptCurse");
+        Object expected = new MockConverterP().fromJsonNodeWithBackfill((ObjectNode) node.get("expected"), null);
+        List<StudentMethodCall> results = MockConverterP.recreateCallAndInvoke(node);
+
+        if (results.stream().allMatch(it -> it.exception != null)) {
+            ReflectionUtilsP.getUnsafe().throwException(results.getLast().exception);
+        }
+
+        Throwable lastCall = null;
+        for (StudentMethodCall actual : results) {
+            if (actual.call == null) {
+                lastCall = actual.exception;
+                continue;
+            }
+            try {
+                Context context = contextBuilder()
+                        .add("invoked", actual.invoked != null ? actual.invoked : "unknown")
+                        .add("parameters", actual.call != null ? actual.call.arguments() : "unknown")
+                        .build();
+
+                PlayerController expectedController = ((PlayerController) (expected));
+                PlayerController actualController = ((PlayerController) (actual.invoked));
+                assertContainsAll(
+                        ((List<GoldCard>) (expectedController.getPlayer().getGoldCards())),
+                        ((List<GoldCard>) (actualController.getPlayer().getGoldCards())),
+                        context);
+                assertEquals(expectedController.getPlayer().getAmulets(), actualController.getPlayer().getAmulets(),
+                        context, r -> "Amulet count was not updated correctly.");
+                return;
+            } catch (Throwable e) {
+                lastCall = e;
+            }
+        }
+        ReflectionUtilsP.getUnsafe().throwException(lastCall);
+    }
+
+    private static Stream<Arguments> provideAcceptCurse_complete() {
+        return Project_TestP.parseJsonFile("hProjekt/controller/PlayerController_acceptCurse_complete.json");
     }
 }

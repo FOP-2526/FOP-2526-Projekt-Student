@@ -1,79 +1,133 @@
 [ {
-  "invoked" : 262452391,
+  "invoked" : 652007616,
   "entryPoint" : "hProjekt.controller.PlayerController#getDrivableTiles()",
   "arguments" : [ ],
   "calls" : [ {
-    "id" : 251372426,
+    "id" : 1970707120,
     "methodCalls" : [ {
-      "methodName" : "getGrid",
+      "methodName" : "getPosition",
       "invocations" : [ {
-        "return" : 1476906088,
+        "return" : 300659126,
         "parameter" : [ ]
       } ]
     } ]
   }, {
-    "id" : 530680675,
+    "id" : 1808884231,
     "methodCalls" : [ {
       "methodName" : "getState",
       "invocations" : [ {
-        "return" : 251372426,
+        "return" : 1227903899,
         "parameter" : [ ]
       } ]
     } ]
   }, {
-    "id" : 1741749279,
+    "id" : 1280959582,
+    "methodCalls" : [ {
+      "methodName" : "getPosition",
+      "invocations" : [ {
+        "return" : 101740901,
+        "parameter" : [ ]
+      } ]
+    } ]
+  }, {
+    "id" : 1491890454,
     "methodCalls" : [ {
       "methodName" : "getArea",
       "invocations" : [ {
-        "return" : 1725485102,
+        "return" : 2026873444,
         "parameter" : [ ]
       } ]
     }, {
       "methodName" : "getPosition",
       "invocations" : [ {
-        "return" : 463078215,
+        "return" : 100703210,
         "parameter" : [ ]
       } ]
     }, {
       "methodName" : "getNeighbours",
       "invocations" : [ {
-        "return" : 1630411682,
+        "return" : 1082640380,
         "parameter" : [ ]
       } ]
     } ]
   }, {
-    "id" : 1476906088,
+    "id" : 1227903899,
+    "methodCalls" : [ {
+      "methodName" : "getGrid",
+      "invocations" : [ {
+        "return" : 1900307803,
+        "parameter" : [ ]
+      } ]
+    } ]
+  }, {
+    "id" : 745966298,
+    "methodCalls" : [ {
+      "methodName" : "getPosition",
+      "invocations" : [ {
+        "return" : 1266435158,
+        "parameter" : [ ]
+      } ]
+    } ]
+  }, {
+    "id" : 2076627578,
+    "methodCalls" : [ {
+      "methodName" : "getPosition",
+      "invocations" : [ {
+        "return" : 373973695,
+        "parameter" : [ ]
+      } ]
+    } ]
+  }, {
+    "id" : 665641137,
+    "methodCalls" : [ {
+      "methodName" : "getPosition",
+      "invocations" : [ {
+        "return" : 1252713736,
+        "parameter" : [ ]
+      } ]
+    } ]
+  }, {
+    "id" : 1673389762,
+    "methodCalls" : [ {
+      "methodName" : "getPosition",
+      "invocations" : [ {
+        "return" : 254812619,
+        "parameter" : [ ]
+      } ]
+    } ]
+  }, {
+    "id" : 1900307803,
     "methodCalls" : [ {
       "methodName" : "getTileAt",
       "invocations" : [ {
-        "return" : 122510467,
-        "parameter" : [ 1450456358 ]
+        "return" : 1491890454,
+        "parameter" : [ 100703210 ]
       }, {
-        "return" : 1187455430,
-        "parameter" : [ 1819731164 ]
+        "return" : 745966298,
+        "parameter" : [ 1266435158 ]
       }, {
-        "return" : 758760442,
-        "parameter" : [ 1274112917 ]
+        "return" : 665641137,
+        "parameter" : [ 1252713736 ]
       }, {
-        "return" : 783082940,
-        "parameter" : [ 1265544856 ]
+        "return" : 2076627578,
+        "parameter" : [ 373973695 ]
       }, {
-        "return" : 276444723,
-        "parameter" : [ 2107171856 ]
+        "return" : 1855997464,
+        "parameter" : [ 179233442 ]
       }, {
-        "return" : 1741749279,
-        "parameter" : [ 463078215 ]
+        "return" : 1673389762,
+        "parameter" : [ 254812619 ]
       }, {
-        "return" : 1346404798,
-        "parameter" : [ 490706068 ]
+        "return" : 1280959582,
+        "parameter" : [ 101740901 ]
       }, {
-        "return" : 111824709,
-        "parameter" : [ 624850114 ]
+        "return" : 1970707120,
+        "parameter" : [ 300659126 ]
       } ]
     }, {
       "methodName" : "getTiles",
       "invocations" : [ {
-        "return" : 910203035,
+        "return" : 1973281540,
         "parameter" : [ ]
       } ]
     } ]
@@ -84,17 +138,17 @@
       "name" : "validPathCards",
       "type" : "java.util.Map",
       "value" : [ ],
-      "id" : 842047878
+      "id" : 1531409183
     }, {
       "name" : "driveCount",
       "type" : "java.lang.Integer",
       "value" : "0",
-      "id" : 1823014131
+      "id" : 1614238
     }, {
       "name" : "hasAcceptedTreasure",
       "type" : "java.lang.Boolean",
       "value" : "false",
-      "id" : 1777381620
+      "id" : 1621615881
     }, {
       "name" : "offeredGoldCard",
       "type" : "null",
@@ -103,15 +157,15 @@
       "name" : "drawnTreasureCards",
       "type" : "java.util.List",
       "value" : [ ],
-      "id" : 1010567446
+      "id" : 773059332
     }, {
       "name" : "treasureCardsToDraw",
-      "id" : 1823014131
+      "id" : 1614238
     }, {
       "name" : "playerObjective",
       "type" : "hProjekt.controller.PlayerObjective",
       "value" : "IDLE",
-      "id" : 423580937
+      "id" : 1998224723
     }, {
       "name" : "player",
       "type" : "hProjekt.model.PlayerImpl",
@@ -119,15 +173,15 @@
         "name" : "goldCards",
         "type" : "java.util.List",
         "value" : [ ],
-        "id" : 626837251
+        "id" : 1025786379
       }, {
         "name" : "pathCards",
         "type" : "java.util.Set",
         "value" : [ ],
-        "id" : 1712531783
+        "id" : 1651795723
       }, {
         "name" : "amulets",
-        "id" : 1823014131
+        "id" : 1614238
       }, {
         "name" : "aiController",
         "id" : 0
@@ -136,12 +190,12 @@
         "type" : "hProjekt.model.grid.TilePosition",
         "fields" : [ {
           "name" : "r",
-          "id" : 1823014131
+          "id" : 1614238
         }, {
           "name" : "q",
-          "id" : 1823014131
+          "id" : 1614238
         } ],
-        "id" : 463078215
+        "id" : 100703210
       }, {
         "name" : "color",
         "type" : "javafx.scene.paint.Color",
@@ -152,32 +206,32 @@
           "name" : "opacity",
           "type" : "java.lang.Float",
           "value" : "1.0",
-          "id" : 1368955026
+          "id" : 470187021
         }, {
           "name" : "blue",
           "type" : "java.lang.Float",
-          "value" : "0.8913386",
-          "id" : 229662478
+          "value" : "0.21093903",
+          "id" : 1561005241
         }, {
           "name" : "green",
           "type" : "java.lang.Float",
-          "value" : "0.7250312",
-          "id" : 1318577508
+          "value" : "0.6888279",
+          "id" : 2138793529
         }, {
           "name" : "red",
           "type" : "java.lang.Float",
-          "value" : "0.96483105",
-          "id" : 833725664
+          "value" : "0.52199006",
+          "id" : 380394805
         } ],
-        "id" : 1383343992
+        "id" : 1130153977
       }, {
         "name" : "id",
-        "id" : 1823014131
+        "id" : 1614238
       }, {
         "name" : "name",
         "type" : "java.lang.String",
         "value" : "Player0",
-        "id" : 611907148
+        "id" : 962969081
       }, {
         "name" : "hexGrid",
         "type" : "hProjekt.testOverrides.TestHexGridImpl",
@@ -187,26 +241,6 @@
           "value" : [ [ {
             "type" : "hProjekt.model.grid.Tile$Type",
             "value" : "LAKE",
-            "id" : 1360840444
-          }, {
-            "type" : "java.util.Set",
-            "value" : [ {
-              "type" : "hProjekt.model.grid.TilePosition",
-              "fields" : [ {
-                "name" : "r",
-                "id" : 1823014131
-              }, {
-                "name" : "q",
-                "type" : "java.lang.Integer",
-                "value" : "4",
-                "id" : 737892411
-              } ],
-              "id" : 1729984625
-            } ],
-            "id" : 1525872948
-          } ], [ {
-            "type" : "hProjekt.model.grid.Tile$Type",
-            "value" : "PLAINS",
             "id" : 1238959340
           }, {
             "type" : "java.util.Set",
@@ -214,357 +248,377 @@
               "type" : "hProjekt.model.grid.TilePosition",
               "fields" : [ {
                 "name" : "r",
-                "id" : 1823014131
+                "id" : 1614238
               }, {
                 "name" : "q",
                 "type" : "java.lang.Integer",
-                "value" : "1",
-                "id" : 1985828309
+                "value" : "4",
+                "id" : 1825656946
               } ],
-              "id" : 1265544856
-            }, {
-              "type" : "hProjekt.model.grid.TilePosition",
-              "fields" : [ {
-                "name" : "r",
-                "type" : "java.lang.Integer",
-                "value" : "-1",
-                "id" : 727469847
-              }, {
-                "name" : "q",
-                "id" : 1823014131
-              } ],
-              "id" : 2107171856
-            }, {
-              "id" : 463078215
-            }, {
-              "type" : "hProjekt.model.grid.TilePosition",
-              "fields" : [ {
-                "name" : "r",
-                "id" : 1985828309
-              }, {
-                "name" : "q",
-                "id" : 1823014131
-              } ],
-              "id" : 624850114
-            }, {
-              "type" : "hProjekt.model.grid.TilePosition",
-              "fields" : [ {
-                "name" : "r",
-                "id" : 1823014131
-              }, {
-                "name" : "q",
-                "id" : 727469847
-              } ],
-              "id" : 1819731164
-            }, {
-              "type" : "hProjekt.model.grid.TilePosition",
-              "fields" : [ {
-                "name" : "r",
-                "id" : 1985828309
-              }, {
-                "name" : "q",
-                "id" : 727469847
-              } ],
-              "id" : 1450456358
-            }, {
-              "type" : "hProjekt.model.grid.TilePosition",
-              "fields" : [ {
-                "name" : "r",
-                "id" : 727469847
-              }, {
-                "name" : "q",
-                "id" : 1985828309
-              } ],
-              "id" : 490706068
-            }, {
-              "type" : "hProjekt.model.grid.TilePosition",
-              "fields" : [ {
-                "name" : "r",
-                "id" : 1823014131
-              }, {
-                "name" : "q",
-                "type" : "java.lang.Integer",
-                "value" : "2",
-                "id" : 47925969
-              } ],
-              "id" : 1274112917
+              "id" : 1591683105
             } ],
-            "id" : 1725485102
+            "id" : 409007038
           } ], [ {
             "type" : "hProjekt.model.grid.Tile$Type",
-            "value" : "BEACH",
-            "id" : 1437260786
+            "value" : "PLAINS",
+            "id" : 215219944
           }, {
             "type" : "java.util.Set",
             "value" : [ {
               "type" : "hProjekt.model.grid.TilePosition",
               "fields" : [ {
                 "name" : "r",
-                "id" : 1823014131
+                "id" : 1614238
+              }, {
+                "name" : "q",
+                "type" : "java.lang.Integer",
+                "value" : "-1",
+                "id" : 873002645
+              } ],
+              "id" : 1266435158
+            }, {
+              "type" : "hProjekt.model.grid.TilePosition",
+              "fields" : [ {
+                "name" : "r",
+                "id" : 873002645
+              }, {
+                "name" : "q",
+                "id" : 1614238
+              } ],
+              "id" : 101740901
+            }, {
+              "type" : "hProjekt.model.grid.TilePosition",
+              "fields" : [ {
+                "name" : "r",
+                "id" : 873002645
+              }, {
+                "name" : "q",
+                "type" : "java.lang.Integer",
+                "value" : "1",
+                "id" : 728370857
+              } ],
+              "id" : 373973695
+            }, {
+              "type" : "hProjekt.model.grid.TilePosition",
+              "fields" : [ {
+                "name" : "r",
+                "id" : 1614238
+              }, {
+                "name" : "q",
+                "id" : 728370857
+              } ],
+              "id" : 300659126
+            }, {
+              "type" : "hProjekt.model.grid.TilePosition",
+              "fields" : [ {
+                "name" : "r",
+                "id" : 1614238
+              }, {
+                "name" : "q",
+                "type" : "java.lang.Integer",
+                "value" : "2",
+                "id" : 1306429814
+              } ],
+              "id" : 179233442
+            }, {
+              "type" : "hProjekt.model.grid.TilePosition",
+              "fields" : [ {
+                "name" : "r",
+                "id" : 728370857
+              }, {
+                "name" : "q",
+                "id" : 1614238
+              } ],
+              "id" : 254812619
+            }, {
+              "type" : "hProjekt.model.grid.TilePosition",
+              "fields" : [ {
+                "name" : "r",
+                "id" : 728370857
+              }, {
+                "name" : "q",
+                "id" : 873002645
+              } ],
+              "id" : 1252713736
+            }, {
+              "id" : 100703210
+            } ],
+            "id" : 2026873444
+          } ], [ {
+            "type" : "hProjekt.model.grid.Tile$Type",
+            "value" : "BEACH",
+            "id" : 1192171522
+          }, {
+            "type" : "java.util.Set",
+            "value" : [ {
+              "type" : "hProjekt.model.grid.TilePosition",
+              "fields" : [ {
+                "name" : "r",
+                "id" : 1614238
               }, {
                 "name" : "q",
                 "type" : "java.lang.Integer",
                 "value" : "3",
-                "id" : 622043416
+                "id" : 994584048
               } ],
-              "id" : 1286544660
+              "id" : 1126112943
             } ],
-            "id" : 91324463
+            "id" : 1216863787
           } ] ],
-          "id" : 733971938
+          "id" : 1007550632
         }, {
           "name" : "random",
           "type" : "java.util.Random",
           "fields" : [ {
             "name" : "haveNextNextGaussian",
-            "id" : 1777381620
+            "id" : 1621615881
           }, {
             "name" : "nextNextGaussian",
             "type" : "java.lang.Double",
             "value" : "0.0",
-            "id" : 1379304950
+            "id" : 1085041526
           }, {
             "name" : "seed",
             "type" : "java.util.concurrent.atomic.AtomicLong",
             "fields" : [ {
               "name" : "value",
               "type" : "java.lang.Long",
-              "value" : "117416597249208",
-              "id" : 524352989
+              "value" : "257683789017129",
+              "id" : 2038484780
             } ],
-            "id" : 451712278
+            "id" : 162667475
           } ],
-          "id" : 1681088799
+          "id" : 1097380
         }, {
           "name" : "structures",
           "type" : "java.util.Map",
           "value" : [ ],
-          "id" : 1069094843
+          "id" : 251666609
         }, {
           "name" : "tiles",
           "type" : "java.util.Map",
           "value" : [ [ {
-            "id" : 1450456358
+            "id" : 1126112943
           }, {
             "type" : "hProjekt.model.grid.TileImpl",
             "fields" : [ {
               "name" : "area",
-              "id" : 1725485102
+              "id" : 1216863787
             }, {
               "name" : "hasAmulet",
-              "id" : 1777381620
+              "id" : 1621615881
             }, {
               "name" : "hexGrid",
-              "id" : 1476906088
+              "id" : 1900307803
+            }, {
+              "name" : "type",
+              "id" : 1192171522
+            }, {
+              "name" : "position",
+              "id" : 1126112943
+            } ],
+            "id" : 212874257
+          } ], [ {
+            "id" : 1252713736
+          }, {
+            "type" : "hProjekt.model.grid.TileImpl",
+            "fields" : [ {
+              "name" : "area",
+              "id" : 2026873444
+            }, {
+              "name" : "hasAmulet",
+              "id" : 1621615881
+            }, {
+              "name" : "hexGrid",
+              "id" : 1900307803
+            }, {
+              "name" : "type",
+              "id" : 215219944
+            }, {
+              "name" : "position",
+              "id" : 1252713736
+            } ],
+            "id" : 665641137
+          } ], [ {
+            "id" : 373973695
+          }, {
+            "type" : "hProjekt.model.grid.TileImpl",
+            "fields" : [ {
+              "name" : "area",
+              "id" : 2026873444
+            }, {
+              "name" : "hasAmulet",
+              "id" : 1621615881
+            }, {
+              "name" : "hexGrid",
+              "id" : 1900307803
+            }, {
+              "name" : "type",
+              "id" : 215219944
+            }, {
+              "name" : "position",
+              "id" : 373973695
+            } ],
+            "id" : 2076627578
+          } ], [ {
+            "id" : 101740901
+          }, {
+            "type" : "hProjekt.model.grid.TileImpl",
+            "fields" : [ {
+              "name" : "area",
+              "id" : 2026873444
+            }, {
+              "name" : "hasAmulet",
+              "id" : 1621615881
+            }, {
+              "name" : "hexGrid",
+              "id" : 1900307803
+            }, {
+              "name" : "type",
+              "id" : 215219944
+            }, {
+              "name" : "position",
+              "id" : 101740901
+            } ],
+            "id" : 1280959582
+          } ], [ {
+            "id" : 1266435158
+          }, {
+            "type" : "hProjekt.model.grid.TileImpl",
+            "fields" : [ {
+              "name" : "area",
+              "id" : 2026873444
+            }, {
+              "name" : "hasAmulet",
+              "id" : 1621615881
+            }, {
+              "name" : "hexGrid",
+              "id" : 1900307803
+            }, {
+              "name" : "type",
+              "id" : 215219944
+            }, {
+              "name" : "position",
+              "id" : 1266435158
+            } ],
+            "id" : 745966298
+          } ], [ {
+            "id" : 100703210
+          }, {
+            "type" : "hProjekt.model.grid.TileImpl",
+            "fields" : [ {
+              "name" : "area",
+              "id" : 2026873444
+            }, {
+              "name" : "hasAmulet",
+              "id" : 1621615881
+            }, {
+              "name" : "hexGrid",
+              "id" : 1900307803
+            }, {
+              "name" : "type",
+              "id" : 215219944
+            }, {
+              "name" : "position",
+              "id" : 100703210
+            } ],
+            "id" : 1491890454
+          } ], [ {
+            "id" : 254812619
+          }, {
+            "type" : "hProjekt.model.grid.TileImpl",
+            "fields" : [ {
+              "name" : "area",
+              "id" : 2026873444
+            }, {
+              "name" : "hasAmulet",
+              "id" : 1621615881
+            }, {
+              "name" : "hexGrid",
+              "id" : 1900307803
+            }, {
+              "name" : "type",
+              "id" : 215219944
+            }, {
+              "name" : "position",
+              "id" : 254812619
+            } ],
+            "id" : 1673389762
+          } ], [ {
+            "id" : 179233442
+          }, {
+            "type" : "hProjekt.model.grid.TileImpl",
+            "fields" : [ {
+              "name" : "area",
+              "id" : 2026873444
+            }, {
+              "name" : "hasAmulet",
+              "id" : 1621615881
+            }, {
+              "name" : "hexGrid",
+              "id" : 1900307803
+            }, {
+              "name" : "type",
+              "id" : 215219944
+            }, {
+              "name" : "position",
+              "id" : 179233442
+            } ],
+            "id" : 1855997464
+          } ], [ {
+            "id" : 300659126
+          }, {
+            "type" : "hProjekt.model.grid.TileImpl",
+            "fields" : [ {
+              "name" : "area",
+              "id" : 2026873444
+            }, {
+              "name" : "hasAmulet",
+              "id" : 1621615881
+            }, {
+              "name" : "hexGrid",
+              "id" : 1900307803
+            }, {
+              "name" : "type",
+              "id" : 215219944
+            }, {
+              "name" : "position",
+              "id" : 300659126
+            } ],
+            "id" : 1970707120
+          } ], [ {
+            "id" : 1591683105
+          }, {
+            "type" : "hProjekt.model.grid.TileImpl",
+            "fields" : [ {
+              "name" : "area",
+              "id" : 409007038
+            }, {
+              "name" : "hasAmulet",
+              "id" : 1621615881
+            }, {
+              "name" : "hexGrid",
+              "id" : 1900307803
             }, {
               "name" : "type",
               "id" : 1238959340
             }, {
               "name" : "position",
-              "id" : 1450456358
+              "id" : 1591683105
             } ],
-            "id" : 122510467
-          } ], [ {
-            "id" : 1274112917
-          }, {
-            "type" : "hProjekt.model.grid.TileImpl",
-            "fields" : [ {
-              "name" : "area",
-              "id" : 1725485102
-            }, {
-              "name" : "hasAmulet",
-              "id" : 1777381620
-            }, {
-              "name" : "hexGrid",
-              "id" : 1476906088
-            }, {
-              "name" : "type",
-              "id" : 1238959340
-            }, {
-              "name" : "position",
-              "id" : 1274112917
-            } ],
-            "id" : 758760442
-          } ], [ {
-            "id" : 1265544856
-          }, {
-            "type" : "hProjekt.model.grid.TileImpl",
-            "fields" : [ {
-              "name" : "area",
-              "id" : 1725485102
-            }, {
-              "name" : "hasAmulet",
-              "id" : 1777381620
-            }, {
-              "name" : "hexGrid",
-              "id" : 1476906088
-            }, {
-              "name" : "type",
-              "id" : 1238959340
-            }, {
-              "name" : "position",
-              "id" : 1265544856
-            } ],
-            "id" : 783082940
-          } ], [ {
-            "id" : 2107171856
-          }, {
-            "type" : "hProjekt.model.grid.TileImpl",
-            "fields" : [ {
-              "name" : "area",
-              "id" : 1725485102
-            }, {
-              "name" : "hasAmulet",
-              "id" : 1777381620
-            }, {
-              "name" : "hexGrid",
-              "id" : 1476906088
-            }, {
-              "name" : "type",
-              "id" : 1238959340
-            }, {
-              "name" : "position",
-              "id" : 2107171856
-            } ],
-            "id" : 276444723
-          } ], [ {
-            "id" : 1819731164
-          }, {
-            "type" : "hProjekt.model.grid.TileImpl",
-            "fields" : [ {
-              "name" : "area",
-              "id" : 1725485102
-            }, {
-              "name" : "hasAmulet",
-              "id" : 1777381620
-            }, {
-              "name" : "hexGrid",
-              "id" : 1476906088
-            }, {
-              "name" : "type",
-              "id" : 1238959340
-            }, {
-              "name" : "position",
-              "id" : 1819731164
-            } ],
-            "id" : 1187455430
-          } ], [ {
-            "id" : 1286544660
-          }, {
-            "type" : "hProjekt.model.grid.TileImpl",
-            "fields" : [ {
-              "name" : "area",
-              "id" : 91324463
-            }, {
-              "name" : "hasAmulet",
-              "id" : 1777381620
-            }, {
-              "name" : "hexGrid",
-              "id" : 1476906088
-            }, {
-              "name" : "type",
-              "id" : 1437260786
-            }, {
-              "name" : "position",
-              "id" : 1286544660
-            } ],
-            "id" : 569112902
-          } ], [ {
-            "id" : 490706068
-          }, {
-            "type" : "hProjekt.model.grid.TileImpl",
-            "fields" : [ {
-              "name" : "area",
-              "id" : 1725485102
-            }, {
-              "name" : "hasAmulet",
-              "id" : 1777381620
-            }, {
-              "name" : "hexGrid",
-              "id" : 1476906088
-            }, {
-              "name" : "type",
-              "id" : 1238959340
-            }, {
-              "name" : "position",
-              "id" : 490706068
-            } ],
-            "id" : 1346404798
-          } ], [ {
-            "id" : 624850114
-          }, {
-            "type" : "hProjekt.model.grid.TileImpl",
-            "fields" : [ {
-              "name" : "area",
-              "id" : 1725485102
-            }, {
-              "name" : "hasAmulet",
-              "id" : 1777381620
-            }, {
-              "name" : "hexGrid",
-              "id" : 1476906088
-            }, {
-              "name" : "type",
-              "id" : 1238959340
-            }, {
-              "name" : "position",
-              "id" : 624850114
-            } ],
-            "id" : 111824709
-          } ], [ {
-            "id" : 1729984625
-          }, {
-            "type" : "hProjekt.model.grid.TileImpl",
-            "fields" : [ {
-              "name" : "area",
-              "id" : 1525872948
-            }, {
-              "name" : "hasAmulet",
-              "id" : 1777381620
-            }, {
-              "name" : "hexGrid",
-              "id" : 1476906088
-            }, {
-              "name" : "type",
-              "id" : 1360840444
-            }, {
-              "name" : "position",
-              "id" : 1729984625
-            } ],
-            "id" : 865719216
-          } ], [ {
-            "id" : 463078215
-          }, {
-            "type" : "hProjekt.model.grid.TileImpl",
-            "fields" : [ {
-              "name" : "area",
-              "id" : 1725485102
-            }, {
-              "name" : "hasAmulet",
-              "id" : 1777381620
-            }, {
-              "name" : "hexGrid",
-              "id" : 1476906088
-            }, {
-              "name" : "type",
-              "id" : 1238959340
-            }, {
-              "name" : "position",
-              "id" : 463078215
-            } ],
-            "id" : 1741749279
+            "id" : 239648666
           } ] ],
-          "id" : 910203035
+          "id" : 1973281540
         } ],
-        "id" : 1476906088
+        "id" : 1900307803
       } ],
-      "id" : 2041160610
+      "id" : 675889995
     }, {
       "name" : "gameController",
       "type" : "hProjekt.controller.GameController",
       "fields" : [ {
         "name" : "stopped",
-        "id" : 1777381620
+        "id" : 1621615881
       }, {
         "name" : "activePlayerController",
         "type" : "javafx.beans.property.SimpleObjectProperty",
@@ -575,7 +629,7 @@
           "name" : "valid",
           "type" : "java.lang.Boolean",
           "value" : "true",
-          "id" : 1940783703
+          "id" : 1447678234
         }, {
           "name" : "listener",
           "id" : 0
@@ -589,12 +643,12 @@
           "name" : "name",
           "type" : "java.lang.String",
           "value" : "",
-          "id" : 1874919946
+          "id" : 693083472
         }, {
           "name" : "bean",
           "id" : 0
         } ],
-        "id" : 586956313
+        "id" : 107632469
       }, {
         "name" : "roundCounter",
         "type" : "javafx.beans.property.SimpleIntegerProperty",
@@ -603,7 +657,7 @@
           "id" : 0
         }, {
           "name" : "valid",
-          "id" : 1940783703
+          "id" : 1447678234
         }, {
           "name" : "listener",
           "id" : 0
@@ -612,205 +666,205 @@
           "id" : 0
         }, {
           "name" : "value",
-          "id" : 1823014131
+          "id" : 1614238
         }, {
           "name" : "name",
-          "id" : 1874919946
+          "id" : 693083472
         }, {
           "name" : "bean",
           "id" : 0
         } ],
-        "id" : 560332026
+        "id" : 1784551034
       }, {
         "name" : "aiControllers",
         "type" : "java.util.List",
         "value" : [ ],
-        "id" : 1346347664
+        "id" : 658781536
       }, {
         "name" : "playerControllers",
         "type" : "java.util.Map",
         "value" : [ ],
-        "id" : 1208550239
+        "id" : 1037793103
       }, {
         "name" : "state",
         "type" : "hProjekt.model.GameState",
         "fields" : [ {
           "name" : "treasureDeck",
-          "type" : "java.util.List",
+          "type" : "java.util.Stack",
           "value" : [ {
+            "type" : "hProjekt.model.cards.GoldCard",
+            "fields" : [ {
+              "name" : "value",
+              "id" : 994584048
+            } ],
+            "id" : 871554897
+          }, {
+            "type" : "hProjekt.model.cards.CurseCard",
+            "fields" : [ ],
+            "id" : 50297459
+          }, {
+            "type" : "hProjekt.model.cards.GoldCard",
+            "fields" : [ {
+              "name" : "value",
+              "id" : 728370857
+            } ],
+            "id" : 31567969
+          }, {
+            "id" : 31567969
+          }, {
+            "id" : 31567969
+          }, {
             "type" : "hProjekt.model.cards.GoldCard",
             "fields" : [ {
               "name" : "value",
               "type" : "java.lang.Integer",
               "value" : "5",
-              "id" : 2084457242
+              "id" : 1989924937
             } ],
-            "id" : 1451998157
+            "id" : 1674938191
+          }, {
+            "id" : 1674938191
+          }, {
+            "id" : 1674938191
+          }, {
+            "type" : "hProjekt.model.cards.GoldCard",
+            "fields" : [ {
+              "name" : "value",
+              "id" : 1306429814
+            } ],
+            "id" : 598284487
+          }, {
+            "id" : 1674938191
+          }, {
+            "id" : 50297459
+          }, {
+            "id" : 871554897
+          }, {
+            "id" : 871554897
+          }, {
+            "type" : "hProjekt.model.cards.GoldCard",
+            "fields" : [ {
+              "name" : "value",
+              "id" : 1825656946
+            } ],
+            "id" : 1510162775
+          }, {
+            "id" : 871554897
+          }, {
+            "id" : 1674938191
+          }, {
+            "id" : 1510162775
+          }, {
+            "id" : 598284487
+          }, {
+            "id" : 1674938191
           }, {
             "type" : "hProjekt.model.cards.GoldCard",
             "fields" : [ {
               "name" : "value",
               "type" : "java.lang.Integer",
               "value" : "6",
-              "id" : 1147334625
+              "id" : 270313690
             } ],
-            "id" : 409839460
+            "id" : 982337150
           }, {
-            "type" : "hProjekt.model.cards.GoldCard",
-            "fields" : [ {
-              "name" : "value",
-              "id" : 1985828309
-            } ],
-            "id" : 967912691
+            "id" : 31567969
           }, {
-            "id" : 1451998157
+            "id" : 598284487
           }, {
-            "id" : 967912691
+            "id" : 31567969
           }, {
-            "id" : 409839460
+            "id" : 31567969
           }, {
-            "type" : "hProjekt.model.cards.GoldCard",
-            "fields" : [ {
-              "name" : "value",
-              "id" : 47925969
-            } ],
-            "id" : 276802126
+            "id" : 598284487
           }, {
-            "id" : 1451998157
+            "id" : 598284487
           }, {
-            "id" : 1451998157
+            "id" : 598284487
           }, {
-            "type" : "hProjekt.model.cards.GoldCard",
-            "fields" : [ {
-              "name" : "value",
-              "id" : 737892411
-            } ],
-            "id" : 455159391
+            "id" : 598284487
           }, {
-            "id" : 276802126
+            "id" : 598284487
           }, {
-            "id" : 455159391
+            "id" : 598284487
           }, {
-            "id" : 455159391
+            "id" : 871554897
           }, {
-            "id" : 455159391
+            "id" : 598284487
           }, {
-            "id" : 1451998157
+            "id" : 982337150
           }, {
-            "id" : 409839460
+            "id" : 31567969
           }, {
-            "id" : 276802126
+            "id" : 31567969
           }, {
-            "id" : 276802126
+            "id" : 598284487
           }, {
-            "type" : "hProjekt.model.cards.GoldCard",
-            "fields" : [ {
-              "name" : "value",
-              "id" : 622043416
-            } ],
-            "id" : 1845689560
+            "id" : 598284487
           }, {
-            "type" : "hProjekt.model.cards.CurseCard",
-            "fields" : [ ],
-            "id" : 1592038239
+            "id" : 31567969
           }, {
-            "id" : 276802126
+            "id" : 1674938191
           }, {
-            "id" : 1592038239
+            "id" : 1674938191
           }, {
-            "id" : 1451998157
+            "id" : 1510162775
           }, {
-            "id" : 409839460
+            "id" : 871554897
           }, {
-            "id" : 1845689560
+            "id" : 598284487
           }, {
-            "id" : 409839460
+            "id" : 598284487
           }, {
-            "id" : 409839460
+            "id" : 31567969
           }, {
-            "id" : 1845689560
+            "id" : 1674938191
           }, {
-            "id" : 409839460
+            "id" : 1674938191
           }, {
-            "id" : 967912691
+            "id" : 598284487
           }, {
-            "id" : 276802126
+            "id" : 31567969
           }, {
-            "id" : 455159391
+            "id" : 598284487
           }, {
-            "id" : 409839460
+            "id" : 598284487
           }, {
-            "id" : 967912691
+            "id" : 598284487
           }, {
-            "id" : 1451998157
+            "id" : 871554897
           }, {
-            "id" : 1451998157
+            "id" : 871554897
           }, {
-            "id" : 1845689560
+            "id" : 871554897
           }, {
-            "id" : 455159391
+            "id" : 31567969
           }, {
-            "id" : 276802126
+            "id" : 598284487
           }, {
-            "id" : 276802126
+            "id" : 1510162775
           }, {
-            "id" : 1845689560
+            "id" : 982337150
           }, {
-            "id" : 455159391
+            "id" : 31567969
           }, {
-            "id" : 1451998157
+            "id" : 31567969
           }, {
-            "id" : 1451998157
+            "id" : 871554897
           }, {
-            "id" : 455159391
+            "id" : 871554897
           }, {
-            "id" : 1845689560
+            "id" : 31567969
           }, {
-            "id" : 409839460
+            "id" : 598284487
           }, {
-            "id" : 967912691
+            "id" : 31567969
           }, {
-            "id" : 409839460
+            "id" : 1674938191
           }, {
-            "id" : 1845689560
-          }, {
-            "id" : 455159391
-          }, {
-            "id" : 1845689560
-          }, {
-            "id" : 1451998157
-          }, {
-            "id" : 455159391
-          }, {
-            "id" : 967912691
-          }, {
-            "id" : 409839460
-          }, {
-            "id" : 1451998157
-          }, {
-            "id" : 967912691
-          }, {
-            "id" : 455159391
-          }, {
-            "id" : 276802126
-          }, {
-            "id" : 1845689560
-          }, {
-            "id" : 276802126
-          }, {
-            "id" : 967912691
-          }, {
-            "id" : 1451998157
-          }, {
-            "id" : 1451998157
-          }, {
-            "id" : 276802126
-          }, {
-            "id" : 455159391
-          }, {
-            "id" : 967912691
+            "id" : 598284487
           } ],
-          "id" : 1073398058
+          "id" : 629321967
         }, {
           "name" : "winnerProperty",
           "type" : "javafx.beans.property.SimpleObjectProperty",
@@ -819,7 +873,7 @@
             "id" : 0
           }, {
             "name" : "valid",
-            "id" : 1940783703
+            "id" : 1447678234
           }, {
             "name" : "listener",
             "id" : 0
@@ -831,17 +885,17 @@
             "id" : 0
           }, {
             "name" : "name",
-            "id" : 1874919946
+            "id" : 693083472
           }, {
             "name" : "bean",
             "id" : 0
           } ],
-          "id" : 1794946087
+          "id" : 1339052072
         }, {
           "name" : "treasurePositions",
           "type" : "java.util.Map",
           "value" : [ ],
-          "id" : 231477774
+          "id" : 547973118
         }, {
           "name" : "treasureTrails",
           "type" : "java.util.Map",
@@ -854,28 +908,28 @@
               "name" : "opacity",
               "type" : "java.lang.Float",
               "value" : "1.0",
-              "id" : 1368955026
+              "id" : 470187021
             }, {
               "name" : "blue",
               "type" : "java.lang.Float",
               "value" : "0.5019608",
-              "id" : 1229164568
+              "id" : 1995997657
             }, {
               "name" : "green",
               "type" : "java.lang.Float",
               "value" : "0.5019608",
-              "id" : 1229164568
+              "id" : 1995997657
             }, {
               "name" : "red",
               "type" : "java.lang.Float",
               "value" : "0.5019608",
-              "id" : 1229164568
+              "id" : 1995997657
             } ],
-            "id" : 1114177849
+            "id" : 1147545255
           }, {
             "type" : "java.util.List",
             "value" : [ ],
-            "id" : 1000070120
+            "id" : 1628252344
           } ], [ {
             "type" : "javafx.scene.paint.Color",
             "fields" : [ {
@@ -885,28 +939,28 @@
               "name" : "opacity",
               "type" : "java.lang.Float",
               "value" : "1.0",
-              "id" : 1368955026
+              "id" : 470187021
             }, {
               "name" : "blue",
               "type" : "java.lang.Float",
               "value" : "1.0",
-              "id" : 1368955026
+              "id" : 470187021
             }, {
               "name" : "green",
               "type" : "java.lang.Float",
               "value" : "1.0",
-              "id" : 1368955026
+              "id" : 470187021
             }, {
               "name" : "red",
               "type" : "java.lang.Float",
               "value" : "1.0",
-              "id" : 1368955026
+              "id" : 470187021
             } ],
-            "id" : 416173725
+            "id" : 1569371800
           }, {
             "type" : "java.util.List",
             "value" : [ ],
-            "id" : 779437426
+            "id" : 1802415698
           } ], [ {
             "type" : "javafx.scene.paint.Color",
             "fields" : [ {
@@ -916,28 +970,28 @@
               "name" : "opacity",
               "type" : "java.lang.Float",
               "value" : "1.0",
-              "id" : 1368955026
+              "id" : 470187021
             }, {
               "name" : "blue",
               "type" : "java.lang.Float",
               "value" : "0.16470589",
-              "id" : 32563017
+              "id" : 2061552777
             }, {
               "name" : "green",
               "type" : "java.lang.Float",
               "value" : "0.16470589",
-              "id" : 32563017
+              "id" : 2061552777
             }, {
               "name" : "red",
               "type" : "java.lang.Float",
               "value" : "0.64705884",
-              "id" : 1018180783
+              "id" : 333828675
             } ],
-            "id" : 827703180
+            "id" : 249109901
           }, {
             "type" : "java.util.List",
             "value" : [ ],
-            "id" : 1226617808
+            "id" : 904872862
           } ], [ {
             "type" : "javafx.scene.paint.Color",
             "fields" : [ {
@@ -947,50 +1001,62 @@
               "name" : "opacity",
               "type" : "java.lang.Float",
               "value" : "1.0",
-              "id" : 1368955026
+              "id" : 470187021
             }, {
               "name" : "blue",
               "type" : "java.lang.Float",
               "value" : "0.0",
-              "id" : 592876666
+              "id" : 2077150966
             }, {
               "name" : "green",
               "type" : "java.lang.Float",
               "value" : "0.0",
-              "id" : 592876666
+              "id" : 2077150966
             }, {
               "name" : "red",
               "type" : "java.lang.Float",
               "value" : "0.0",
-              "id" : 592876666
+              "id" : 2077150966
             } ],
-            "id" : 471450373
+            "id" : 1117747481
           }, {
             "type" : "java.util.List",
             "value" : [ ],
-            "id" : 1967098615
+            "id" : 2062888647
           } ] ],
-          "id" : 550115845
+          "id" : 1079733621
         }, {
           "name" : "players",
           "type" : "java.util.List",
           "value" : [ {
-            "id" : 2041160610
+            "id" : 675889995
           } ],
-          "id" : 1650275694
+          "id" : 2009196049
         }, {
           "name" : "grid",
-          "id" : 1476906088
+          "id" : 1900307803
         } ],
-        "id" : 251372426
+        "id" : 1227903899
       } ],
-      "id" : 530680675
+      "id" : 1808884231
     } ],
-    "id" : 262452391
+    "id" : 652007616
   }, {
     "type" : "java.util.Set",
-    "value" : [ ],
-    "id" : 1630411682
+    "value" : [ {
+      "id" : 1970707120
+    }, {
+      "id" : 1280959582
+    }, {
+      "id" : 2076627578
+    }, {
+      "id" : 745966298
+    }, {
+      "id" : 665641137
+    }, {
+      "id" : 1673389762
+    } ],
+    "id" : 1082640380
   } ],
   "expected" : {
     "type" : "java.util.Set",
@@ -1005,95 +1071,95 @@
             "name" : "r",
             "type" : "java.lang.Integer",
             "value" : "0",
-            "id" : 1823014131
+            "id" : 1614238
+          }, {
+            "name" : "q",
+            "type" : "java.lang.Integer",
+            "value" : "-1",
+            "id" : 873002645
+          } ],
+          "id" : 1266435158
+        }, {
+          "type" : "hProjekt.model.grid.TilePosition",
+          "fields" : [ {
+            "name" : "r",
+            "id" : 873002645
+          }, {
+            "name" : "q",
+            "id" : 1614238
+          } ],
+          "id" : 101740901
+        }, {
+          "type" : "hProjekt.model.grid.TilePosition",
+          "fields" : [ {
+            "name" : "r",
+            "id" : 873002645
           }, {
             "name" : "q",
             "type" : "java.lang.Integer",
             "value" : "1",
-            "id" : 1985828309
+            "id" : 728370857
           } ],
-          "id" : 1265544856
+          "id" : 373973695
         }, {
           "type" : "hProjekt.model.grid.TilePosition",
           "fields" : [ {
             "name" : "r",
-            "type" : "java.lang.Integer",
-            "value" : "-1",
-            "id" : 727469847
+            "id" : 1614238
           }, {
             "name" : "q",
-            "id" : 1823014131
+            "id" : 728370857
           } ],
-          "id" : 2107171856
+          "id" : 300659126
         }, {
           "type" : "hProjekt.model.grid.TilePosition",
           "fields" : [ {
             "name" : "r",
-            "id" : 1823014131
-          }, {
-            "name" : "q",
-            "id" : 1823014131
-          } ],
-          "id" : 463078215
-        }, {
-          "type" : "hProjekt.model.grid.TilePosition",
-          "fields" : [ {
-            "name" : "r",
-            "id" : 1985828309
-          }, {
-            "name" : "q",
-            "id" : 1823014131
-          } ],
-          "id" : 624850114
-        }, {
-          "type" : "hProjekt.model.grid.TilePosition",
-          "fields" : [ {
-            "name" : "r",
-            "id" : 1823014131
-          }, {
-            "name" : "q",
-            "id" : 727469847
-          } ],
-          "id" : 1819731164
-        }, {
-          "type" : "hProjekt.model.grid.TilePosition",
-          "fields" : [ {
-            "name" : "r",
-            "id" : 1985828309
-          }, {
-            "name" : "q",
-            "id" : 727469847
-          } ],
-          "id" : 1450456358
-        }, {
-          "type" : "hProjekt.model.grid.TilePosition",
-          "fields" : [ {
-            "name" : "r",
-            "id" : 727469847
-          }, {
-            "name" : "q",
-            "id" : 1985828309
-          } ],
-          "id" : 490706068
-        }, {
-          "type" : "hProjekt.model.grid.TilePosition",
-          "fields" : [ {
-            "name" : "r",
-            "id" : 1823014131
+            "id" : 1614238
           }, {
             "name" : "q",
             "type" : "java.lang.Integer",
             "value" : "2",
-            "id" : 47925969
+            "id" : 1306429814
           } ],
-          "id" : 1274112917
+          "id" : 179233442
+        }, {
+          "type" : "hProjekt.model.grid.TilePosition",
+          "fields" : [ {
+            "name" : "r",
+            "id" : 728370857
+          }, {
+            "name" : "q",
+            "id" : 1614238
+          } ],
+          "id" : 254812619
+        }, {
+          "type" : "hProjekt.model.grid.TilePosition",
+          "fields" : [ {
+            "name" : "r",
+            "id" : 728370857
+          }, {
+            "name" : "q",
+            "id" : 873002645
+          } ],
+          "id" : 1252713736
+        }, {
+          "type" : "hProjekt.model.grid.TilePosition",
+          "fields" : [ {
+            "name" : "r",
+            "id" : 1614238
+          }, {
+            "name" : "q",
+            "id" : 1614238
+          } ],
+          "id" : 100703210
         } ],
-        "id" : 1725485102
+        "id" : 2026873444
       }, {
         "name" : "hasAmulet",
         "type" : "java.lang.Boolean",
         "value" : "false",
-        "id" : 1777381620
+        "id" : 1621615881
       }, {
         "name" : "hexGrid",
         "type" : "hProjekt.testOverrides.TestHexGridImpl",
@@ -1103,300 +1169,300 @@
           "value" : [ [ {
             "type" : "hProjekt.model.grid.Tile$Type",
             "value" : "LAKE",
-            "id" : 1360840444
+            "id" : 1238959340
           }, {
             "type" : "java.util.Set",
             "value" : [ {
               "type" : "hProjekt.model.grid.TilePosition",
               "fields" : [ {
                 "name" : "r",
-                "id" : 1823014131
+                "id" : 1614238
               }, {
                 "name" : "q",
                 "type" : "java.lang.Integer",
                 "value" : "4",
-                "id" : 737892411
+                "id" : 1825656946
               } ],
-              "id" : 1729984625
+              "id" : 1591683105
             } ],
-            "id" : 1525872948
+            "id" : 409007038
           } ], [ {
             "type" : "hProjekt.model.grid.Tile$Type",
             "value" : "PLAINS",
-            "id" : 1238959340
+            "id" : 215219944
           }, {
-            "id" : 1725485102
+            "id" : 2026873444
           } ], [ {
             "type" : "hProjekt.model.grid.Tile$Type",
             "value" : "BEACH",
-            "id" : 1437260786
+            "id" : 1192171522
           }, {
             "type" : "java.util.Set",
             "value" : [ {
               "type" : "hProjekt.model.grid.TilePosition",
               "fields" : [ {
                 "name" : "r",
-                "id" : 1823014131
+                "id" : 1614238
               }, {
                 "name" : "q",
                 "type" : "java.lang.Integer",
                 "value" : "3",
-                "id" : 622043416
+                "id" : 994584048
               } ],
-              "id" : 1286544660
+              "id" : 1126112943
             } ],
-            "id" : 91324463
+            "id" : 1216863787
           } ] ],
-          "id" : 733971938
+          "id" : 1007550632
         }, {
           "name" : "random",
           "type" : "java.util.Random",
           "fields" : [ {
             "name" : "haveNextNextGaussian",
-            "id" : 1777381620
+            "id" : 1621615881
           }, {
             "name" : "nextNextGaussian",
             "type" : "java.lang.Double",
             "value" : "0.0",
-            "id" : 2055200034
+            "id" : 855286124
           }, {
             "name" : "seed",
             "type" : "java.util.concurrent.atomic.AtomicLong",
             "fields" : [ {
               "name" : "value",
               "type" : "java.lang.Long",
-              "value" : "117416597249208",
-              "id" : 867941534
+              "value" : "257683789017129",
+              "id" : 876600793
             } ],
-            "id" : 451712278
+            "id" : 162667475
           } ],
-          "id" : 1681088799
+          "id" : 1097380
         }, {
           "name" : "structures",
           "type" : "java.util.Map",
           "value" : [ ],
-          "id" : 1069094843
+          "id" : 251666609
         }, {
           "name" : "tiles",
           "type" : "java.util.Map",
           "value" : [ [ {
-            "id" : 1450456358
+            "id" : 1126112943
           }, {
             "type" : "hProjekt.model.grid.TileImpl",
             "fields" : [ {
               "name" : "area",
-              "id" : 1725485102
+              "id" : 1216863787
             }, {
               "name" : "hasAmulet",
-              "id" : 1777381620
+              "id" : 1621615881
             }, {
               "name" : "hexGrid",
-              "id" : 1476906088
+              "id" : 1900307803
+            }, {
+              "name" : "type",
+              "id" : 1192171522
+            }, {
+              "name" : "position",
+              "id" : 1126112943
+            } ],
+            "id" : 212874257
+          } ], [ {
+            "id" : 1252713736
+          }, {
+            "type" : "hProjekt.model.grid.TileImpl",
+            "fields" : [ {
+              "name" : "area",
+              "id" : 2026873444
+            }, {
+              "name" : "hasAmulet",
+              "id" : 1621615881
+            }, {
+              "name" : "hexGrid",
+              "id" : 1900307803
+            }, {
+              "name" : "type",
+              "id" : 215219944
+            }, {
+              "name" : "position",
+              "id" : 1252713736
+            } ],
+            "id" : 665641137
+          } ], [ {
+            "id" : 373973695
+          }, {
+            "type" : "hProjekt.model.grid.TileImpl",
+            "fields" : [ {
+              "name" : "area",
+              "id" : 2026873444
+            }, {
+              "name" : "hasAmulet",
+              "id" : 1621615881
+            }, {
+              "name" : "hexGrid",
+              "id" : 1900307803
+            }, {
+              "name" : "type",
+              "id" : 215219944
+            }, {
+              "name" : "position",
+              "id" : 373973695
+            } ],
+            "id" : 2076627578
+          } ], [ {
+            "id" : 101740901
+          }, {
+            "type" : "hProjekt.model.grid.TileImpl",
+            "fields" : [ {
+              "name" : "area",
+              "id" : 2026873444
+            }, {
+              "name" : "hasAmulet",
+              "id" : 1621615881
+            }, {
+              "name" : "hexGrid",
+              "id" : 1900307803
+            }, {
+              "name" : "type",
+              "id" : 215219944
+            }, {
+              "name" : "position",
+              "id" : 101740901
+            } ],
+            "id" : 1280959582
+          } ], [ {
+            "id" : 1266435158
+          }, {
+            "type" : "hProjekt.model.grid.TileImpl",
+            "fields" : [ {
+              "name" : "area",
+              "id" : 2026873444
+            }, {
+              "name" : "hasAmulet",
+              "id" : 1621615881
+            }, {
+              "name" : "hexGrid",
+              "id" : 1900307803
+            }, {
+              "name" : "type",
+              "id" : 215219944
+            }, {
+              "name" : "position",
+              "id" : 1266435158
+            } ],
+            "id" : 745966298
+          } ], [ {
+            "id" : 100703210
+          }, {
+            "type" : "hProjekt.model.grid.TileImpl",
+            "fields" : [ {
+              "name" : "area",
+              "id" : 2026873444
+            }, {
+              "name" : "hasAmulet",
+              "id" : 1621615881
+            }, {
+              "name" : "hexGrid",
+              "id" : 1900307803
+            }, {
+              "name" : "type",
+              "id" : 215219944
+            }, {
+              "name" : "position",
+              "id" : 100703210
+            } ],
+            "id" : 1491890454
+          } ], [ {
+            "id" : 254812619
+          }, {
+            "type" : "hProjekt.model.grid.TileImpl",
+            "fields" : [ {
+              "name" : "area",
+              "id" : 2026873444
+            }, {
+              "name" : "hasAmulet",
+              "id" : 1621615881
+            }, {
+              "name" : "hexGrid",
+              "id" : 1900307803
+            }, {
+              "name" : "type",
+              "id" : 215219944
+            }, {
+              "name" : "position",
+              "id" : 254812619
+            } ],
+            "id" : 1673389762
+          } ], [ {
+            "id" : 179233442
+          }, {
+            "type" : "hProjekt.model.grid.TileImpl",
+            "fields" : [ {
+              "name" : "area",
+              "id" : 2026873444
+            }, {
+              "name" : "hasAmulet",
+              "id" : 1621615881
+            }, {
+              "name" : "hexGrid",
+              "id" : 1900307803
+            }, {
+              "name" : "type",
+              "id" : 215219944
+            }, {
+              "name" : "position",
+              "id" : 179233442
+            } ],
+            "id" : 1855997464
+          } ], [ {
+            "id" : 300659126
+          }, {
+            "id" : 1970707120
+          } ], [ {
+            "id" : 1591683105
+          }, {
+            "type" : "hProjekt.model.grid.TileImpl",
+            "fields" : [ {
+              "name" : "area",
+              "id" : 409007038
+            }, {
+              "name" : "hasAmulet",
+              "id" : 1621615881
+            }, {
+              "name" : "hexGrid",
+              "id" : 1900307803
             }, {
               "name" : "type",
               "id" : 1238959340
             }, {
               "name" : "position",
-              "id" : 1450456358
+              "id" : 1591683105
             } ],
-            "id" : 122510467
-          } ], [ {
-            "id" : 1274112917
-          }, {
-            "type" : "hProjekt.model.grid.TileImpl",
-            "fields" : [ {
-              "name" : "area",
-              "id" : 1725485102
-            }, {
-              "name" : "hasAmulet",
-              "id" : 1777381620
-            }, {
-              "name" : "hexGrid",
-              "id" : 1476906088
-            }, {
-              "name" : "type",
-              "id" : 1238959340
-            }, {
-              "name" : "position",
-              "id" : 1274112917
-            } ],
-            "id" : 758760442
-          } ], [ {
-            "id" : 1265544856
-          }, {
-            "id" : 783082940
-          } ], [ {
-            "id" : 2107171856
-          }, {
-            "type" : "hProjekt.model.grid.TileImpl",
-            "fields" : [ {
-              "name" : "area",
-              "id" : 1725485102
-            }, {
-              "name" : "hasAmulet",
-              "id" : 1777381620
-            }, {
-              "name" : "hexGrid",
-              "id" : 1476906088
-            }, {
-              "name" : "type",
-              "id" : 1238959340
-            }, {
-              "name" : "position",
-              "id" : 2107171856
-            } ],
-            "id" : 276444723
-          } ], [ {
-            "id" : 1819731164
-          }, {
-            "type" : "hProjekt.model.grid.TileImpl",
-            "fields" : [ {
-              "name" : "area",
-              "id" : 1725485102
-            }, {
-              "name" : "hasAmulet",
-              "id" : 1777381620
-            }, {
-              "name" : "hexGrid",
-              "id" : 1476906088
-            }, {
-              "name" : "type",
-              "id" : 1238959340
-            }, {
-              "name" : "position",
-              "id" : 1819731164
-            } ],
-            "id" : 1187455430
-          } ], [ {
-            "id" : 1286544660
-          }, {
-            "type" : "hProjekt.model.grid.TileImpl",
-            "fields" : [ {
-              "name" : "area",
-              "id" : 91324463
-            }, {
-              "name" : "hasAmulet",
-              "id" : 1777381620
-            }, {
-              "name" : "hexGrid",
-              "id" : 1476906088
-            }, {
-              "name" : "type",
-              "id" : 1437260786
-            }, {
-              "name" : "position",
-              "id" : 1286544660
-            } ],
-            "id" : 569112902
-          } ], [ {
-            "id" : 490706068
-          }, {
-            "type" : "hProjekt.model.grid.TileImpl",
-            "fields" : [ {
-              "name" : "area",
-              "id" : 1725485102
-            }, {
-              "name" : "hasAmulet",
-              "id" : 1777381620
-            }, {
-              "name" : "hexGrid",
-              "id" : 1476906088
-            }, {
-              "name" : "type",
-              "id" : 1238959340
-            }, {
-              "name" : "position",
-              "id" : 490706068
-            } ],
-            "id" : 1346404798
-          } ], [ {
-            "id" : 624850114
-          }, {
-            "type" : "hProjekt.model.grid.TileImpl",
-            "fields" : [ {
-              "name" : "area",
-              "id" : 1725485102
-            }, {
-              "name" : "hasAmulet",
-              "id" : 1777381620
-            }, {
-              "name" : "hexGrid",
-              "id" : 1476906088
-            }, {
-              "name" : "type",
-              "id" : 1238959340
-            }, {
-              "name" : "position",
-              "id" : 624850114
-            } ],
-            "id" : 111824709
-          } ], [ {
-            "id" : 1729984625
-          }, {
-            "type" : "hProjekt.model.grid.TileImpl",
-            "fields" : [ {
-              "name" : "area",
-              "id" : 1525872948
-            }, {
-              "name" : "hasAmulet",
-              "id" : 1777381620
-            }, {
-              "name" : "hexGrid",
-              "id" : 1476906088
-            }, {
-              "name" : "type",
-              "id" : 1360840444
-            }, {
-              "name" : "position",
-              "id" : 1729984625
-            } ],
-            "id" : 865719216
-          } ], [ {
-            "id" : 463078215
-          }, {
-            "type" : "hProjekt.model.grid.TileImpl",
-            "fields" : [ {
-              "name" : "area",
-              "id" : 1725485102
-            }, {
-              "name" : "hasAmulet",
-              "id" : 1777381620
-            }, {
-              "name" : "hexGrid",
-              "id" : 1476906088
-            }, {
-              "name" : "type",
-              "id" : 1238959340
-            }, {
-              "name" : "position",
-              "id" : 463078215
-            } ],
-            "id" : 1741749279
+            "id" : 239648666
           } ] ],
-          "id" : 910203035
+          "id" : 1973281540
         } ],
-        "id" : 1476906088
+        "id" : 1900307803
       }, {
         "name" : "type",
-        "id" : 1238959340
+        "id" : 215219944
       }, {
         "name" : "position",
-        "id" : 1265544856
+        "id" : 300659126
       } ],
-      "id" : 783082940
+      "id" : 1970707120
     }, {
-      "id" : 1187455430
+      "id" : 1280959582
     }, {
-      "id" : 758760442
+      "id" : 1855997464
     }, {
-      "id" : 276444723
+      "id" : 2076627578
     }, {
-      "id" : 122510467
+      "id" : 745966298
     }, {
-      "id" : 1346404798
+      "id" : 665641137
     }, {
-      "id" : 111824709
+      "id" : 1673389762
     } ],
-    "id" : 915654064
+    "id" : 89144801
   }
 } ]

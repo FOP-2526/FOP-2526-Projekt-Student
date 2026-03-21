@@ -25,6 +25,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
+import java.util.Stack;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -69,6 +70,12 @@ public class MockConverterP extends JsonConverterP {
 
     protected Map<Class<?>, Function<Object, Object>> solutionToStudentMapper = new NonHashMap<>() {
         {
+            put(Stack.class, (stack) -> {
+                Stack<?> original = (Stack<?>) stack;
+                Stack<Object> converted = new Stack<>();
+                original.forEach(e -> converted.push(getStudentObjectForSolution(e)));
+                return converted;
+            });
             put(
                     List.class,
                     (list) -> ((List<?>) list).stream()
@@ -121,58 +128,49 @@ public class MockConverterP extends JsonConverterP {
 
     protected Map<Class<?>, Function<Object, Object>> studentToSolutionMapper = new NonHashMap<>() {
         {
+            put(Stack.class, (stack) -> {
+                Stack<?> original = (Stack<?>) stack;
+                Stack<Object> converted = new Stack<>();
+                original.forEach(e -> converted.push(getSolutionForStudentObject(e)));
+                return converted;
+            });
             put(
-                    List.class,
-                    (list) -> ((List<?>) list).stream()
-                            .map(e -> getSolutionForStudentObject(e))
+                    List.class, (list) -> ((List<?>) list).stream().map(e -> getSolutionForStudentObject(e))
                             .collect(Collectors.toCollection(hProjekt.mocking.ArrayList::new)));
-            put(
-                    Set.class,
-                    (list) -> ((Set<?>) list).stream()
-                            .map(e -> getSolutionForStudentObject(e))
-                            .collect(Collectors.toCollection(ArraySet::new)));
-            put(
-                    Map.class,
-                    (map) -> new NonHashMap<>(((Map<?, ?>) map).entrySet()
-                            .stream()
+            put(Set.class, (list) -> ((Set<?>) list).stream().map(e -> getSolutionForStudentObject(e))
+                    .collect(Collectors.toCollection(ArraySet::new)));
+            put(Map.class,
+                    (map) -> new NonHashMap<>(((Map<?, ?>) map).entrySet().stream()
                             .map(e -> Map.entry(getSolutionForStudentObject(e.getKey()),
                                     getSolutionForStudentObject(e.getValue())))
                             .collect(Collectors.toMap(Entry::getKey, Entry::getValue))));
-            put(
-                    Map.Entry.class,
-                    (entry) -> Map.entry(
-                            getSolutionForStudentObject(((Entry<?, ?>) entry).getKey()),
-                            getSolutionForStudentObject(((Entry<?, ?>) entry).getValue())));
+            put(Map.Entry.class, (entry) -> Map.entry(getSolutionForStudentObject(((Entry<?, ?>) entry).getKey()),
+                    getSolutionForStudentObject(((Entry<?, ?>) entry).getValue())));
             // TODO wrap in constructing new Property
             for (Class<?> wrapper : solutionValueWrapper) {
-                put(
-                        wrapper,
-                        (property) -> {
-                            try {
-                                Object returnedValue = ReflectionUtilsP.getUnsafe()
-                                        .allocateInstance(property.getClass());
+                put(wrapper, (property) -> {
+                    try {
+                        Object returnedValue = ReflectionUtilsP.getUnsafe().allocateInstance(property.getClass());
 
-                                for (Field f : ReflectionUtilsP.getAllFields(property.getClass(), false).stream()
-                                        .filter(field -> ReflectionUtilsP.filterCopiedFields(field, entryPoint))
-                                        .toList()) {
-                                    Object fieldValue = ReflectionUtilsP.getFieldValue(property, f.getName());
+                        for (Field f : ReflectionUtilsP.getAllFields(property.getClass(), false).stream()
+                                .filter(field -> ReflectionUtilsP.filterCopiedFields(field, entryPoint)).toList()) {
+                            Object fieldValue = ReflectionUtilsP.getFieldValue(property, f.getName());
 
-                                    Object solutionObject = getSolutionForStudentObject(fieldValue);
+                            Object solutionObject = getSolutionForStudentObject(fieldValue);
 
-                                    if (solutionObject != null) {
-                                        ReflectionUtilsP.setFieldValue(returnedValue, f.getName(), solutionObject);
-                                        continue;
-                                    }
-
-                                    ReflectionUtilsP.setFieldValue(returnedValue, f.getName(), fieldValue);
-                                }
-                                return returnedValue;
-                            } catch (InstantiationException e) {
-                                throw new RuntimeException(
-                                        "Could not allocate solution instance of class %s for object %s"
-                                                .formatted(property.getClass(), property));
+                            if (solutionObject != null) {
+                                ReflectionUtilsP.setFieldValue(returnedValue, f.getName(), solutionObject);
+                                continue;
                             }
-                        });
+
+                            ReflectionUtilsP.setFieldValue(returnedValue, f.getName(), fieldValue);
+                        }
+                        return returnedValue;
+                    } catch (InstantiationException e) {
+                        throw new RuntimeException("Could not allocate solution instance of class %s for object %s"
+                                .formatted(property.getClass(), property));
+                    }
+                });
             }
         }
     };
