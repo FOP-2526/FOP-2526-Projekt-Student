@@ -244,13 +244,34 @@ public class HProjekt_RubricProviderPublic implements RubricProvider {
             .maxPoints(7)
             .minPoints(0)
             .addChildCriteria(
-                    privateCriterion("PlayerController: collectAmulet ist teilweise korrekt implementiert."),
-                    privateCriterion("PlayerController: collectAmulet ist vollständig korrekt implementiert."),
-                    privateCriterion("PlayerController: selectTileToRemove ist teilweise korrekt implementiert."),
-                    privateCriterion("PlayerController: selectTileToRemove ist vollständig korrekt implementiert."),
-                    privateCriterion("PlayerController: useAmulet ist grundlegend implementiert."),
-                    privateCriterion("PlayerController: useAmulet ist teilweise korrekt implementiert."),
-                    privateCriterion("PlayerController: useAmulet ist vollständig korrekt implementiert."))
+                    criterion("PlayerController: collectAmulet ist teilweise korrekt implementiert.",
+                            JUnitTestRef.ofMethod(
+                                    () -> PlayerControllerTest.class.getMethod("testCollectAmulet_basic",
+                                            ObjectNode.class))),
+                    criterion("PlayerController: collectAmulet ist vollständig korrekt implementiert.",
+                            JUnitTestRef.ofMethod(
+                                    () -> PlayerControllerTest.class.getMethod("testCollectAmulet_complete",
+                                            ObjectNode.class))),
+                    criterion("PlayerController: selectTileToRemove ist teilweise korrekt implementiert.",
+                            JUnitTestRef.ofMethod(
+                                    () -> PlayerControllerTest.class.getMethod("testSelectTileToRemove_basic",
+                                            ObjectNode.class))),
+                    criterion("PlayerController: selectTileToRemove ist vollständig korrekt implementiert.",
+                            JUnitTestRef.ofMethod(
+                                    () -> PlayerControllerTest.class.getMethod("testSelectTileToRemove_complete",
+                                            ObjectNode.class))),
+                    criterion("PlayerController: useAmulet ist grundlegend implementiert.",
+                            JUnitTestRef.ofMethod(
+                                    () -> PlayerControllerTest.class.getMethod("testUseAmulet_basic",
+                                            ObjectNode.class))),
+                    criterion("PlayerController: useAmulet ist teilweise korrekt implementiert.",
+                            JUnitTestRef.ofMethod(
+                                    () -> PlayerControllerTest.class.getMethod("testUseAmulet_mid",
+                                            ObjectNode.class))),
+                    criterion("PlayerController: useAmulet ist vollständig korrekt implementiert.",
+                            JUnitTestRef.ofMethod(
+                                    () -> PlayerControllerTest.class.getMethod("testUseAmulet_complete",
+                                            ObjectNode.class))))
             .build();
 
     // P2.5 (2 Points)
