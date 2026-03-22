@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Stack;
+import java.util.stream.Collectors;
 
 import org.tudalgo.algoutils.student.annotation.DoNotTouch;
 import org.tudalgo.algoutils.student.annotation.StudentImplementationRequired;
@@ -349,7 +350,8 @@ public class GameController {
 
     @Override
     public String toString() {
-        return "GameController[" + "state=" + state + ", playerControllers=" + playerControllers
-                + ", activePlayerController=" + activePlayerController + ", stopped=" + stopped + ']';
+        return "GameController[" + "state=" + state + ", playerControllers=" + playerControllers.keySet().stream()
+                .map(Player::getName).collect(Collectors.joining(", ", "{", "}"))
+                + ", stopped=" + stopped + ']';
     }
 }
