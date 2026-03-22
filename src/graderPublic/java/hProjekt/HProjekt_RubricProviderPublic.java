@@ -12,6 +12,7 @@ import org.tudalgo.algoutils.tutor.general.json.JsonParameterSet;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+import hProjekt.controller.GameControllerTest;
 import hProjekt.controller.LeaderboardControllerTests;
 import hProjekt.controller.PlayerControllerTest;
 import hProjekt.model.grid.GameStateTest;
@@ -280,8 +281,12 @@ public class HProjekt_RubricProviderPublic implements RubricProvider {
             .maxPoints(2)
             .minPoints(0)
             .addChildCriteria(
-                    privateCriterion("GameController: curse ist teilweise korrekt implementiert."),
-                    privateCriterion("GameController: curse ist vollständig korrekt implementiert."))
+                    criterion("GameController: curse ist teilweise korrekt implementiert.",
+                            JUnitTestRef.ofMethod(() -> GameControllerTest.class.getDeclaredMethod("testCurse_basic",
+                                    ObjectNode.class))),
+                    criterion("GameController: curse ist vollständig korrekt implementiert.",
+                            JUnitTestRef.ofMethod(() -> GameControllerTest.class.getDeclaredMethod("testCurse_complete",
+                                    ObjectNode.class))))
             .build();
 
     // P2.6 (12 Points)
@@ -291,21 +296,57 @@ public class HProjekt_RubricProviderPublic implements RubricProvider {
             .minPoints(0)
             .addChildCriteria(
                     // offerTreasure (3)
-                    privateCriterion("offerTreasure ist grundlegend implementiert."),
-                    privateCriterion("offerTreasure ist teilweise korrekt implementiert."),
-                    privateCriterion("offerTreasure ist vollständig korrekt implementiert."),
+                    criterion("offerTreasure ist grundlegend implementiert.",
+                            JUnitTestRef.ofMethod(
+                                    () -> GameControllerTest.class.getDeclaredMethod("testOfferTreasure_basic",
+                                            ObjectNode.class))),
+                    criterion("offerTreasure ist teilweise korrekt implementiert.",
+                            JUnitTestRef
+                                    .ofMethod(() -> GameControllerTest.class.getDeclaredMethod("testOfferTreasure_mid",
+                                            ObjectNode.class))),
+                    criterion("offerTreasure ist vollständig korrekt implementiert.",
+                            JUnitTestRef.ofMethod(
+                                    () -> GameControllerTest.class.getDeclaredMethod("testOfferTreasure_complete",
+                                            ObjectNode.class))),
                     // drawAndShuffleTreasureCards (3)
-                    privateCriterion("drawAndShuffleTreasureCards ist grundlegend implementiert."),
-                    privateCriterion("drawAndShuffleTreasureCards ist teilweise korrekt implementiert."),
-                    privateCriterion("drawAndShuffleTreasureCards ist vollständig korrekt implementiert."),
+                    criterion("drawAndShuffleTreasureCards ist grundlegend implementiert.",
+                            JUnitTestRef.ofMethod(() -> GameControllerTest.class.getDeclaredMethod(
+                                    "testDrawAndShuffleTreasureCards_basic",
+                                    ObjectNode.class))),
+                    criterion("drawAndShuffleTreasureCards ist teilweise korrekt implementiert.",
+                            JUnitTestRef.ofMethod(() -> GameControllerTest.class.getDeclaredMethod(
+                                    "testDrawAndShuffleTreasureCards_mid",
+                                    ObjectNode.class))),
+                    criterion("drawAndShuffleTreasureCards ist vollständig korrekt implementiert.",
+                            JUnitTestRef.ofMethod(() -> GameControllerTest.class.getDeclaredMethod(
+                                    "testDrawAndShuffleTreasureCards_complete",
+                                    ObjectNode.class))),
                     // distributeTreasureCards (3)
-                    privateCriterion("distributeTreasureCards ist grundlegend implementiert."),
-                    privateCriterion("distributeTreasureCards ist teilweise korrekt implementiert."),
-                    privateCriterion("distributeTreasureCards ist vollständig korrekt implementiert."),
+                    criterion("distributeTreasureCards ist grundlegend implementiert.",
+                            JUnitTestRef.ofMethod(() -> GameControllerTest.class.getDeclaredMethod(
+                                    "testDistributeTreasureCards_basic",
+                                    ObjectNode.class))),
+                    criterion("distributeTreasureCards ist teilweise korrekt implementiert.",
+                            JUnitTestRef.ofMethod(
+                                    () -> GameControllerTest.class.getDeclaredMethod("testDistributeTreasureCards_mid",
+                                            ObjectNode.class))),
+                    criterion("distributeTreasureCards ist vollständig korrekt implementiert.",
+                            JUnitTestRef.ofMethod(() -> GameControllerTest.class.getDeclaredMethod(
+                                    "testDistributeTreasureCards_complete",
+                                    ObjectNode.class))),
                     // collectTreasure (3)
-                    privateCriterion("GameController: collectTreasure ist grundlegend implementiert."),
-                    privateCriterion("GameController: collectTreasure ist teilweise korrekt implementiert."),
-                    privateCriterion("GameController: collectTreasure ist vollständig korrekt implementiert."))
+                    criterion("GameController: collectTreasure ist grundlegend implementiert.",
+                            JUnitTestRef.ofMethod(
+                                    () -> GameControllerTest.class.getDeclaredMethod("testCollectTreasure_basic",
+                                            ObjectNode.class))),
+                    criterion("GameController: collectTreasure ist teilweise korrekt implementiert.",
+                            JUnitTestRef.ofMethod(
+                                    () -> GameControllerTest.class.getDeclaredMethod("testCollectTreasure_mid",
+                                            ObjectNode.class))),
+                    criterion("GameController: collectTreasure ist vollständig korrekt implementiert.",
+                            JUnitTestRef.ofMethod(
+                                    () -> GameControllerTest.class.getDeclaredMethod("testCollectTreasure_complete",
+                                            ObjectNode.class))))
             .build();
 
     // P2.7 (2 Points)
@@ -314,10 +355,14 @@ public class HProjekt_RubricProviderPublic implements RubricProvider {
             .maxPoints(2)
             .minPoints(0)
             .addChildCriteria(
-                    privateCriterion(
-                            "PlayerController: updateCollectableTreasure ist teilweise korrekt implementiert."),
-                    privateCriterion(
-                            "PlayerController: updateCollectableTreasure ist vollständig korrekt implementiert."))
+                    criterion(
+                            "PlayerController: updateCollectableTreasure ist teilweise korrekt implementiert.",
+                            JUnitTestRef.ofMethod(() -> PlayerControllerTest.class
+                                    .getDeclaredMethod("testUpdateCollectableTreasure_basic", ObjectNode.class))),
+                    criterion(
+                            "PlayerController: updateCollectableTreasure ist vollständig korrekt implementiert.",
+                            JUnitTestRef.ofMethod(() -> PlayerControllerTest.class
+                                    .getDeclaredMethod("testUpdateCollectableTreasure_complete", ObjectNode.class))))
             .build();
 
     private static final Criterion HProjekt_2 = Criterion.builder()

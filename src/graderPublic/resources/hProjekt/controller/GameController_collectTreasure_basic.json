@@ -1,0 +1,1663 @@
+[ {
+  "invoked" : 1573125303,
+  "entryPoint" : "hProjekt.controller.GameController#collectTreasure(javafx.scene.paint.Color)",
+  "arguments" : [ 548093498 ],
+  "calls" : [ {
+    "id" : 1570228900,
+    "methodCalls" : [ {
+      "methodName" : "getPlayer",
+      "invocations" : [ {
+        "return" : 1928983164,
+        "parameter" : [ ]
+      } ]
+    } ]
+  }, {
+    "id" : 1573125303,
+    "methodCalls" : [ {
+      "methodName" : "getState",
+      "invocations" : [ {
+        "return" : 368727462,
+        "parameter" : [ ]
+      } ]
+    } ]
+  }, {
+    "id" : 1111173986,
+    "methodCalls" : [ {
+      "methodName" : "getPlayer",
+      "invocations" : [ {
+        "return" : 1422883946,
+        "parameter" : [ ]
+      } ]
+    } ]
+  }, {
+    "id" : 368727462,
+    "methodCalls" : [ {
+      "methodName" : "getGrid",
+      "invocations" : [ {
+        "return" : 2096194236,
+        "parameter" : [ ]
+      } ]
+    }, {
+      "methodName" : "getPlayers",
+      "invocations" : [ {
+        "return" : 1190857779,
+        "parameter" : [ ]
+      } ]
+    } ]
+  }, {
+    "id" : 2096194236,
+    "methodCalls" : [ {
+      "methodName" : "getStructures",
+      "invocations" : [ {
+        "return" : 2130242983,
+        "parameter" : [ ]
+      } ]
+    }, {
+      "methodName" : "spawnAmulets",
+      "invocations" : [ {
+        "return" : 0,
+        "parameter" : [ ]
+      } ]
+    } ]
+  }, {
+    "id" : 1180383462,
+    "methodCalls" : [ {
+      "methodName" : "getPlayer",
+      "invocations" : [ {
+        "return" : 1680841335,
+        "parameter" : [ ]
+      } ]
+    } ]
+  }, {
+    "id" : 1268124507,
+    "methodCalls" : [ {
+      "methodName" : "getPlayer",
+      "invocations" : [ {
+        "return" : 1422883946,
+        "parameter" : [ ]
+      } ]
+    } ]
+  }, {
+    "id" : 2142536057,
+    "methodCalls" : [ {
+      "methodName" : "getPlayer",
+      "invocations" : [ {
+        "return" : 1422883946,
+        "parameter" : [ ]
+      } ]
+    } ]
+  }, {
+    "id" : 224113092,
+    "methodCalls" : [ {
+      "methodName" : "getPlayer",
+      "invocations" : [ {
+        "return" : 1928983164,
+        "parameter" : [ ]
+      } ]
+    } ]
+  } ],
+  "objects" : [ {
+    "type" : "hProjekt.controller.GameController",
+    "fields" : [ {
+      "name" : "stopped",
+      "type" : "java.lang.Boolean",
+      "value" : "false",
+      "id" : 1579356102
+    }, {
+      "name" : "activePlayerController",
+      "type" : "javafx.beans.property.SimpleObjectProperty",
+      "fields" : [ {
+        "name" : "helper",
+        "type" : "null",
+        "id" : 0
+      }, {
+        "name" : "valid",
+        "type" : "java.lang.Boolean",
+        "value" : "true",
+        "id" : 2055422401
+      }, {
+        "name" : "listener",
+        "id" : 0
+      }, {
+        "name" : "observable",
+        "id" : 0
+      }, {
+        "name" : "value",
+        "id" : 0
+      }, {
+        "name" : "name",
+        "type" : "java.lang.String",
+        "value" : "",
+        "id" : 212397882
+      }, {
+        "name" : "bean",
+        "id" : 0
+      } ],
+      "id" : 2124562732
+    }, {
+      "name" : "roundCounter",
+      "type" : "javafx.beans.property.SimpleIntegerProperty",
+      "fields" : [ {
+        "name" : "helper",
+        "id" : 0
+      }, {
+        "name" : "valid",
+        "id" : 2055422401
+      }, {
+        "name" : "listener",
+        "id" : 0
+      }, {
+        "name" : "observable",
+        "id" : 0
+      }, {
+        "name" : "value",
+        "type" : "java.lang.Integer",
+        "value" : "0",
+        "id" : 386153220
+      }, {
+        "name" : "name",
+        "id" : 212397882
+      }, {
+        "name" : "bean",
+        "id" : 0
+      } ],
+      "id" : 644399750
+    }, {
+      "name" : "aiControllers",
+      "type" : "java.util.List",
+      "value" : [ ],
+      "id" : 1361009437
+    }, {
+      "name" : "playerControllers",
+      "type" : "java.util.Map",
+      "value" : [ [ {
+        "type" : "hProjekt.model.PlayerImpl",
+        "fields" : [ {
+          "name" : "goldCards",
+          "type" : "java.util.List",
+          "value" : [ ],
+          "id" : 1108651663
+        }, {
+          "name" : "pathCards",
+          "type" : "java.util.Set",
+          "value" : [ ],
+          "id" : 2074687317
+        }, {
+          "name" : "amulets",
+          "id" : 386153220
+        }, {
+          "name" : "aiController",
+          "id" : 0
+        }, {
+          "name" : "position",
+          "id" : 0
+        }, {
+          "name" : "color",
+          "type" : "javafx.scene.paint.Color",
+          "fields" : [ {
+            "name" : "platformPaint",
+            "id" : 0
+          }, {
+            "name" : "opacity",
+            "type" : "java.lang.Float",
+            "value" : "1.0",
+            "id" : 1415812333
+          }, {
+            "name" : "blue",
+            "type" : "java.lang.Float",
+            "value" : "0.08778715",
+            "id" : 1715606187
+          }, {
+            "name" : "green",
+            "type" : "java.lang.Float",
+            "value" : "0.1929803",
+            "id" : 647218712
+          }, {
+            "name" : "red",
+            "type" : "java.lang.Float",
+            "value" : "0.8561677",
+            "id" : 876864630
+          } ],
+          "id" : 1982216126
+        }, {
+          "name" : "id",
+          "type" : "java.lang.Integer",
+          "value" : "1",
+          "id" : 2093996783
+        }, {
+          "name" : "name",
+          "type" : "java.lang.String",
+          "value" : "Player1",
+          "id" : 174999703
+        }, {
+          "name" : "hexGrid",
+          "type" : "hProjekt.testOverrides.TestHexGridImpl",
+          "fields" : [ {
+            "name" : "biggestAreas",
+            "type" : "java.util.Map",
+            "value" : [ [ {
+              "type" : "hProjekt.model.grid.Tile$Type",
+              "value" : "PLAINS",
+              "id" : 694316372
+            }, {
+              "type" : "java.util.Set",
+              "value" : [ {
+                "type" : "hProjekt.model.grid.TilePosition",
+                "fields" : [ {
+                  "name" : "r",
+                  "id" : 386153220
+                }, {
+                  "name" : "q",
+                  "id" : 386153220
+                } ],
+                "id" : 1315038402
+              } ],
+              "id" : 431939256
+            } ] ],
+            "id" : 854977732
+          }, {
+            "name" : "random",
+            "type" : "java.util.Random",
+            "fields" : [ {
+              "name" : "haveNextNextGaussian",
+              "id" : 1579356102
+            }, {
+              "name" : "nextNextGaussian",
+              "type" : "java.lang.Double",
+              "value" : "0.0",
+              "id" : 463759298
+            }, {
+              "name" : "seed",
+              "type" : "java.util.concurrent.atomic.AtomicLong",
+              "fields" : [ {
+                "name" : "value",
+                "type" : "java.lang.Long",
+                "value" : "25214903854",
+                "id" : 1677115089
+              } ],
+              "id" : 150079886
+            } ],
+            "id" : 10304615
+          }, {
+            "name" : "structures",
+            "type" : "java.util.Map",
+            "value" : [ ],
+            "id" : 2130242983
+          }, {
+            "name" : "tiles",
+            "type" : "java.util.Map",
+            "value" : [ [ {
+              "id" : 1315038402
+            }, {
+              "type" : "hProjekt.model.grid.TileImpl",
+              "fields" : [ {
+                "name" : "area",
+                "id" : 431939256
+              }, {
+                "name" : "hasAmulet",
+                "id" : 1579356102
+              }, {
+                "name" : "hexGrid",
+                "id" : 2096194236
+              }, {
+                "name" : "type",
+                "id" : 694316372
+              }, {
+                "name" : "position",
+                "id" : 1315038402
+              } ],
+              "id" : 87845070
+            } ] ],
+            "id" : 291284958
+          } ],
+          "id" : 2096194236
+        } ],
+        "id" : 1928983164
+      }, {
+        "type" : "hProjekt.testOverrides.TestPlayerController",
+        "fields" : [ {
+          "name" : "validPathCards",
+          "type" : "java.util.Map",
+          "value" : [ ],
+          "id" : 704530496
+        }, {
+          "name" : "driveCount",
+          "id" : 386153220
+        }, {
+          "name" : "hasAcceptedTreasure",
+          "id" : 1579356102
+        }, {
+          "name" : "offeredGoldCard",
+          "id" : 0
+        }, {
+          "name" : "drawnTreasureCards",
+          "type" : "java.util.List",
+          "value" : [ ],
+          "id" : 2133359512
+        }, {
+          "name" : "treasureCardsToDraw",
+          "id" : 386153220
+        }, {
+          "name" : "playerObjective",
+          "type" : "hProjekt.controller.PlayerObjective",
+          "value" : "IDLE",
+          "id" : 2127814459
+        }, {
+          "name" : "player",
+          "id" : 1928983164
+        }, {
+          "name" : "gameController",
+          "id" : 1573125303
+        }, {
+          "name" : "treasureCardsToDraw",
+          "id" : 386153220
+        }, {
+          "name" : "localGameController",
+          "id" : 1573125303
+        }, {
+          "name" : "acceptTreasure",
+          "id" : 1579356102
+        } ],
+        "id" : 224113092
+      } ], [ {
+        "type" : "hProjekt.model.PlayerImpl",
+        "fields" : [ {
+          "name" : "goldCards",
+          "type" : "java.util.List",
+          "value" : [ ],
+          "id" : 1183065103
+        }, {
+          "name" : "pathCards",
+          "type" : "java.util.Set",
+          "value" : [ ],
+          "id" : 840042838
+        }, {
+          "name" : "amulets",
+          "id" : 386153220
+        }, {
+          "name" : "aiController",
+          "id" : 0
+        }, {
+          "name" : "position",
+          "id" : 0
+        }, {
+          "name" : "color",
+          "type" : "javafx.scene.paint.Color",
+          "fields" : [ {
+            "name" : "platformPaint",
+            "id" : 0
+          }, {
+            "name" : "opacity",
+            "type" : "java.lang.Float",
+            "value" : "1.0",
+            "id" : 1415812333
+          }, {
+            "name" : "blue",
+            "type" : "java.lang.Float",
+            "value" : "0.16066308",
+            "id" : 847141861
+          }, {
+            "name" : "green",
+            "type" : "java.lang.Float",
+            "value" : "0.028620655",
+            "id" : 277130309
+          }, {
+            "name" : "red",
+            "type" : "java.lang.Float",
+            "value" : "0.2564564",
+            "id" : 1450121298
+          } ],
+          "id" : 87784678
+        }, {
+          "name" : "id",
+          "id" : 386153220
+        }, {
+          "name" : "name",
+          "type" : "java.lang.String",
+          "value" : "Player0",
+          "id" : 1856128687
+        }, {
+          "name" : "hexGrid",
+          "id" : 2096194236
+        } ],
+        "id" : 1422883946
+      }, {
+        "type" : "hProjekt.testOverrides.TestPlayerController",
+        "fields" : [ {
+          "name" : "validPathCards",
+          "type" : "java.util.Map",
+          "value" : [ ],
+          "id" : 776178157
+        }, {
+          "name" : "driveCount",
+          "id" : 386153220
+        }, {
+          "name" : "hasAcceptedTreasure",
+          "id" : 1579356102
+        }, {
+          "name" : "offeredGoldCard",
+          "id" : 0
+        }, {
+          "name" : "drawnTreasureCards",
+          "type" : "java.util.List",
+          "value" : [ ],
+          "id" : 462487268
+        }, {
+          "name" : "treasureCardsToDraw",
+          "id" : 386153220
+        }, {
+          "name" : "playerObjective",
+          "id" : 2127814459
+        }, {
+          "name" : "player",
+          "id" : 1422883946
+        }, {
+          "name" : "gameController",
+          "id" : 1573125303
+        }, {
+          "name" : "treasureCardsToDraw",
+          "id" : 386153220
+        }, {
+          "name" : "localGameController",
+          "id" : 1573125303
+        }, {
+          "name" : "acceptTreasure",
+          "id" : 1579356102
+        } ],
+        "id" : 1268124507
+      } ], [ {
+        "type" : "hProjekt.model.PlayerImpl",
+        "fields" : [ {
+          "name" : "goldCards",
+          "type" : "java.util.List",
+          "value" : [ ],
+          "id" : 890488908
+        }, {
+          "name" : "pathCards",
+          "type" : "java.util.Set",
+          "value" : [ ],
+          "id" : 1232631679
+        }, {
+          "name" : "amulets",
+          "id" : 386153220
+        }, {
+          "name" : "aiController",
+          "id" : 0
+        }, {
+          "name" : "position",
+          "id" : 0
+        }, {
+          "name" : "color",
+          "type" : "javafx.scene.paint.Color",
+          "fields" : [ {
+            "name" : "platformPaint",
+            "id" : 0
+          }, {
+            "name" : "opacity",
+            "type" : "java.lang.Float",
+            "value" : "1.0",
+            "id" : 1415812333
+          }, {
+            "name" : "blue",
+            "type" : "java.lang.Float",
+            "value" : "0.3377941",
+            "id" : 1740453150
+          }, {
+            "name" : "green",
+            "type" : "java.lang.Float",
+            "value" : "0.79586476",
+            "id" : 1288163341
+          }, {
+            "name" : "red",
+            "type" : "java.lang.Float",
+            "value" : "0.24725166",
+            "id" : 1183745381
+          } ],
+          "id" : 1446301940
+        }, {
+          "name" : "id",
+          "type" : "java.lang.Integer",
+          "value" : "2",
+          "id" : 152937115
+        }, {
+          "name" : "name",
+          "type" : "java.lang.String",
+          "value" : "Player2",
+          "id" : 117859171
+        }, {
+          "name" : "hexGrid",
+          "id" : 2096194236
+        } ],
+        "id" : 1680841335
+      }, {
+        "type" : "hProjekt.testOverrides.TestPlayerController",
+        "fields" : [ {
+          "name" : "validPathCards",
+          "type" : "java.util.Map",
+          "value" : [ ],
+          "id" : 1974701110
+        }, {
+          "name" : "driveCount",
+          "id" : 386153220
+        }, {
+          "name" : "hasAcceptedTreasure",
+          "id" : 1579356102
+        }, {
+          "name" : "offeredGoldCard",
+          "id" : 0
+        }, {
+          "name" : "drawnTreasureCards",
+          "type" : "java.util.List",
+          "value" : [ ],
+          "id" : 1193577032
+        }, {
+          "name" : "treasureCardsToDraw",
+          "id" : 386153220
+        }, {
+          "name" : "playerObjective",
+          "id" : 2127814459
+        }, {
+          "name" : "player",
+          "id" : 1680841335
+        }, {
+          "name" : "gameController",
+          "id" : 1573125303
+        }, {
+          "name" : "treasureCardsToDraw",
+          "id" : 386153220
+        }, {
+          "name" : "localGameController",
+          "id" : 1573125303
+        }, {
+          "name" : "acceptTreasure",
+          "id" : 2055422401
+        } ],
+        "id" : 1180383462
+      } ] ],
+      "id" : 1283634655
+    }, {
+      "name" : "state",
+      "type" : "hProjekt.model.GameState",
+      "fields" : [ {
+        "name" : "treasureDeck",
+        "type" : "java.util.Stack",
+        "value" : [ {
+          "type" : "hProjekt.model.cards.GoldCard",
+          "fields" : [ {
+            "name" : "value",
+            "type" : "java.lang.Integer",
+            "value" : "3",
+            "id" : 2128310218
+          } ],
+          "id" : 253613492
+        }, {
+          "type" : "hProjekt.model.cards.GoldCard",
+          "fields" : [ {
+            "name" : "value",
+            "id" : 152937115
+          } ],
+          "id" : 1222590577
+        }, {
+          "type" : "hProjekt.model.cards.GoldCard",
+          "fields" : [ {
+            "name" : "value",
+            "id" : 2093996783
+          } ],
+          "id" : 875768717
+        }, {
+          "type" : "hProjekt.model.cards.GoldCard",
+          "fields" : [ {
+            "name" : "value",
+            "type" : "java.lang.Integer",
+            "value" : "12",
+            "id" : 500096147
+          } ],
+          "id" : 1871362568
+        }, {
+          "type" : "hProjekt.model.cards.GoldCard",
+          "fields" : [ {
+            "name" : "value",
+            "type" : "java.lang.Integer",
+            "value" : "678234",
+            "id" : 1902216702
+          } ],
+          "id" : 1387511555
+        }, {
+          "type" : "hProjekt.model.cards.GoldCard",
+          "fields" : [ {
+            "name" : "value",
+            "type" : "java.lang.Integer",
+            "value" : "67676767",
+            "id" : 1653309853
+          } ],
+          "id" : 1177206467
+        }, {
+          "type" : "hProjekt.model.cards.CurseCard",
+          "fields" : [ ],
+          "id" : 2141178045
+        }, {
+          "id" : 2141178045
+        }, {
+          "type" : "hProjekt.model.cards.GoldCard",
+          "fields" : [ {
+            "name" : "value",
+            "type" : "java.lang.Integer",
+            "value" : "14125",
+            "id" : 1200293689
+          } ],
+          "id" : 1038002783
+        }, {
+          "type" : "hProjekt.model.cards.GoldCard",
+          "fields" : [ {
+            "name" : "value",
+            "type" : "java.lang.Integer",
+            "value" : "42",
+            "id" : 751460639
+          } ],
+          "id" : 2137034273
+        }, {
+          "type" : "hProjekt.model.cards.GoldCard",
+          "fields" : [ {
+            "name" : "value",
+            "type" : "java.lang.Integer",
+            "value" : "666",
+            "id" : 1375297293
+          } ],
+          "id" : 554510956
+        } ],
+        "id" : 592048461
+      }, {
+        "name" : "winnerProperty",
+        "type" : "javafx.beans.property.SimpleObjectProperty",
+        "fields" : [ {
+          "name" : "helper",
+          "id" : 0
+        }, {
+          "name" : "valid",
+          "id" : 2055422401
+        }, {
+          "name" : "listener",
+          "id" : 0
+        }, {
+          "name" : "observable",
+          "id" : 0
+        }, {
+          "name" : "value",
+          "id" : 0
+        }, {
+          "name" : "name",
+          "id" : 212397882
+        }, {
+          "name" : "bean",
+          "id" : 0
+        } ],
+        "id" : 858507952
+      }, {
+        "name" : "treasurePositions",
+        "type" : "java.util.Map",
+        "value" : [ ],
+        "id" : 1874901958
+      }, {
+        "name" : "treasureTrails",
+        "type" : "java.util.Map",
+        "value" : [ [ {
+          "type" : "javafx.scene.paint.Color",
+          "fields" : [ {
+            "name" : "platformPaint",
+            "id" : 0
+          }, {
+            "name" : "opacity",
+            "type" : "java.lang.Float",
+            "value" : "1.0",
+            "id" : 1415812333
+          }, {
+            "name" : "blue",
+            "type" : "java.lang.Float",
+            "value" : "0.9411765",
+            "id" : 340441475
+          }, {
+            "name" : "green",
+            "type" : "java.lang.Float",
+            "value" : "0.98039216",
+            "id" : 2126392903
+          }, {
+            "name" : "red",
+            "type" : "java.lang.Float",
+            "value" : "1.0",
+            "id" : 1415812333
+          } ],
+          "id" : 548093498
+        }, {
+          "type" : "java.util.List",
+          "value" : [ {
+            "type" : "hProjekt.model.cards.NextToCard",
+            "fields" : [ {
+              "name" : "type",
+              "type" : "hProjekt.model.cards.CardType",
+              "value" : "NEXT_TO",
+              "id" : 2098041249
+            }, {
+              "name" : "tileFilterFunction",
+              "type" : "java.util.function.Predicate",
+              "fields" : [ ],
+              "id" : 1812995265
+            }, {
+              "name" : "filterType",
+              "id" : 694316372
+            }, {
+              "name" : "player",
+              "id" : 1422883946
+            } ],
+            "id" : 1111173986
+          }, {
+            "type" : "hProjekt.model.cards.NextToCard",
+            "fields" : [ {
+              "name" : "type",
+              "id" : 2098041249
+            }, {
+              "name" : "tileFilterFunction",
+              "type" : "java.util.function.Predicate",
+              "fields" : [ ],
+              "id" : 1283906060
+            }, {
+              "name" : "filterType",
+              "id" : 694316372
+            }, {
+              "name" : "player",
+              "id" : 1422883946
+            } ],
+            "id" : 2142536057
+          }, {
+            "type" : "hProjekt.model.cards.NextToCard",
+            "fields" : [ {
+              "name" : "type",
+              "id" : 2098041249
+            }, {
+              "name" : "tileFilterFunction",
+              "type" : "java.util.function.Predicate",
+              "fields" : [ ],
+              "id" : 1195909598
+            }, {
+              "name" : "filterType",
+              "id" : 694316372
+            }, {
+              "name" : "player",
+              "id" : 1928983164
+            } ],
+            "id" : 1570228900
+          } ],
+          "id" : 1807397140
+        } ], [ {
+          "type" : "javafx.scene.paint.Color",
+          "fields" : [ {
+            "name" : "platformPaint",
+            "id" : 0
+          }, {
+            "name" : "opacity",
+            "type" : "java.lang.Float",
+            "value" : "1.0",
+            "id" : 1415812333
+          }, {
+            "name" : "blue",
+            "type" : "java.lang.Float",
+            "value" : "0.93333334",
+            "id" : 633226335
+          }, {
+            "name" : "green",
+            "type" : "java.lang.Float",
+            "value" : "0.93333334",
+            "id" : 633226335
+          }, {
+            "name" : "red",
+            "type" : "java.lang.Float",
+            "value" : "0.6862745",
+            "id" : 1670849676
+          } ],
+          "id" : 1030014337
+        }, {
+          "type" : "java.util.List",
+          "value" : [ ],
+          "id" : 636886060
+        } ], [ {
+          "type" : "javafx.scene.paint.Color",
+          "fields" : [ {
+            "name" : "platformPaint",
+            "id" : 0
+          }, {
+            "name" : "opacity",
+            "type" : "java.lang.Float",
+            "value" : "1.0",
+            "id" : 1415812333
+          }, {
+            "name" : "blue",
+            "type" : "java.lang.Float",
+            "value" : "0.49803922",
+            "id" : 2000851008
+          }, {
+            "name" : "green",
+            "type" : "java.lang.Float",
+            "value" : "1.0",
+            "id" : 1415812333
+          }, {
+            "name" : "red",
+            "type" : "java.lang.Float",
+            "value" : "0.0",
+            "id" : 942217109
+          } ],
+          "id" : 1590028899
+        }, {
+          "type" : "java.util.List",
+          "value" : [ {
+            "id" : 1111173986
+          }, {
+            "type" : "hProjekt.model.cards.NextToCard",
+            "fields" : [ {
+              "name" : "type",
+              "id" : 2098041249
+            }, {
+              "name" : "tileFilterFunction",
+              "type" : "java.util.function.Predicate",
+              "fields" : [ ],
+              "id" : 1552133633
+            }, {
+              "name" : "filterType",
+              "id" : 694316372
+            }, {
+              "name" : "player",
+              "id" : 1680841335
+            } ],
+            "id" : 1100004490
+          } ],
+          "id" : 592207425
+        } ] ],
+        "id" : 1886247880
+      }, {
+        "name" : "players",
+        "type" : "java.util.List",
+        "value" : [ {
+          "id" : 1422883946
+        }, {
+          "id" : 1928983164
+        }, {
+          "id" : 1680841335
+        } ],
+        "id" : 1089407736
+      }, {
+        "name" : "grid",
+        "id" : 2096194236
+      } ],
+      "id" : 368727462
+    } ],
+    "id" : 1573125303
+  }, {
+    "type" : "java.util.List",
+    "value" : [ {
+      "id" : 1422883946
+    }, {
+      "id" : 1928983164
+    }, {
+      "id" : 1680841335
+    } ],
+    "id" : 1190857779
+  } ],
+  "expected" : {
+    "type" : "hProjekt.controller.GameController",
+    "fields" : [ {
+      "name" : "stopped",
+      "type" : "java.lang.Boolean",
+      "value" : "false",
+      "id" : 1579356102
+    }, {
+      "name" : "activePlayerController",
+      "type" : "javafx.beans.property.SimpleObjectProperty",
+      "fields" : [ {
+        "name" : "helper",
+        "type" : "null",
+        "id" : 0
+      }, {
+        "name" : "valid",
+        "id" : 1579356102
+      }, {
+        "name" : "listener",
+        "id" : 0
+      }, {
+        "name" : "observable",
+        "id" : 0
+      }, {
+        "name" : "value",
+        "id" : 0
+      }, {
+        "name" : "name",
+        "type" : "java.lang.String",
+        "value" : "",
+        "id" : 212397882
+      }, {
+        "name" : "bean",
+        "id" : 0
+      } ],
+      "id" : 2124562732
+    }, {
+      "name" : "roundCounter",
+      "type" : "javafx.beans.property.SimpleIntegerProperty",
+      "fields" : [ {
+        "name" : "helper",
+        "id" : 0
+      }, {
+        "name" : "valid",
+        "type" : "java.lang.Boolean",
+        "value" : "true",
+        "id" : 2055422401
+      }, {
+        "name" : "listener",
+        "id" : 0
+      }, {
+        "name" : "observable",
+        "id" : 0
+      }, {
+        "name" : "value",
+        "type" : "java.lang.Integer",
+        "value" : "0",
+        "id" : 386153220
+      }, {
+        "name" : "name",
+        "id" : 212397882
+      }, {
+        "name" : "bean",
+        "id" : 0
+      } ],
+      "id" : 644399750
+    }, {
+      "name" : "aiControllers",
+      "type" : "java.util.List",
+      "value" : [ ],
+      "id" : 1361009437
+    }, {
+      "name" : "playerControllers",
+      "type" : "java.util.Map",
+      "value" : [ [ {
+        "type" : "hProjekt.model.PlayerImpl",
+        "fields" : [ {
+          "name" : "goldCards",
+          "type" : "java.util.List",
+          "value" : [ ],
+          "id" : 1108651663
+        }, {
+          "name" : "pathCards",
+          "type" : "java.util.Set",
+          "value" : [ ],
+          "id" : 2074687317
+        }, {
+          "name" : "amulets",
+          "id" : 386153220
+        }, {
+          "name" : "aiController",
+          "id" : 0
+        }, {
+          "name" : "position",
+          "id" : 0
+        }, {
+          "name" : "color",
+          "type" : "javafx.scene.paint.Color",
+          "fields" : [ {
+            "name" : "platformPaint",
+            "id" : 0
+          }, {
+            "name" : "opacity",
+            "type" : "java.lang.Float",
+            "value" : "1.0",
+            "id" : 1986679541
+          }, {
+            "name" : "blue",
+            "type" : "java.lang.Float",
+            "value" : "0.08778715",
+            "id" : 70528019
+          }, {
+            "name" : "green",
+            "type" : "java.lang.Float",
+            "value" : "0.1929803",
+            "id" : 731979931
+          }, {
+            "name" : "red",
+            "type" : "java.lang.Float",
+            "value" : "0.8561677",
+            "id" : 2082740895
+          } ],
+          "id" : 1982216126
+        }, {
+          "name" : "id",
+          "type" : "java.lang.Integer",
+          "value" : "1",
+          "id" : 2093996783
+        }, {
+          "name" : "name",
+          "type" : "java.lang.String",
+          "value" : "Player1",
+          "id" : 174999703
+        }, {
+          "name" : "hexGrid",
+          "type" : "hProjekt.testOverrides.TestHexGridImpl",
+          "fields" : [ {
+            "name" : "biggestAreas",
+            "type" : "java.util.Map",
+            "value" : [ [ {
+              "type" : "hProjekt.model.grid.Tile$Type",
+              "value" : "PLAINS",
+              "id" : 694316372
+            }, {
+              "type" : "java.util.Set",
+              "value" : [ {
+                "type" : "hProjekt.model.grid.TilePosition",
+                "fields" : [ {
+                  "name" : "r",
+                  "id" : 386153220
+                }, {
+                  "name" : "q",
+                  "id" : 386153220
+                } ],
+                "id" : 1315038402
+              } ],
+              "id" : 431939256
+            } ] ],
+            "id" : 854977732
+          }, {
+            "name" : "random",
+            "type" : "java.util.Random",
+            "fields" : [ {
+              "name" : "haveNextNextGaussian",
+              "id" : 1579356102
+            }, {
+              "name" : "nextNextGaussian",
+              "type" : "java.lang.Double",
+              "value" : "0.0",
+              "id" : 1492980244
+            }, {
+              "name" : "seed",
+              "type" : "java.util.concurrent.atomic.AtomicLong",
+              "fields" : [ {
+                "name" : "value",
+                "type" : "java.lang.Long",
+                "value" : "25214903854",
+                "id" : 2106390956
+              } ],
+              "id" : 150079886
+            } ],
+            "id" : 10304615
+          }, {
+            "name" : "structures",
+            "type" : "java.util.Map",
+            "value" : [ ],
+            "id" : 2130242983
+          }, {
+            "name" : "tiles",
+            "type" : "java.util.Map",
+            "value" : [ [ {
+              "id" : 1315038402
+            }, {
+              "type" : "hProjekt.model.grid.TileImpl",
+              "fields" : [ {
+                "name" : "area",
+                "id" : 431939256
+              }, {
+                "name" : "hasAmulet",
+                "id" : 1579356102
+              }, {
+                "name" : "hexGrid",
+                "id" : 2096194236
+              }, {
+                "name" : "type",
+                "id" : 694316372
+              }, {
+                "name" : "position",
+                "id" : 1315038402
+              } ],
+              "id" : 87845070
+            } ] ],
+            "id" : 291284958
+          } ],
+          "id" : 2096194236
+        } ],
+        "id" : 1928983164
+      }, {
+        "type" : "hProjekt.testOverrides.TestPlayerController",
+        "fields" : [ {
+          "name" : "validPathCards",
+          "type" : "java.util.Map",
+          "value" : [ ],
+          "id" : 704530496
+        }, {
+          "name" : "driveCount",
+          "id" : 386153220
+        }, {
+          "name" : "hasAcceptedTreasure",
+          "id" : 1579356102
+        }, {
+          "name" : "offeredGoldCard",
+          "type" : "hProjekt.model.cards.GoldCard",
+          "fields" : [ {
+            "name" : "value",
+            "type" : "java.lang.Integer",
+            "value" : "42",
+            "id" : 751460639
+          } ],
+          "id" : 2137034273
+        }, {
+          "name" : "drawnTreasureCards",
+          "type" : "java.util.List",
+          "value" : [ {
+            "type" : "hProjekt.model.cards.GoldCard",
+            "fields" : [ {
+              "name" : "value",
+              "type" : "java.lang.Integer",
+              "value" : "666",
+              "id" : 61321954
+            } ],
+            "id" : 554510956
+          } ],
+          "id" : 1594600318
+        }, {
+          "name" : "treasureCardsToDraw",
+          "id" : 2093996783
+        }, {
+          "name" : "playerObjective",
+          "type" : "hProjekt.controller.PlayerObjective",
+          "value" : "IDLE",
+          "id" : 2127814459
+        }, {
+          "name" : "player",
+          "id" : 1928983164
+        }, {
+          "name" : "gameController",
+          "id" : 1573125303
+        }, {
+          "name" : "treasureCardsToDraw",
+          "id" : 2093996783
+        }, {
+          "name" : "localGameController",
+          "id" : 1573125303
+        }, {
+          "name" : "acceptTreasure",
+          "id" : 1579356102
+        } ],
+        "id" : 224113092
+      } ], [ {
+        "type" : "hProjekt.model.PlayerImpl",
+        "fields" : [ {
+          "name" : "goldCards",
+          "type" : "java.util.List",
+          "value" : [ ],
+          "id" : 1183065103
+        }, {
+          "name" : "pathCards",
+          "type" : "java.util.Set",
+          "value" : [ ],
+          "id" : 840042838
+        }, {
+          "name" : "amulets",
+          "id" : 386153220
+        }, {
+          "name" : "aiController",
+          "id" : 0
+        }, {
+          "name" : "position",
+          "id" : 0
+        }, {
+          "name" : "color",
+          "type" : "javafx.scene.paint.Color",
+          "fields" : [ {
+            "name" : "platformPaint",
+            "id" : 0
+          }, {
+            "name" : "opacity",
+            "type" : "java.lang.Float",
+            "value" : "1.0",
+            "id" : 1986679541
+          }, {
+            "name" : "blue",
+            "type" : "java.lang.Float",
+            "value" : "0.16066308",
+            "id" : 690070378
+          }, {
+            "name" : "green",
+            "type" : "java.lang.Float",
+            "value" : "0.028620655",
+            "id" : 729005419
+          }, {
+            "name" : "red",
+            "type" : "java.lang.Float",
+            "value" : "0.2564564",
+            "id" : 360528453
+          } ],
+          "id" : 87784678
+        }, {
+          "name" : "id",
+          "id" : 386153220
+        }, {
+          "name" : "name",
+          "type" : "java.lang.String",
+          "value" : "Player0",
+          "id" : 1856128687
+        }, {
+          "name" : "hexGrid",
+          "id" : 2096194236
+        } ],
+        "id" : 1422883946
+      }, {
+        "type" : "hProjekt.testOverrides.TestPlayerController",
+        "fields" : [ {
+          "name" : "validPathCards",
+          "type" : "java.util.Map",
+          "value" : [ ],
+          "id" : 776178157
+        }, {
+          "name" : "driveCount",
+          "id" : 386153220
+        }, {
+          "name" : "hasAcceptedTreasure",
+          "id" : 1579356102
+        }, {
+          "name" : "offeredGoldCard",
+          "id" : 2137034273
+        }, {
+          "name" : "drawnTreasureCards",
+          "type" : "java.util.List",
+          "value" : [ {
+            "id" : 2137034273
+          }, {
+            "type" : "hProjekt.model.cards.GoldCard",
+            "fields" : [ {
+              "name" : "value",
+              "type" : "java.lang.Integer",
+              "value" : "14125",
+              "id" : 1368391951
+            } ],
+            "id" : 1038002783
+          } ],
+          "id" : 1963906615
+        }, {
+          "name" : "treasureCardsToDraw",
+          "type" : "java.lang.Integer",
+          "value" : "2",
+          "id" : 152937115
+        }, {
+          "name" : "playerObjective",
+          "id" : 2127814459
+        }, {
+          "name" : "player",
+          "id" : 1422883946
+        }, {
+          "name" : "gameController",
+          "id" : 1573125303
+        }, {
+          "name" : "treasureCardsToDraw",
+          "id" : 152937115
+        }, {
+          "name" : "localGameController",
+          "id" : 1573125303
+        }, {
+          "name" : "acceptTreasure",
+          "id" : 1579356102
+        } ],
+        "id" : 1268124507
+      } ], [ {
+        "type" : "hProjekt.model.PlayerImpl",
+        "fields" : [ {
+          "name" : "goldCards",
+          "type" : "java.util.List",
+          "value" : [ ],
+          "id" : 890488908
+        }, {
+          "name" : "pathCards",
+          "type" : "java.util.Set",
+          "value" : [ ],
+          "id" : 1232631679
+        }, {
+          "name" : "amulets",
+          "id" : 386153220
+        }, {
+          "name" : "aiController",
+          "id" : 0
+        }, {
+          "name" : "position",
+          "id" : 0
+        }, {
+          "name" : "color",
+          "type" : "javafx.scene.paint.Color",
+          "fields" : [ {
+            "name" : "platformPaint",
+            "id" : 0
+          }, {
+            "name" : "opacity",
+            "type" : "java.lang.Float",
+            "value" : "1.0",
+            "id" : 1986679541
+          }, {
+            "name" : "blue",
+            "type" : "java.lang.Float",
+            "value" : "0.3377941",
+            "id" : 468567811
+          }, {
+            "name" : "green",
+            "type" : "java.lang.Float",
+            "value" : "0.79586476",
+            "id" : 416355623
+          }, {
+            "name" : "red",
+            "type" : "java.lang.Float",
+            "value" : "0.24725166",
+            "id" : 1234757451
+          } ],
+          "id" : 1446301940
+        }, {
+          "name" : "id",
+          "id" : 152937115
+        }, {
+          "name" : "name",
+          "type" : "java.lang.String",
+          "value" : "Player2",
+          "id" : 117859171
+        }, {
+          "name" : "hexGrid",
+          "id" : 2096194236
+        } ],
+        "id" : 1680841335
+      }, {
+        "type" : "hProjekt.testOverrides.TestPlayerController",
+        "fields" : [ {
+          "name" : "validPathCards",
+          "type" : "java.util.Map",
+          "value" : [ ],
+          "id" : 1974701110
+        }, {
+          "name" : "driveCount",
+          "id" : 386153220
+        }, {
+          "name" : "hasAcceptedTreasure",
+          "id" : 1579356102
+        }, {
+          "name" : "offeredGoldCard",
+          "id" : 0
+        }, {
+          "name" : "drawnTreasureCards",
+          "type" : "java.util.List",
+          "value" : [ ],
+          "id" : 1193577032
+        }, {
+          "name" : "treasureCardsToDraw",
+          "id" : 386153220
+        }, {
+          "name" : "playerObjective",
+          "id" : 2127814459
+        }, {
+          "name" : "player",
+          "id" : 1680841335
+        }, {
+          "name" : "gameController",
+          "id" : 1573125303
+        }, {
+          "name" : "treasureCardsToDraw",
+          "id" : 386153220
+        }, {
+          "name" : "localGameController",
+          "id" : 1573125303
+        }, {
+          "name" : "acceptTreasure",
+          "id" : 2055422401
+        } ],
+        "id" : 1180383462
+      } ] ],
+      "id" : 1283634655
+    }, {
+      "name" : "state",
+      "type" : "hProjekt.model.GameState",
+      "fields" : [ {
+        "name" : "treasureDeck",
+        "type" : "java.util.Stack",
+        "value" : [ {
+          "type" : "hProjekt.model.cards.GoldCard",
+          "fields" : [ {
+            "name" : "value",
+            "type" : "java.lang.Integer",
+            "value" : "3",
+            "id" : 2128310218
+          } ],
+          "id" : 253613492
+        }, {
+          "type" : "hProjekt.model.cards.GoldCard",
+          "fields" : [ {
+            "name" : "value",
+            "id" : 152937115
+          } ],
+          "id" : 1222590577
+        }, {
+          "type" : "hProjekt.model.cards.GoldCard",
+          "fields" : [ {
+            "name" : "value",
+            "id" : 2093996783
+          } ],
+          "id" : 875768717
+        }, {
+          "type" : "hProjekt.model.cards.GoldCard",
+          "fields" : [ {
+            "name" : "value",
+            "type" : "java.lang.Integer",
+            "value" : "12",
+            "id" : 500096147
+          } ],
+          "id" : 1871362568
+        }, {
+          "type" : "hProjekt.model.cards.GoldCard",
+          "fields" : [ {
+            "name" : "value",
+            "type" : "java.lang.Integer",
+            "value" : "678234",
+            "id" : 1569164069
+          } ],
+          "id" : 1387511555
+        }, {
+          "type" : "hProjekt.model.cards.GoldCard",
+          "fields" : [ {
+            "name" : "value",
+            "type" : "java.lang.Integer",
+            "value" : "67676767",
+            "id" : 673684041
+          } ],
+          "id" : 1177206467
+        }, {
+          "type" : "hProjekt.model.cards.CurseCard",
+          "fields" : [ ],
+          "id" : 2141178045
+        } ],
+        "id" : 592048461
+      }, {
+        "name" : "winnerProperty",
+        "type" : "javafx.beans.property.SimpleObjectProperty",
+        "fields" : [ {
+          "name" : "helper",
+          "id" : 0
+        }, {
+          "name" : "valid",
+          "id" : 2055422401
+        }, {
+          "name" : "listener",
+          "id" : 0
+        }, {
+          "name" : "observable",
+          "id" : 0
+        }, {
+          "name" : "value",
+          "id" : 0
+        }, {
+          "name" : "name",
+          "id" : 212397882
+        }, {
+          "name" : "bean",
+          "id" : 0
+        } ],
+        "id" : 858507952
+      }, {
+        "name" : "treasurePositions",
+        "type" : "java.util.Map",
+        "value" : [ [ {
+          "type" : "javafx.scene.paint.Color",
+          "fields" : [ {
+            "name" : "platformPaint",
+            "id" : 0
+          }, {
+            "name" : "opacity",
+            "type" : "java.lang.Float",
+            "value" : "1.0",
+            "id" : 1986679541
+          }, {
+            "name" : "blue",
+            "type" : "java.lang.Float",
+            "value" : "0.9411765",
+            "id" : 912511162
+          }, {
+            "name" : "green",
+            "type" : "java.lang.Float",
+            "value" : "0.98039216",
+            "id" : 1465691120
+          }, {
+            "name" : "red",
+            "type" : "java.lang.Float",
+            "value" : "1.0",
+            "id" : 1986679541
+          } ],
+          "id" : 548093498
+        }, {
+          "type" : "java.util.Set",
+          "value" : [ ],
+          "id" : 90628418
+        } ] ],
+        "id" : 1874901958
+      }, {
+        "name" : "treasureTrails",
+        "type" : "java.util.Map",
+        "value" : [ [ {
+          "id" : 548093498
+        }, {
+          "type" : "java.util.List",
+          "value" : [ ],
+          "id" : 1807397140
+        } ], [ {
+          "type" : "javafx.scene.paint.Color",
+          "fields" : [ {
+            "name" : "platformPaint",
+            "id" : 0
+          }, {
+            "name" : "opacity",
+            "type" : "java.lang.Float",
+            "value" : "1.0",
+            "id" : 1986679541
+          }, {
+            "name" : "blue",
+            "type" : "java.lang.Float",
+            "value" : "0.93333334",
+            "id" : 1872627924
+          }, {
+            "name" : "green",
+            "type" : "java.lang.Float",
+            "value" : "0.93333334",
+            "id" : 1872627924
+          }, {
+            "name" : "red",
+            "type" : "java.lang.Float",
+            "value" : "0.6862745",
+            "id" : 1883269062
+          } ],
+          "id" : 1030014337
+        }, {
+          "type" : "java.util.List",
+          "value" : [ ],
+          "id" : 636886060
+        } ], [ {
+          "type" : "javafx.scene.paint.Color",
+          "fields" : [ {
+            "name" : "platformPaint",
+            "id" : 0
+          }, {
+            "name" : "opacity",
+            "type" : "java.lang.Float",
+            "value" : "1.0",
+            "id" : 1986679541
+          }, {
+            "name" : "blue",
+            "type" : "java.lang.Float",
+            "value" : "0.49803922",
+            "id" : 1610803524
+          }, {
+            "name" : "green",
+            "type" : "java.lang.Float",
+            "value" : "1.0",
+            "id" : 1986679541
+          }, {
+            "name" : "red",
+            "type" : "java.lang.Float",
+            "value" : "0.0",
+            "id" : 721975085
+          } ],
+          "id" : 1590028899
+        }, {
+          "type" : "java.util.List",
+          "value" : [ {
+            "type" : "hProjekt.model.cards.NextToCard",
+            "fields" : [ {
+              "name" : "type",
+              "type" : "hProjekt.model.cards.CardType",
+              "value" : "NEXT_TO",
+              "id" : 2098041249
+            }, {
+              "name" : "tileFilterFunction",
+              "type" : "java.util.function.Predicate",
+              "fields" : [ ],
+              "id" : 1812995265
+            }, {
+              "name" : "filterType",
+              "id" : 694316372
+            }, {
+              "name" : "player",
+              "id" : 1422883946
+            } ],
+            "id" : 1111173986
+          }, {
+            "type" : "hProjekt.model.cards.NextToCard",
+            "fields" : [ {
+              "name" : "type",
+              "id" : 2098041249
+            }, {
+              "name" : "tileFilterFunction",
+              "type" : "java.util.function.Predicate",
+              "fields" : [ ],
+              "id" : 1552133633
+            }, {
+              "name" : "filterType",
+              "id" : 694316372
+            }, {
+              "name" : "player",
+              "id" : 1680841335
+            } ],
+            "id" : 1100004490
+          } ],
+          "id" : 592207425
+        } ] ],
+        "id" : 1886247880
+      }, {
+        "name" : "players",
+        "type" : "java.util.List",
+        "value" : [ {
+          "id" : 1422883946
+        }, {
+          "id" : 1928983164
+        }, {
+          "id" : 1680841335
+        } ],
+        "id" : 1089407736
+      }, {
+        "name" : "grid",
+        "id" : 2096194236
+      } ],
+      "id" : 368727462
+    } ],
+    "id" : 1573125303
+  }
+} ]

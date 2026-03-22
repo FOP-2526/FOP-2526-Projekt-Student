@@ -4,10 +4,7 @@ import static hProjekt.Project_TestP.assertContainsAll;
 import static hProjekt.Project_TestP.assertEqualsWithMatcher;
 import static hProjekt.Project_TestP.assertSetEquals;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyInt;
-import static org.mockito.Mockito.atLeastOnce;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.*;
 import static org.tudalgo.algoutils.tutor.general.assertions.Assertions2.assertEquals;
 import static org.tudalgo.algoutils.tutor.general.assertions.Assertions2.assertNotNull;
 import static org.tudalgo.algoutils.tutor.general.assertions.Assertions2.contextBuilder;
@@ -298,8 +295,7 @@ public class PlayerControllerTest {
                                                         "filterTileByType",
                                                         Types.class))
                                                 .invoke(
-                                                        null, pc.getFilterType())))
-                                                .test(tile);
+                                                        null, pc.getFilterType()))).test(tile);
                                     } catch (Throwable e) {
                                         e.printStackTrace();
                                         throw new RuntimeException(e);
@@ -420,8 +416,7 @@ public class PlayerControllerTest {
                                                         "filterTileByType",
                                                         Types.class))
                                                 .invoke(
-                                                        null, pc.getFilterType())))
-                                                .test(tile);
+                                                        null, pc.getFilterType()))).test(tile);
                                     } catch (Throwable e) {
                                         e.printStackTrace();
                                         throw new RuntimeException(e);
@@ -866,26 +861,27 @@ public class PlayerControllerTest {
             ReflectionUtilsP.getUnsafe().throwException(results.getLast().exception);
         }
 
+
         Throwable lastCall = null;
-        for (StudentMethodCall actual : results) {
+        for (StudentMethodCall actual: results) {
             if (actual.call == null) {
                 lastCall = actual.exception;
                 continue;
             }
             try {
                 Context context = contextBuilder()
-                        .add("invoked", actual.invoked != null ? actual.invoked : "unknown")
-                        .add("parameters", actual.call != null ? actual.call.arguments() : "unknown")
-                        .build();
+                    .add("invoked", actual.invoked != null ? actual.invoked : "unknown")
+                    .add("parameters", actual.call != null ? actual.call.arguments() : "unknown")
+                    .build();
 
                 PlayerController expectedController = ((PlayerController) (expected));
                 PlayerController actualController = ((PlayerController) (actual.invoked));
                 GameState expectedState = ((GameController) (ReflectionUtilsP.getFieldValue(expectedController,
-                        "gameController"))).getState();
+                    "gameController"))).getState();
                 GameState actualState = ((GameController) (ReflectionUtilsP.getFieldValue(actualController,
-                        "gameController"))).getState();
+                    "gameController"))).getState();
                 assertEquals(expectedController.getPlayer().getAmulets(), actualController.getPlayer().getAmulets(),
-                        context, r -> "Amulet count was not updated correctly.");
+                    context, r -> "Amulet count was not updated correctly.");
                 assertContainsAll(expectedState.getGrid().getTiles(), actualState.getGrid().getTiles(), context);
                 return;
             } catch (Throwable e) {
@@ -899,6 +895,7 @@ public class PlayerControllerTest {
         return Project_TestP.parseJsonFile("hProjekt/controller/PlayerController_collectAmulet_basic.json");
     }
 
+
     @ParameterizedTest
     @MethodSource("provideCollectAmulet_complete")
     public void testCollectAmulet_complete(ObjectNode node) throws NoSuchMethodException {
@@ -907,38 +904,35 @@ public class PlayerControllerTest {
         List<StudentMethodCall> results = MockConverterP.recreateCallAndInvoke(node);
 
         Throwable lastCall = null;
-        for (StudentMethodCall actual : results) {
+        for (StudentMethodCall actual: results) {
             if (actual.call == null) {
                 lastCall = actual.exception;
                 continue;
             }
             try {
                 Context context = contextBuilder()
-                        .add("invoked", actual.invoked != null ? actual.invoked : "unknown")
-                        .add("parameters", actual.call != null ? actual.call.arguments() : "unknown")
-                        .add("Exception class", actual.exception != null ? actual.exception.getClass() : "none")
-                        .add("Exception message", actual.exception != null ? actual.exception.getMessage() : "none")
-                        .add("Exception stacktrace",
-                                actual.exception != null ? ReflectionUtilsP.formatStackTrace(actual.exception) : "none")
+                    .add("invoked", actual.invoked != null ? actual.invoked : "unknown")
+                    .add("parameters", actual.call != null ? actual.call.arguments() : "unknown")
+                    .add("Exception class", actual.exception != null ? actual.exception.getClass() : "none")
+                    .add("Exception message", actual.exception != null ? actual.exception.getMessage(): "none")
+                    .add("Exception stacktrace", actual.exception != null ? ReflectionUtilsP.formatStackTrace(actual.exception) : "none")
 
-                        .build();
+                    .build();
 
-                if (expected instanceof Exception && !Exception.class.isAssignableFrom(
-                        ReflectionUtilsP.stringToMethod(node.get("entryPoint").asText()).getReturnType())) {
+                if (expected instanceof Exception && !Exception.class.isAssignableFrom(ReflectionUtilsP.stringToMethod(node.get("entryPoint").asText()).getReturnType())) {
                     assertNotNull(actual.exception, context, r -> "CollectAmulet() did not throw an exception!");
-                    assertEquals(expected.getClass(), actual.exception.getClass(), context,
-                            r -> "CollectAmulet() did not throw an exception of the expected Type");
+                    assertEquals(expected.getClass(), actual.exception.getClass(), context, r -> "CollectAmulet() did not throw an exception of the expected Type");
                     return;
                 }
 
                 PlayerController expectedController = ((PlayerController) (expected));
                 PlayerController actualController = ((PlayerController) (actual.invoked));
                 GameState expectedState = ((GameController) (ReflectionUtilsP.getFieldValue(expectedController,
-                        "gameController"))).getState();
+                    "gameController"))).getState();
                 GameState actualState = ((GameController) (ReflectionUtilsP.getFieldValue(actualController,
-                        "gameController"))).getState();
+                    "gameController"))).getState();
                 assertEquals(expectedController.getPlayer().getAmulets(), actualController.getPlayer().getAmulets(),
-                        context, r -> "Amulet count was not updated correctly.");
+                    context, r -> "Amulet count was not updated correctly.");
                 assertContainsAll(expectedState.getGrid().getTiles(), actualState.getGrid().getTiles(), context);
                 return;
             } catch (Throwable e) {
@@ -955,47 +949,42 @@ public class PlayerControllerTest {
     @ParameterizedTest
     @MethodSource("provideSelectTileToRemove_basic")
     public void testSelectTileToRemove_basic(ObjectNode node) throws NoSuchMethodException {
-        hProjekt.controller.PlayerController.class.getDeclaredMethod("selectTileToRemove",
-                hProjekt.model.grid.TilePosition.class, javafx.scene.paint.Color.class);
+        hProjekt.controller.PlayerController.class.getDeclaredMethod("selectTileToRemove", hProjekt.model.grid.TilePosition.class, javafx.scene.paint.Color.class);
         Object expected = new MockConverterP().fromJsonNodeWithBackfill((ObjectNode) node.get("expected"), null);
         List<StudentMethodCall> results = MockConverterP.recreateCallAndInvoke(node);
 
         Throwable lastCall = null;
-        for (StudentMethodCall actual : results) {
+        for (StudentMethodCall actual: results) {
             if (actual.call == null) {
                 lastCall = actual.exception;
                 continue;
             }
             try {
                 Context context = contextBuilder()
-                        .add("invoked", actual.invoked != null ? actual.invoked : "unknown")
-                        .add("parameters", actual.call != null ? actual.call.arguments() : "unknown")
-                        .add("Exception class", actual.exception != null ? actual.exception.getClass() : "none")
-                        .add("Exception message", actual.exception != null ? actual.exception.getMessage() : "none")
-                        .add("Exception stacktrace",
-                                actual.exception != null ? ReflectionUtilsP.formatStackTrace(actual.exception) : "none")
+                    .add("invoked", actual.invoked != null ? actual.invoked : "unknown")
+                    .add("parameters", actual.call != null ? actual.call.arguments() : "unknown")
+                    .add("Exception class", actual.exception != null ? actual.exception.getClass() : "none")
+                    .add("Exception message", actual.exception != null ? actual.exception.getMessage(): "none")
+                    .add("Exception stacktrace", actual.exception != null ? ReflectionUtilsP.formatStackTrace(actual.exception) : "none")
 
-                        .build();
+                    .build();
 
-                if (expected instanceof Exception && !Exception.class.isAssignableFrom(
-                        ReflectionUtilsP.stringToMethod(node.get("entryPoint").asText()).getReturnType())) {
+                if (expected instanceof Exception && !Exception.class.isAssignableFrom(ReflectionUtilsP.stringToMethod(node.get("entryPoint").asText()).getReturnType())) {
                     assertNotNull(actual.exception, context, r -> "SelectTileToRemove() did not throw an exception!");
-                    assertEquals(expected.getClass(), actual.exception.getClass(), context,
-                            r -> "SelectTileToRemove() did not throw an exception of the expected Type");
+                    assertEquals(expected.getClass(), actual.exception.getClass(), context, r -> "SelectTileToRemove() did not throw an exception of the expected Type");
                     return;
                 }
 
                 PlayerController expectedController = ((PlayerController) (expected));
                 PlayerController actualController = ((PlayerController) (actual.invoked));
                 GameState expectedState = ((GameController) (ReflectionUtilsP.getFieldValue(expectedController,
-                        "gameController"))).getState();
+                    "gameController"))).getState();
                 GameState actualState = ((GameController) (ReflectionUtilsP.getFieldValue(actualController,
-                        "gameController"))).getState();
+                    "gameController"))).getState();
                 assertContainsAll(
-                        ((Map<Color, List<PathCard>>) (ReflectionUtilsP.getFieldValue(expectedState,
-                                "treasureTrails"))),
-                        ((Map<Color, List<PathCard>>) (ReflectionUtilsP.getFieldValue(actualState, "treasureTrails"))),
-                        context);
+                    ((Map<Color, List<PathCard>>) (ReflectionUtilsP.getFieldValue(expectedState, "treasureTrails"))),
+                    ((Map<Color, List<PathCard>>) (ReflectionUtilsP.getFieldValue(actualState, "treasureTrails"))),
+                    context);
                 return;
             } catch (Throwable e) {
                 lastCall = e;
@@ -1008,50 +997,46 @@ public class PlayerControllerTest {
         return Project_TestP.parseJsonFile("hProjekt/controller/PlayerController_selectTileToRemove_basic.json");
     }
 
+
     @ParameterizedTest
     @MethodSource("provideSelectTileToRemove_complete")
     public void testSelectTileToRemove_complete(ObjectNode node) throws NoSuchMethodException {
-        hProjekt.controller.PlayerController.class.getDeclaredMethod("selectTileToRemove",
-                hProjekt.model.grid.TilePosition.class, javafx.scene.paint.Color.class);
+        hProjekt.controller.PlayerController.class.getDeclaredMethod("selectTileToRemove", hProjekt.model.grid.TilePosition.class, javafx.scene.paint.Color.class);
         Object expected = new MockConverterP().fromJsonNodeWithBackfill((ObjectNode) node.get("expected"), null);
         List<StudentMethodCall> results = MockConverterP.recreateCallAndInvoke(node);
 
         Throwable lastCall = null;
-        for (StudentMethodCall actual : results) {
+        for (StudentMethodCall actual: results) {
             if (actual.call == null) {
                 lastCall = actual.exception;
                 continue;
             }
             try {
                 Context context = contextBuilder()
-                        .add("invoked", actual.invoked != null ? actual.invoked : "unknown")
-                        .add("parameters", actual.call != null ? actual.call.arguments() : "unknown")
-                        .add("Exception class", actual.exception != null ? actual.exception.getClass() : "none")
-                        .add("Exception message", actual.exception != null ? actual.exception.getMessage() : "none")
-                        .add("Exception stacktrace",
-                                actual.exception != null ? ReflectionUtilsP.formatStackTrace(actual.exception) : "none")
+                    .add("invoked", actual.invoked != null ? actual.invoked : "unknown")
+                    .add("parameters", actual.call != null ? actual.call.arguments() : "unknown")
+                    .add("Exception class", actual.exception != null ? actual.exception.getClass() : "none")
+                    .add("Exception message", actual.exception != null ? actual.exception.getMessage(): "none")
+                    .add("Exception stacktrace", actual.exception != null ? ReflectionUtilsP.formatStackTrace(actual.exception) : "none")
 
-                        .build();
+                    .build();
 
-                if (expected instanceof Exception && !Exception.class.isAssignableFrom(
-                        ReflectionUtilsP.stringToMethod(node.get("entryPoint").asText()).getReturnType())) {
+                if (expected instanceof Exception && !Exception.class.isAssignableFrom(ReflectionUtilsP.stringToMethod(node.get("entryPoint").asText()).getReturnType())) {
                     assertNotNull(actual.exception, context, r -> "SelectTileToRemove() did not throw an exception!");
-                    assertEquals(expected.getClass(), actual.exception.getClass(), context,
-                            r -> "SelectTileToRemove() did not throw an exception of the expected Type");
+                    assertEquals(expected.getClass(), actual.exception.getClass(), context, r -> "SelectTileToRemove() did not throw an exception of the expected Type");
                     return;
                 }
 
                 PlayerController expectedController = ((PlayerController) (expected));
                 PlayerController actualController = ((PlayerController) (actual.invoked));
                 GameState expectedState = ((GameController) (ReflectionUtilsP.getFieldValue(expectedController,
-                        "gameController"))).getState();
+                    "gameController"))).getState();
                 GameState actualState = ((GameController) (ReflectionUtilsP.getFieldValue(actualController,
-                        "gameController"))).getState();
+                    "gameController"))).getState();
                 assertContainsAll(
-                        ((Map<Color, List<PathCard>>) (ReflectionUtilsP.getFieldValue(expectedState,
-                                "treasureTrails"))),
-                        ((Map<Color, List<PathCard>>) (ReflectionUtilsP.getFieldValue(actualState, "treasureTrails"))),
-                        context);
+                    ((Map<Color, List<PathCard>>) (ReflectionUtilsP.getFieldValue(expectedState, "treasureTrails"))),
+                    ((Map<Color, List<PathCard>>) (ReflectionUtilsP.getFieldValue(actualState, "treasureTrails"))),
+                    context);
                 return;
             } catch (Throwable e) {
                 lastCall = e;
@@ -1067,63 +1052,57 @@ public class PlayerControllerTest {
     @ParameterizedTest
     @MethodSource("provideUseAmulet_basic")
     public void testUseAmulet_basic(ObjectNode node) throws NoSuchMethodException {
-        hProjekt.controller.PlayerController.class.getDeclaredMethod("useAmulet",
-                hProjekt.controller.AmuletAction.class);
+        hProjekt.controller.PlayerController.class.getDeclaredMethod("useAmulet", hProjekt.controller.AmuletAction.class);
         Object expected = new MockConverterP().fromJsonNodeWithBackfill((ObjectNode) node.get("expected"), null);
         Consumer<Object> beforeEach = o -> Config.RANDOM.setSeed(67);
         List<StudentMethodCall> results = MockConverterP.recreateCallAndInvoke(node, beforeEach);
 
         Throwable lastCall = null;
-        for (StudentMethodCall actual : results) {
+        for (StudentMethodCall actual: results) {
             if (actual.call == null) {
                 lastCall = actual.exception;
                 continue;
             }
             try {
                 Context context = contextBuilder()
-                        .add("invoked", actual.invoked != null ? actual.invoked : "unknown")
-                        .add("parameters", actual.call != null ? actual.call.arguments() : "unknown")
-                        .add("Exception class", actual.exception != null ? actual.exception.getClass() : "none")
-                        .add("Exception message", actual.exception != null ? actual.exception.getMessage() : "none")
-                        .add("Exception stacktrace",
-                                actual.exception != null ? ReflectionUtilsP.formatStackTrace(actual.exception) : "none")
+                    .add("invoked", actual.invoked != null ? actual.invoked : "unknown")
+                    .add("parameters", actual.call != null ? actual.call.arguments() : "unknown")
+                    .add("Exception class", actual.exception != null ? actual.exception.getClass() : "none")
+                    .add("Exception message", actual.exception != null ? actual.exception.getMessage(): "none")
+                    .add("Exception stacktrace", actual.exception != null ? ReflectionUtilsP.formatStackTrace(actual.exception) : "none")
 
-                        .build();
+                    .build();
 
-                if (expected instanceof Exception && !Exception.class.isAssignableFrom(
-                        ReflectionUtilsP.stringToMethod(node.get("entryPoint").asText()).getReturnType())) {
+                if (expected instanceof Exception && !Exception.class.isAssignableFrom(ReflectionUtilsP.stringToMethod(node.get("entryPoint").asText()).getReturnType())) {
                     assertNotNull(actual.exception, context, r -> "UseAmulet() did not throw an exception!");
-                    assertEquals(expected.getClass(), actual.exception.getClass(), context,
-                            r -> "UseAmulet() did not throw an exception of the expected Type");
+                    assertEquals(expected.getClass(), actual.exception.getClass(), context, r -> "UseAmulet() did not throw an exception of the expected Type");
                     return;
                 }
 
                 PlayerController expectedController = ((PlayerController) (expected));
                 PlayerController actualController = ((PlayerController) (actual.invoked));
                 assertEquals(expectedController.getPlayer().getAmulets(), actualController.getPlayer().getAmulets(),
-                        context, r -> "Amulet count was not updated correctly.");
+                    context, r -> "Amulet count was not updated correctly.");
                 Arrays.stream(actual.call.arguments()).forEach(arg -> {
                     if (arg instanceof AmuletAction action) {
                         switch (action) {
-                            case REMOVE_TILE:
-                                verify(actualController, times(1))
-                                        .waitForNextAction(PlayerObjective.SELECT_TILE_TO_REMOVE);
-                                break;
-                            case PLAY_HINT:
-                                verify(actualController, times(1)).waitForNextAction(PlayerObjective.PLAY_PATH_CARD);
-                                break;
-                            case EXTRA_DRIVE:
-                                verify(actualController, times(1)).waitForNextAction(PlayerObjective.EXTRA_DRIVE);
-                                assertEquals(ReflectionUtilsP.getFieldValue(expectedController, "driveCount"),
-                                        ReflectionUtilsP.getFieldValue(actualController, "driveCount"), context,
-                                        r -> "driveCount was not reset correctly.");
-                                break;
-                            case REDRAW_PATH_CARDS:
-                                verify(actualController, atLeastOnce()).drawPathCards(anyInt());
-                                // assertSetEquals(expectedController.getPlayer().getPathCards(),
-                                // actualController.getPlayer().getPathCards(), context);
-                                break;
-                        }
+                        case REMOVE_TILE :
+                            verify(actualController, times(1)).waitForNextAction(PlayerObjective.SELECT_TILE_TO_REMOVE);
+                            break;
+                        case PLAY_HINT :
+                            verify(actualController, times(1)).waitForNextAction(PlayerObjective.PLAY_PATH_CARD);
+                            break;
+                        case EXTRA_DRIVE :
+                            verify(actualController, times(1)).waitForNextAction(PlayerObjective.EXTRA_DRIVE);
+                            assertEquals(ReflectionUtilsP.getFieldValue(expectedController, "driveCount"),
+                                ReflectionUtilsP.getFieldValue(actualController, "driveCount"), context, r ->
+                                    "driveCount was not reset correctly.");
+                            break;
+                        case REDRAW_PATH_CARDS :
+                            verify(actualController, atLeastOnce()).drawPathCards(anyInt());
+                            // assertSetEquals(expectedController.getPlayer().getPathCards(),
+                            // actualController.getPlayer().getPathCards(), context);
+                            break;}
 
                     }
                 });
@@ -1140,66 +1119,61 @@ public class PlayerControllerTest {
         return Project_TestP.parseJsonFile("hProjekt/controller/PlayerController_useAmulet_basic.json");
     }
 
+
     @ParameterizedTest
     @MethodSource("provideUseAmulet_complete")
     public void testUseAmulet_complete(ObjectNode node) throws NoSuchMethodException {
-        hProjekt.controller.PlayerController.class.getDeclaredMethod("useAmulet",
-                hProjekt.controller.AmuletAction.class);
+        hProjekt.controller.PlayerController.class.getDeclaredMethod("useAmulet", hProjekt.controller.AmuletAction.class);
         Object expected = new MockConverterP().fromJsonNodeWithBackfill((ObjectNode) node.get("expected"), null);
         Consumer<Object> beforeEach = o -> Config.RANDOM.setSeed(67);
         List<StudentMethodCall> results = MockConverterP.recreateCallAndInvoke(node, beforeEach);
 
         Throwable lastCall = null;
-        for (StudentMethodCall actual : results) {
+        for (StudentMethodCall actual: results) {
             if (actual.call == null) {
                 lastCall = actual.exception;
                 continue;
             }
             try {
                 Context context = contextBuilder()
-                        .add("invoked", actual.invoked != null ? actual.invoked : "unknown")
-                        .add("parameters", actual.call != null ? actual.call.arguments() : "unknown")
-                        .add("Exception class", actual.exception != null ? actual.exception.getClass() : "none")
-                        .add("Exception message", actual.exception != null ? actual.exception.getMessage() : "none")
-                        .add("Exception stacktrace",
-                                actual.exception != null ? ReflectionUtilsP.formatStackTrace(actual.exception) : "none")
+                    .add("invoked", actual.invoked != null ? actual.invoked : "unknown")
+                    .add("parameters", actual.call != null ? actual.call.arguments() : "unknown")
+                    .add("Exception class", actual.exception != null ? actual.exception.getClass() : "none")
+                    .add("Exception message", actual.exception != null ? actual.exception.getMessage(): "none")
+                    .add("Exception stacktrace", actual.exception != null ? ReflectionUtilsP.formatStackTrace(actual.exception) : "none")
 
-                        .build();
+                    .build();
 
-                if (expected instanceof Exception && !Exception.class.isAssignableFrom(
-                        ReflectionUtilsP.stringToMethod(node.get("entryPoint").asText()).getReturnType())) {
+                if (expected instanceof Exception && !Exception.class.isAssignableFrom(ReflectionUtilsP.stringToMethod(node.get("entryPoint").asText()).getReturnType())) {
                     assertNotNull(actual.exception, context, r -> "UseAmulet() did not throw an exception!");
-                    assertEquals(expected.getClass(), actual.exception.getClass(), context,
-                            r -> "UseAmulet() did not throw an exception of the expected Type");
+                    assertEquals(expected.getClass(), actual.exception.getClass(), context, r -> "UseAmulet() did not throw an exception of the expected Type");
                     return;
                 }
 
                 PlayerController expectedController = ((PlayerController) (expected));
                 PlayerController actualController = ((PlayerController) (actual.invoked));
                 assertEquals(expectedController.getPlayer().getAmulets(), actualController.getPlayer().getAmulets(),
-                        context, r -> "Amulet count was not updated correctly.");
+                    context, r -> "Amulet count was not updated correctly.");
                 Arrays.stream(actual.call.arguments()).forEach(arg -> {
                     if (arg instanceof AmuletAction action) {
                         switch (action) {
-                            case REMOVE_TILE:
-                                verify(actualController, times(1))
-                                        .waitForNextAction(PlayerObjective.SELECT_TILE_TO_REMOVE);
-                                break;
-                            case PLAY_HINT:
-                                verify(actualController, times(1)).waitForNextAction(PlayerObjective.PLAY_PATH_CARD);
-                                break;
-                            case EXTRA_DRIVE:
-                                verify(actualController, times(1)).waitForNextAction(PlayerObjective.EXTRA_DRIVE);
-                                assertEquals(ReflectionUtilsP.getFieldValue(expectedController, "driveCount"),
-                                        ReflectionUtilsP.getFieldValue(actualController, "driveCount"), context,
-                                        r -> "driveCount was not reset correctly.");
-                                break;
-                            case REDRAW_PATH_CARDS:
-                                verify(actualController, atLeastOnce()).drawPathCards(anyInt());
-                                // assertSetEquals(expectedController.getPlayer().getPathCards(),
-                                // actualController.getPlayer().getPathCards(), context);
-                                break;
-                        }
+                        case REMOVE_TILE :
+                            verify(actualController, times(1)).waitForNextAction(PlayerObjective.SELECT_TILE_TO_REMOVE);
+                            break;
+                        case PLAY_HINT :
+                            verify(actualController, times(1)).waitForNextAction(PlayerObjective.PLAY_PATH_CARD);
+                            break;
+                        case EXTRA_DRIVE :
+                            verify(actualController, times(1)).waitForNextAction(PlayerObjective.EXTRA_DRIVE);
+                            assertEquals(ReflectionUtilsP.getFieldValue(expectedController, "driveCount"),
+                                ReflectionUtilsP.getFieldValue(actualController, "driveCount"), context, r ->
+                                    "driveCount was not reset correctly.");
+                            break;
+                        case REDRAW_PATH_CARDS :
+                            verify(actualController, atLeastOnce()).drawPathCards(anyInt());
+                            // assertSetEquals(expectedController.getPlayer().getPathCards(),
+                            // actualController.getPlayer().getPathCards(), context);
+                            break;}
 
                     }
                 });
@@ -1216,66 +1190,61 @@ public class PlayerControllerTest {
         return Project_TestP.parseJsonFile("hProjekt/controller/PlayerController_useAmulet_complete.json");
     }
 
+
     @ParameterizedTest
     @MethodSource("provideUseAmulet_mid")
     public void testUseAmulet_mid(ObjectNode node) throws NoSuchMethodException {
-        hProjekt.controller.PlayerController.class.getDeclaredMethod("useAmulet",
-                hProjekt.controller.AmuletAction.class);
+        hProjekt.controller.PlayerController.class.getDeclaredMethod("useAmulet", hProjekt.controller.AmuletAction.class);
         Object expected = new MockConverterP().fromJsonNodeWithBackfill((ObjectNode) node.get("expected"), null);
         Consumer<Object> beforeEach = o -> Config.RANDOM.setSeed(67);
         List<StudentMethodCall> results = MockConverterP.recreateCallAndInvoke(node, beforeEach);
 
         Throwable lastCall = null;
-        for (StudentMethodCall actual : results) {
+        for (StudentMethodCall actual: results) {
             if (actual.call == null) {
                 lastCall = actual.exception;
                 continue;
             }
             try {
                 Context context = contextBuilder()
-                        .add("invoked", actual.invoked != null ? actual.invoked : "unknown")
-                        .add("parameters", actual.call != null ? actual.call.arguments() : "unknown")
-                        .add("Exception class", actual.exception != null ? actual.exception.getClass() : "none")
-                        .add("Exception message", actual.exception != null ? actual.exception.getMessage() : "none")
-                        .add("Exception stacktrace",
-                                actual.exception != null ? ReflectionUtilsP.formatStackTrace(actual.exception) : "none")
+                    .add("invoked", actual.invoked != null ? actual.invoked : "unknown")
+                    .add("parameters", actual.call != null ? actual.call.arguments() : "unknown")
+                    .add("Exception class", actual.exception != null ? actual.exception.getClass() : "none")
+                    .add("Exception message", actual.exception != null ? actual.exception.getMessage(): "none")
+                    .add("Exception stacktrace", actual.exception != null ? ReflectionUtilsP.formatStackTrace(actual.exception) : "none")
 
-                        .build();
+                    .build();
 
-                if (expected instanceof Exception && !Exception.class.isAssignableFrom(
-                        ReflectionUtilsP.stringToMethod(node.get("entryPoint").asText()).getReturnType())) {
+                if (expected instanceof Exception && !Exception.class.isAssignableFrom(ReflectionUtilsP.stringToMethod(node.get("entryPoint").asText()).getReturnType())) {
                     assertNotNull(actual.exception, context, r -> "UseAmulet() did not throw an exception!");
-                    assertEquals(expected.getClass(), actual.exception.getClass(), context,
-                            r -> "UseAmulet() did not throw an exception of the expected Type");
+                    assertEquals(expected.getClass(), actual.exception.getClass(), context, r -> "UseAmulet() did not throw an exception of the expected Type");
                     return;
                 }
 
                 PlayerController expectedController = ((PlayerController) (expected));
                 PlayerController actualController = ((PlayerController) (actual.invoked));
                 assertEquals(expectedController.getPlayer().getAmulets(), actualController.getPlayer().getAmulets(),
-                        context, r -> "Amulet count was not updated correctly.");
+                    context, r -> "Amulet count was not updated correctly.");
                 Arrays.stream(actual.call.arguments()).forEach(arg -> {
                     if (arg instanceof AmuletAction action) {
                         switch (action) {
-                            case REMOVE_TILE:
-                                verify(actualController, times(1))
-                                        .waitForNextAction(PlayerObjective.SELECT_TILE_TO_REMOVE);
-                                break;
-                            case PLAY_HINT:
-                                verify(actualController, times(1)).waitForNextAction(PlayerObjective.PLAY_PATH_CARD);
-                                break;
-                            case EXTRA_DRIVE:
-                                verify(actualController, times(1)).waitForNextAction(PlayerObjective.EXTRA_DRIVE);
-                                assertEquals(ReflectionUtilsP.getFieldValue(expectedController, "driveCount"),
-                                        ReflectionUtilsP.getFieldValue(actualController, "driveCount"), context,
-                                        r -> "driveCount was not reset correctly.");
-                                break;
-                            case REDRAW_PATH_CARDS:
-                                verify(actualController, atLeastOnce()).drawPathCards(anyInt());
-                                // assertSetEquals(expectedController.getPlayer().getPathCards(),
-                                // actualController.getPlayer().getPathCards(), context);
-                                break;
-                        }
+                        case REMOVE_TILE :
+                            verify(actualController, times(1)).waitForNextAction(PlayerObjective.SELECT_TILE_TO_REMOVE);
+                            break;
+                        case PLAY_HINT :
+                            verify(actualController, times(1)).waitForNextAction(PlayerObjective.PLAY_PATH_CARD);
+                            break;
+                        case EXTRA_DRIVE :
+                            verify(actualController, times(1)).waitForNextAction(PlayerObjective.EXTRA_DRIVE);
+                            assertEquals(ReflectionUtilsP.getFieldValue(expectedController, "driveCount"),
+                                ReflectionUtilsP.getFieldValue(actualController, "driveCount"), context, r ->
+                                    "driveCount was not reset correctly.");
+                            break;
+                        case REDRAW_PATH_CARDS :
+                            verify(actualController, atLeastOnce()).drawPathCards(anyInt());
+                            // assertSetEquals(expectedController.getPlayer().getPathCards(),
+                            // actualController.getPlayer().getPathCards(), context);
+                            break;}
 
                     }
                 });
@@ -1290,5 +1259,104 @@ public class PlayerControllerTest {
 
     private static Stream<Arguments> provideUseAmulet_mid() {
         return Project_TestP.parseJsonFile("hProjekt/controller/PlayerController_useAmulet_mid.json");
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideUpdateCollectableTreasure_basic")
+    public void testUpdateCollectableTreasure_basic(ObjectNode node) throws NoSuchMethodException {
+        hProjekt.controller.PlayerController.class.getDeclaredMethod("updateCollectableTreasure");
+        Object expected = new MockConverterP().fromJsonNodeWithBackfill((ObjectNode) node.get("expected"), null);
+        Consumer<Object> beforeEach = invoked -> {
+            PlayerController controller = ((PlayerController) (invoked));
+            GameController gc = ((GameController) (ReflectionUtilsP.getFieldValue(invoked,
+                "gameController")));
+            ReflectionUtilsP.setFieldValue(gc, "playerControllers", Map.of(controller.getPlayer(), controller));
+            Stack<TreasureCard> treasureDeck = ReflectionUtilsP.getFieldValue(gc.getState(), "treasureDeck");
+            treasureDeck.clear();
+            treasureDeck.push(new GoldCard(3));
+            treasureDeck.push(new GoldCard(2));
+            treasureDeck.push(new CurseCard());
+            treasureDeck.push(new GoldCard(1));
+        };
+        List<StudentMethodCall> results = MockConverterP.recreateCallAndInvoke(node, beforeEach);
+
+        if (results.stream().allMatch(it -> it.exception != null)) {
+            ReflectionUtilsP.getUnsafe().throwException(results.getLast().exception);
+        }
+
+
+        Throwable lastCall = null;
+        for (StudentMethodCall actual: results) {
+            if (actual.call == null) {
+                lastCall = actual.exception;
+                continue;
+            }
+            try {
+                Context context = contextBuilder()
+                    .add("invoked", actual.invoked != null ? actual.invoked : "unknown")
+                    .add("parameters", actual.call != null ? actual.call.arguments() : "unknown")
+                    .build();
+
+                assertSetEquals((Set<Object>) expected, (Set<Object>) actual.call.returnValue(), context);
+                return;
+            } catch (Throwable e) {
+                lastCall = e;
+            }
+        }
+        ReflectionUtilsP.getUnsafe().throwException(lastCall);
+    }
+
+    private static Stream<Arguments> provideUpdateCollectableTreasure_basic() {
+        return Project_TestP.parseJsonFile("hProjekt/controller/PlayerController_updateCollectableTreasure_basic.json");
+    }
+
+
+    @ParameterizedTest
+    @MethodSource("provideUpdateCollectableTreasure_complete")
+    public void testUpdateCollectableTreasure_complete(ObjectNode node) throws NoSuchMethodException {
+        hProjekt.controller.PlayerController.class.getDeclaredMethod("updateCollectableTreasure");
+        Object expected = new MockConverterP().fromJsonNodeWithBackfill((ObjectNode) node.get("expected"), null);
+        Consumer<Object> beforeEach = invoked -> {
+            PlayerController controller = ((PlayerController) (invoked));
+            GameController gc = ((GameController) (ReflectionUtilsP.getFieldValue(invoked,
+                "gameController")));
+            ReflectionUtilsP.setFieldValue(gc, "playerControllers", Map.of(controller.getPlayer(), controller));
+            Stack<TreasureCard> treasureDeck = ReflectionUtilsP.getFieldValue(gc.getState(), "treasureDeck");
+            treasureDeck.clear();
+            treasureDeck.push(new GoldCard(3));
+            treasureDeck.push(new GoldCard(2));
+            treasureDeck.push(new CurseCard());
+            treasureDeck.push(new GoldCard(1));
+        };
+        List<StudentMethodCall> results = MockConverterP.recreateCallAndInvoke(node, beforeEach);
+
+        if (results.stream().allMatch(it -> it.exception != null)) {
+            ReflectionUtilsP.getUnsafe().throwException(results.getLast().exception);
+        }
+
+
+        Throwable lastCall = null;
+        for (StudentMethodCall actual: results) {
+            if (actual.call == null) {
+                lastCall = actual.exception;
+                continue;
+            }
+            try {
+                Context context = contextBuilder()
+                    .add("invoked", actual.invoked != null ? actual.invoked : "unknown")
+                    .add("parameters", actual.call != null ? actual.call.arguments() : "unknown")
+                    .build();
+
+                assertSetEquals((Set<Object>) expected, (Set<Object>) actual.call.returnValue(), context);
+                return;
+            } catch (Throwable e) {
+                lastCall = e;
+            }
+        }
+        ReflectionUtilsP.getUnsafe().throwException(lastCall);
+    }
+
+    private static Stream<Arguments> provideUpdateCollectableTreasure_complete() {
+        return Project_TestP.parseJsonFile("hProjekt/controller/PlayerController_updateCollectableTreasure_complete.json");
     }
 }
