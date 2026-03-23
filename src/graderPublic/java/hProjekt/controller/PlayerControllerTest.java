@@ -50,7 +50,7 @@ public class PlayerControllerTest {
     @ParameterizedTest
     @MethodSource("provideDrive_basic")
     public void testDrive_basic(ObjectNode node) throws NoSuchMethodException {
-        hProjekt.controller.PlayerController.class.getDeclaredMethod("drive", hProjekt.model.grid.Tile.class);
+        hProjekt.testOverrides.TestPlayerController.class.getDeclaredMethod("drive", hProjekt.model.grid.Tile.class);
         Object expected = new MockConverterP().fromJsonNodeWithBackfill((ObjectNode) node.get("expected"), null);
         Consumer<Object> beforeEach = o -> ReflectionUtilsP.setStaticFieldValue(Config.class, "DRIVE_LIMIT", 1);
         List<StudentMethodCall> results = MockConverterP.recreateCallAndInvoke(node, beforeEach);
@@ -59,33 +59,34 @@ public class PlayerControllerTest {
             ReflectionUtilsP.getUnsafe().throwException(results.getLast().exception);
         }
 
+
         Throwable lastCall = null;
-        for (StudentMethodCall actual : results) {
+        for (StudentMethodCall actual: results) {
             if (actual.call == null) {
                 lastCall = actual.exception;
                 continue;
             }
             try {
                 Context context = contextBuilder()
-                        .add("invoked", actual.invoked != null ? actual.invoked : "unknown")
-                        .add("parameters", actual.call != null ? actual.call.arguments() : "unknown")
-                        .build();
+                    .add("invoked", actual.invoked != null ? actual.invoked : "unknown")
+                    .add("parameters", actual.call != null ? actual.call.arguments() : "unknown")
+                    .build();
 
                 PlayerController expectedController = ((PlayerController) (expected));
                 PlayerController actualController = ((PlayerController) (actual.invoked));
                 assertEqualsWithMatcher(expectedController.getPlayer().getPosition(),
-                        actualController.getPlayer().getPosition(), (e, a) -> {
-                            if ((e == null) && (a == null)) {
-                                return true;
-                            }
-                            if ((e == null) || (a == null)) {
-                                return false;
-                            }
-                            return ReflectionUtilsP.equalsForMocks(e, a);
-                        }, context);
+                    actualController.getPlayer().getPosition(), (e, a) -> {
+                        if ((e == null) && (a == null)) {
+                            return true;
+                        }
+                        if ((e == null) || (a == null)) {
+                            return false;
+                        }
+                        return ReflectionUtilsP.equalsForMocks(e, a);
+                    }, context);
                 assertEquals(ReflectionUtilsP.getFieldValue(expectedController, "driveCount"),
-                        ReflectionUtilsP.getFieldValue(actualController, "driveCount"), context,
-                        r -> "driveCount was not set correctly.");
+                    ReflectionUtilsP.getFieldValue(actualController, "driveCount"), context, r ->
+                        "driveCount was not set correctly.");
                 return;
             } catch (Throwable e) {
                 lastCall = e;
@@ -98,54 +99,52 @@ public class PlayerControllerTest {
         return Project_TestP.parseJsonFile("hProjekt/controller/PlayerController_drive_basic.json");
     }
 
+
     @ParameterizedTest
     @MethodSource("provideDrive_complete")
     public void testDrive_complete(ObjectNode node) throws NoSuchMethodException {
-        hProjekt.controller.PlayerController.class.getDeclaredMethod("drive", hProjekt.model.grid.Tile.class);
+        hProjekt.testOverrides.TestPlayerController.class.getDeclaredMethod("drive", hProjekt.model.grid.Tile.class);
         Object expected = new MockConverterP().fromJsonNodeWithBackfill((ObjectNode) node.get("expected"), null);
         Consumer<Object> beforeEach = o -> ReflectionUtilsP.setStaticFieldValue(Config.class, "DRIVE_LIMIT", 1);
         List<StudentMethodCall> results = MockConverterP.recreateCallAndInvoke(node, beforeEach);
 
         Throwable lastCall = null;
-        for (StudentMethodCall actual : results) {
+        for (StudentMethodCall actual: results) {
             if (actual.call == null) {
                 lastCall = actual.exception;
                 continue;
             }
             try {
                 Context context = contextBuilder()
-                        .add("invoked", actual.invoked != null ? actual.invoked : "unknown")
-                        .add("parameters", actual.call != null ? actual.call.arguments() : "unknown")
-                        .add("Exception class", actual.exception != null ? actual.exception.getClass() : "none")
-                        .add("Exception message", actual.exception != null ? actual.exception.getMessage() : "none")
-                        .add("Exception stacktrace",
-                                actual.exception != null ? ReflectionUtilsP.formatStackTrace(actual.exception) : "none")
+                    .add("invoked", actual.invoked != null ? actual.invoked : "unknown")
+                    .add("parameters", actual.call != null ? actual.call.arguments() : "unknown")
+                    .add("Exception class", actual.exception != null ? actual.exception.getClass() : "none")
+                    .add("Exception message", actual.exception != null ? actual.exception.getMessage(): "none")
+                    .add("Exception stacktrace", actual.exception != null ? ReflectionUtilsP.formatStackTrace(actual.exception) : "none")
 
-                        .build();
+                    .build();
 
-                if (expected instanceof Exception && !Exception.class.isAssignableFrom(
-                        ReflectionUtilsP.stringToMethod(node.get("entryPoint").asText()).getReturnType())) {
+                if (expected instanceof Exception && !Exception.class.isAssignableFrom(ReflectionUtilsP.stringToMethod(node.get("entryPoint").asText()).getReturnType())) {
                     assertNotNull(actual.exception, context, r -> "Drive() did not throw an exception!");
-                    assertEquals(expected.getClass(), actual.exception.getClass(), context,
-                            r -> "Drive() did not throw an exception of the expected Type");
+                    assertEquals(expected.getClass(), actual.exception.getClass(), context, r -> "Drive() did not throw an exception of the expected Type");
                     return;
                 }
 
                 PlayerController expectedController = ((PlayerController) (expected));
                 PlayerController actualController = ((PlayerController) (actual.invoked));
                 assertEqualsWithMatcher(expectedController.getPlayer().getPosition(),
-                        actualController.getPlayer().getPosition(), (e, a) -> {
-                            if ((e == null) && (a == null)) {
-                                return true;
-                            }
-                            if ((e == null) || (a == null)) {
-                                return false;
-                            }
-                            return ReflectionUtilsP.equalsForMocks(e, a);
-                        }, context);
+                    actualController.getPlayer().getPosition(), (e, a) -> {
+                        if ((e == null) && (a == null)) {
+                            return true;
+                        }
+                        if ((e == null) || (a == null)) {
+                            return false;
+                        }
+                        return ReflectionUtilsP.equalsForMocks(e, a);
+                    }, context);
                 assertEquals(ReflectionUtilsP.getFieldValue(expectedController, "driveCount"),
-                        ReflectionUtilsP.getFieldValue(actualController, "driveCount"), context,
-                        r -> "driveCount was not set correctly.");
+                    ReflectionUtilsP.getFieldValue(actualController, "driveCount"), context, r ->
+                        "driveCount was not set correctly.");
                 return;
             } catch (Throwable e) {
                 lastCall = e;
@@ -588,43 +587,34 @@ public class PlayerControllerTest {
     @ParameterizedTest
     @MethodSource("provideDrawTreasureCards")
     public void testDrawTreasureCards(ObjectNode node) throws NoSuchMethodException {
-        hProjekt.controller.PlayerController.class.getDeclaredMethod("drawTreasureCards");
+        hProjekt.testOverrides.TestPlayerController.class.getDeclaredMethod("drawTreasureCards");
         Object expected = new MockConverterP().fromJsonNodeWithBackfill((ObjectNode) node.get("expected"), null);
-        Consumer<Object> beforeEach = invoked -> {
-            GameController gc = ((GameController) (ReflectionUtilsP.getFieldValue(invoked,
-                    "gameController")));
-            Stack<TreasureCard> treasureDeck = ReflectionUtilsP.getFieldValue(gc.getState(), "treasureDeck");
-            treasureDeck.clear();
-            treasureDeck.push(new GoldCard(3));
-            treasureDeck.push(new GoldCard(2));
-            treasureDeck.push(new CurseCard());
-            treasureDeck.push(new GoldCard(1));
-        };
-        List<StudentMethodCall> results = MockConverterP.recreateCallAndInvoke(node, beforeEach);
+        List<StudentMethodCall> results = MockConverterP.recreateCallAndInvoke(node);
 
         if (results.stream().allMatch(it -> it.exception != null)) {
             ReflectionUtilsP.getUnsafe().throwException(results.getLast().exception);
         }
 
+
         Throwable lastCall = null;
-        for (StudentMethodCall actual : results) {
+        for (StudentMethodCall actual: results) {
             if (actual.call == null) {
                 lastCall = actual.exception;
                 continue;
             }
             try {
                 Context context = contextBuilder()
-                        .add("invoked", actual.invoked != null ? actual.invoked : "unknown")
-                        .add("parameters", actual.call != null ? actual.call.arguments() : "unknown")
-                        .build();
+                    .add("invoked", actual.invoked != null ? actual.invoked : "unknown")
+                    .add("parameters", actual.call != null ? actual.call.arguments() : "unknown")
+                    .build();
 
                 PlayerController expectedController = ((PlayerController) (expected));
                 PlayerController actualController = ((PlayerController) (actual.invoked));
                 assertContainsAll(
-                        ((List<TreasureCard>) (ReflectionUtilsP.getFieldValue(
-                                expectedController, "drawnTreasureCards"))),
-                        ((List<TreasureCard>) (ReflectionUtilsP.getFieldValue(actualController, "drawnTreasureCards"))),
-                        context);
+                    ((List<TreasureCard>) (ReflectionUtilsP.getFieldValue(
+                        expectedController, "drawnTreasureCards"))),
+                    ((List<TreasureCard>) (ReflectionUtilsP.getFieldValue(actualController, "drawnTreasureCards"))),
+                    context);
                 verify(actualController, times(1)).waitForNextAction(PlayerObjective.CONFIRM_TREASURE_CARDS);
                 return;
             } catch (Throwable e) {
@@ -641,46 +631,37 @@ public class PlayerControllerTest {
     @ParameterizedTest
     @MethodSource("provideCollectTreasure_basic")
     public void testCollectTreasure_basic(ObjectNode node) throws NoSuchMethodException {
-        hProjekt.controller.PlayerController.class.getDeclaredMethod("collectTreasure", javafx.scene.paint.Color.class);
+        hProjekt.testOverrides.TestPlayerController.class.getDeclaredMethod("collectTreasure", javafx.scene.paint.Color.class);
         Object expected = new MockConverterP().fromJsonNodeWithBackfill((ObjectNode) node.get("expected"), null);
-        Consumer<Object> beforeEach = invoked -> {
-            PlayerController controller = ((PlayerController) (invoked));
-            GameController gc = ((GameController) (ReflectionUtilsP.getFieldValue(invoked,
-                    "gameController")));
-            ReflectionUtilsP.setFieldValue(gc, "playerControllers", Map.of(controller.getPlayer(), controller));
-        };
-        List<StudentMethodCall> results = MockConverterP.recreateCallAndInvoke(node, beforeEach);
+        List<StudentMethodCall> results = MockConverterP.recreateCallAndInvoke(node);
 
         Throwable lastCall = null;
-        for (StudentMethodCall actual : results) {
+        for (StudentMethodCall actual: results) {
             if (actual.call == null) {
                 lastCall = actual.exception;
                 continue;
             }
             try {
                 Context context = contextBuilder()
-                        .add("invoked", actual.invoked != null ? actual.invoked : "unknown")
-                        .add("parameters", actual.call != null ? actual.call.arguments() : "unknown")
-                        .add("Exception class", actual.exception != null ? actual.exception.getClass() : "none")
-                        .add("Exception message", actual.exception != null ? actual.exception.getMessage() : "none")
-                        .add("Exception stacktrace",
-                                actual.exception != null ? ReflectionUtilsP.formatStackTrace(actual.exception) : "none")
+                    .add("invoked", actual.invoked != null ? actual.invoked : "unknown")
+                    .add("parameters", actual.call != null ? actual.call.arguments() : "unknown")
+                    .add("Exception class", actual.exception != null ? actual.exception.getClass() : "none")
+                    .add("Exception message", actual.exception != null ? actual.exception.getMessage(): "none")
+                    .add("Exception stacktrace", actual.exception != null ? ReflectionUtilsP.formatStackTrace(actual.exception) : "none")
 
-                        .build();
+                    .build();
 
-                if (expected instanceof Exception && !Exception.class.isAssignableFrom(
-                        ReflectionUtilsP.stringToMethod(node.get("entryPoint").asText()).getReturnType())) {
+                if (expected instanceof Exception && !Exception.class.isAssignableFrom(ReflectionUtilsP.stringToMethod(node.get("entryPoint").asText()).getReturnType())) {
                     assertNotNull(actual.exception, context, r -> "CollectTreasure() did not throw an exception!");
-                    assertEquals(expected.getClass(), actual.exception.getClass(), context,
-                            r -> "CollectTreasure() did not throw an exception of the expected Type");
+                    assertEquals(expected.getClass(), actual.exception.getClass(), context, r -> "CollectTreasure() did not throw an exception of the expected Type");
                     return;
                 }
 
                 PlayerController expectedController = ((PlayerController) (expected));
                 PlayerController actualController = ((PlayerController) (actual.invoked));
                 GameController actualGc = ((GameController) (ReflectionUtilsP.getFieldValue(
-                        actualController,
-                        "gameController")));
+                    actualController,
+                    "gameController")));
                 Arrays.stream(actual.call.arguments()).filter(arg -> arg instanceof Color).forEach(arg -> {
                     Color color = ((Color) (arg));
                     if (ReflectionUtilsP.equalsForMocks(color, Color.SALMON)) {
@@ -701,49 +682,41 @@ public class PlayerControllerTest {
         return Project_TestP.parseJsonFile("hProjekt/controller/PlayerController_collectTreasure_basic.json");
     }
 
+
     @ParameterizedTest
     @MethodSource("provideCollectTreasure_complete")
     public void testCollectTreasure_complete(ObjectNode node) throws NoSuchMethodException {
-        hProjekt.controller.PlayerController.class.getDeclaredMethod("collectTreasure", javafx.scene.paint.Color.class);
+        hProjekt.testOverrides.TestPlayerController.class.getDeclaredMethod("collectTreasure", javafx.scene.paint.Color.class);
         Object expected = new MockConverterP().fromJsonNodeWithBackfill((ObjectNode) node.get("expected"), null);
-        Consumer<Object> beforeEach = invoked -> {
-            PlayerController controller = ((PlayerController) (invoked));
-            GameController gc = ((GameController) (ReflectionUtilsP.getFieldValue(invoked,
-                    "gameController")));
-            ReflectionUtilsP.setFieldValue(gc, "playerControllers", Map.of(controller.getPlayer(), controller));
-        };
-        List<StudentMethodCall> results = MockConverterP.recreateCallAndInvoke(node, beforeEach);
+        List<StudentMethodCall> results = MockConverterP.recreateCallAndInvoke(node);
 
         Throwable lastCall = null;
-        for (StudentMethodCall actual : results) {
+        for (StudentMethodCall actual: results) {
             if (actual.call == null) {
                 lastCall = actual.exception;
                 continue;
             }
             try {
                 Context context = contextBuilder()
-                        .add("invoked", actual.invoked != null ? actual.invoked : "unknown")
-                        .add("parameters", actual.call != null ? actual.call.arguments() : "unknown")
-                        .add("Exception class", actual.exception != null ? actual.exception.getClass() : "none")
-                        .add("Exception message", actual.exception != null ? actual.exception.getMessage() : "none")
-                        .add("Exception stacktrace",
-                                actual.exception != null ? ReflectionUtilsP.formatStackTrace(actual.exception) : "none")
+                    .add("invoked", actual.invoked != null ? actual.invoked : "unknown")
+                    .add("parameters", actual.call != null ? actual.call.arguments() : "unknown")
+                    .add("Exception class", actual.exception != null ? actual.exception.getClass() : "none")
+                    .add("Exception message", actual.exception != null ? actual.exception.getMessage(): "none")
+                    .add("Exception stacktrace", actual.exception != null ? ReflectionUtilsP.formatStackTrace(actual.exception) : "none")
 
-                        .build();
+                    .build();
 
-                if (expected instanceof Exception && !Exception.class.isAssignableFrom(
-                        ReflectionUtilsP.stringToMethod(node.get("entryPoint").asText()).getReturnType())) {
+                if (expected instanceof Exception && !Exception.class.isAssignableFrom(ReflectionUtilsP.stringToMethod(node.get("entryPoint").asText()).getReturnType())) {
                     assertNotNull(actual.exception, context, r -> "CollectTreasure() did not throw an exception!");
-                    assertEquals(expected.getClass(), actual.exception.getClass(), context,
-                            r -> "CollectTreasure() did not throw an exception of the expected Type");
+                    assertEquals(expected.getClass(), actual.exception.getClass(), context, r -> "CollectTreasure() did not throw an exception of the expected Type");
                     return;
                 }
 
                 PlayerController expectedController = ((PlayerController) (expected));
                 PlayerController actualController = ((PlayerController) (actual.invoked));
                 GameController actualGc = ((GameController) (ReflectionUtilsP.getFieldValue(
-                        actualController,
-                        "gameController")));
+                    actualController,
+                    "gameController")));
                 Arrays.stream(actual.call.arguments()).filter(arg -> arg instanceof Color).forEach(arg -> {
                     Color color = ((Color) (arg));
                     if (ReflectionUtilsP.equalsForMocks(color, Color.SALMON)) {

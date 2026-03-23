@@ -1,26 +1,26 @@
 package hProjekt.model.grid;
 
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.tudalgo.algoutils.tutor.general.assertions.Assertions2.contextBuilder;
+
 import java.util.List;
-import java.util.function.*;
+import java.util.function.Consumer;
 import java.util.stream.Stream;
 
-import hProjekt.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.sourcegrade.jagr.api.rubric.TestForSubmission;
-import org.tudalgo.algoutils.tutor.general.assertions.*;
+import org.tudalgo.algoutils.tutor.general.assertions.Context;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+import hProjekt.Config;
+import hProjekt.Project_TestP;
 import hProjekt.mocking.MockConverterP;
 import hProjekt.mocking.ReflectionUtilsP;
 import hProjekt.mocking.StudentMethodCall;
-
-import static hProjekt.Project_TestP.assertEqualsWithMatcher;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.tudalgo.algoutils.tutor.general.assertions.Assertions2.contextBuilder;
 
 @TestForSubmission
 public class HexGridImplTest {
@@ -36,18 +36,17 @@ public class HexGridImplTest {
             ReflectionUtilsP.getUnsafe().throwException(results.getLast().exception);
         }
 
-
         Throwable lastCall = null;
-        for (StudentMethodCall actual: results) {
+        for (StudentMethodCall actual : results) {
             if (actual.call == null) {
                 lastCall = actual.exception;
                 continue;
             }
             try {
                 Context context = contextBuilder()
-                    .add("invoked", actual.invoked != null ? actual.invoked : "unknown")
-                    .add("parameters", actual.call != null ? actual.call.arguments() : "unknown")
-                    .build();
+                        .add("invoked", actual.invoked != null ? actual.invoked : "unknown")
+                        .add("parameters", actual.call != null ? actual.call.arguments() : "unknown")
+                        .build();
 
                 HexGridImpl actualGrid = ((HexGridImpl) (actual.invoked));
                 HexGridImpl expectedGrid = ((HexGridImpl) (expected));
@@ -67,7 +66,6 @@ public class HexGridImplTest {
         return Project_TestP.parseJsonFile("hProjekt/model/grid/HexGridImpl_spawnAmulets_basic.json");
     }
 
-
     @ParameterizedTest
     @MethodSource("provideSpawnAmulets_complete")
     public void testSpawnAmulets_complete(ObjectNode node) throws NoSuchMethodException {
@@ -80,18 +78,17 @@ public class HexGridImplTest {
             ReflectionUtilsP.getUnsafe().throwException(results.getLast().exception);
         }
 
-
         Throwable lastCall = null;
-        for (StudentMethodCall actual: results) {
+        for (StudentMethodCall actual : results) {
             if (actual.call == null) {
                 lastCall = actual.exception;
                 continue;
             }
             try {
                 Context context = contextBuilder()
-                    .add("invoked", actual.invoked != null ? actual.invoked : "unknown")
-                    .add("parameters", actual.call != null ? actual.call.arguments() : "unknown")
-                    .build();
+                        .add("invoked", actual.invoked != null ? actual.invoked : "unknown")
+                        .add("parameters", actual.call != null ? actual.call.arguments() : "unknown")
+                        .build();
 
                 HexGridImpl actualGrid = ((HexGridImpl) (actual.invoked));
                 HexGridImpl expectedGrid = ((HexGridImpl) (expected));
